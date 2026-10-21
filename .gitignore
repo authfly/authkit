@@ -1,0 +1,7 @@
+.cache/
+node_modules/
+dist/
+/site/dist/
+*.log
+__pycache__/
+*_templ.go
