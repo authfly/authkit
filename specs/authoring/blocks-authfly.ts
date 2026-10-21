@@ -28,7 +28,7 @@ const signin = define({
 });
 
 const signup = define({
-  key: "aksignup", theme: "account", group: "auth", name: "Authfly sign up", docs: "Create a Stalwart mailbox account: name, username at the domain, password.",
+  key: "aksignup", theme: "account", group: "auth", name: "Authfly sign up", docs: "Create an account: name, username at the domain, password.",
   organism: "AuthflySignUp", axes: ["terms"], fit: "card",
   variants: [["terms", "With terms"], ["taken", "Username taken, without terms", { terms: "none" }, { error: k("errors.taken") }]],
   facts: [{ sel: '[data-testid="authfly-sign-up"]', n: 1 }],

@@ -35,7 +35,7 @@ type AuthflySignUpProps struct {
 	LandmarkLabel any `json:"landmarkLabel"`
 }
 
-// Authfly sign-up: name, username at the mail domain, password, terms. The server creates the Stalwart account and sends the verification email. Axes: terms (show, none).
+// Authfly sign-up: name, username at the mail domain, password, terms. The backend creates the account and sends the verification email. Axes: terms (show, none).
 templ AuthflySignUp(p AuthflySignUpProps) {
 	{{ vId := p.Id }}
 	{{ vTitle := p.Title }}

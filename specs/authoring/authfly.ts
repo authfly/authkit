@@ -1,4 +1,4 @@
-// Authfly organisms: the sign-in widgets of Authfly (self-hosted auth on Stalwart). Overlaid onto ui8kit/codegen at the pinned
+// Authfly organisms: the sign-in widgets of Authfly (self-hosted auth). Overlaid onto ui8kit/codegen at the pinned
 // commit by tools/gen-ui.sh (copied to xgen/screens/src/authoring/blocks/authfly.ts), generated for all eight runtimes.
 // Every widget is a real HTML form (method post) so it works without JavaScript in every runtime; the names of the controls
 // are the Authfly form contract (docs/contract.md): identifier, password, email, name, username, token, code, csrf, return_to.
@@ -82,7 +82,7 @@ const SignUpLabels = requireFields(groupFields(
   ["name", "string"], ["username", "string"], ["domain", "string", "the mail domain shown after the username, e.g. @example.com"], ["password", "string"],
   ["hint", "string", "password rules"], ["terms", "string"], ["submit", "string"], ["signinText", "string"], ["signinLink", "string"], ["signinHref", "string"]),
   "name", "username", "domain", "password", "submit");
-const signUp = spec(`${O}authfly-sign-up`, "AuthflySignUp", "Authfly sign-up: name, username at the mail domain, password, terms. The server creates the Stalwart account and sends the verification email. Axes: terms (show, none).", {
+const signUp = spec(`${O}authfly-sign-up`, "AuthflySignUp", "Authfly sign-up: name, username at the mail domain, password, terms. The backend creates the account and sends the verification email. Axes: terms (show, none).", {
   records: { SignUpLabels },
   props: [...common, { name: "labels", type: rec("SignUpLabels"), required: true }, { name: "terms", type: tsOf("show", "none"), default: "show" }],
   view: [shell("authfly-sign-up",
