@@ -16,3 +16,20 @@ Each widget takes `action` (the form URL) and `csrf` (the token value) as props,
 ## States
 
 Every form widget has an `error` slot (an alert above the fields) and keeps the submitted values you pass back as props. The notice widget has the tones `default`, `success` and `error`.
+
+## Capability flags → widget props
+
+The widgets depend only on the `@authfly/core` contract (authfly/authfly), never on a provider. A host reads the
+provider's capability flags (`provider.capabilities()`, or `GET /api/v1/capabilities` on an Authfly server) and maps
+them with `widgetProps(caps)` from `@authfly/core`:
+
+| Flag | Widget prop |
+|---|---|
+| `password` | sign-in `method="password"` (else `"magic"`); forgot/reset widgets shown |
+| `magicLink` | magic-link form and "check your email" state |
+| `social` | sign-in `social="show"` (else `"none"`) |
+| `twoFactor` | account methods: "Authenticator app" On / Soon |
+| `webauthn` | account methods: "Security key" On / Soon |
+
+`@authfly/core` is an optional peer dependency of the JS widget packages: the widgets are pure props and render
+without it; it only supplies the types and the mapping.
