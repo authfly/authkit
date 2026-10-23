@@ -19,10 +19,10 @@ export function WidgetHead({ id, title, text, align = "start", role, children }:
 }
 
 /** Error and info slots shared by the form widgets. */
-export function Messages({ error, info }: { error?: string; info?: string }) {
+export function Messages({ id, error, info }: { id: string; error?: string; info?: string }) {
   return (
     <>
-      {error ? <Alert tone="destructive" icon="circle-alert" data-testid="authfly-error">{error}</Alert> : null}
+      {error ? <Alert id={`${id}-error`} tone="destructive" icon="circle-alert" data-testid="authfly-error">{error}</Alert> : null}
       {info ? <Alert tone="success" icon="info" data-testid="authfly-info">{info}</Alert> : null}
     </>
   );
@@ -37,3 +37,6 @@ export const landmark = (id: string, landmarkLabel?: string) => ({
   "aria-label": landmarkLabel,
 });
 export type Children = { children?: ReactNode };
+
+/** Form-level error id for <Form errorId>, only when an error is shown. */
+export const errorIdOf = (id: string, error?: string) => (error ? `${id}-error` : undefined);

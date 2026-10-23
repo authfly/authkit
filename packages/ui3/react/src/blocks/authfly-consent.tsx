@@ -30,7 +30,7 @@ export function AuthflyConsent({ id, title, text, action, csrf = "", error = "",
   return (
     <Card data-testid="authfly-consent" data-client={client} {...landmark(id, landmarkLabel)}>
       <WidgetHead id={id} title={title} text={text} />
-      <Messages error={error} info={info} />
+      <Messages id={id} error={error} info={info} />
       <Text className="text-sm text-foreground" data-testid="account">
         {labels.account}{" "}
         <Text tag="strong" className="font-semibold">{account}</Text>

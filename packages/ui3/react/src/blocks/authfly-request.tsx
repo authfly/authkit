@@ -6,7 +6,7 @@ import { Button } from "../ui/button/button";
 import { Link } from "../ui/link/link";
 import { Input } from "../ui/input/input";
 import { buttonSkin, linkSkin, inputSkin } from "../skin/skin";
-import { WidgetHead, Messages, Hidden, landmark } from "./_parts";
+import { WidgetHead, Messages, Hidden, landmark, errorIdOf } from "./_parts";
 import type { RequestLabels } from "./authfly-request.types";
 
 export type AuthflyRequestProps = {
@@ -27,8 +27,8 @@ export function AuthflyRequest({ id, title, text, action, csrf = "", error = "",
   return (
     <Card data-testid="authfly-request" {...landmark(id, landmarkLabel)}>
       <WidgetHead id={id} title={title} text={text} />
-      <Messages error={error} info={info} />
-      <Form method="post" action={action} data-testid="authfly-form">
+      <Messages id={id} error={error} info={info} />
+      <Form method="post" action={action} errorId={errorIdOf(id, error)} data-testid="authfly-form">
         <Hidden name="csrf" value={csrf} />
         {kind === "email" ? (
           <Field label={labels.field} htmlFor={`${id}-email`}>

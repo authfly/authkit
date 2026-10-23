@@ -9,7 +9,7 @@ import { Button } from "../ui/button/button";
 import { Link } from "../ui/link/link";
 import { Input } from "../ui/input/input";
 import { buttonSkin, linkSkin, inputSkin, textSkin } from "../skin/skin";
-import { WidgetHead, Messages, Hidden, landmark } from "./_parts";
+import { WidgetHead, Messages, Hidden, landmark, errorIdOf } from "./_parts";
 import type { SignInLabels } from "./authfly-sign-in.types";
 import type { Feature } from "./feature-grid.types";
 
@@ -33,7 +33,7 @@ export function AuthflySignIn({ id, title, text, action, csrf = "", error = "", 
   return (
     <Card data-testid="authfly-sign-in" {...landmark(id, landmarkLabel)}>
       <WidgetHead id={id} title={title} text={text} />
-      <Messages error={error} />
+      <Messages id={id} error={error} />
       {social === "show" ? (
         <Stack gap="2" role="group" aria-label={labels.providers} data-testid="authfly-providers">
           {(providers ?? []).map((p) => (
@@ -44,7 +44,7 @@ export function AuthflySignIn({ id, title, text, action, csrf = "", error = "", 
           ))}
         </Stack>
       ) : null}
-      <Form method="post" action={action} data-testid="authfly-form">
+      <Form method="post" action={action} errorId={errorIdOf(id, error)} data-testid="authfly-form">
         <Hidden name="csrf" value={csrf} />
         <Field label={labels.identifier} htmlFor={`${id}-identifier`}>
           <Input type={email ? "email" : "text"} name="identifier" autoComplete={email ? "email" : "username"} required id={`${id}-identifier`} className={inputSkin()} data-testid="field" />

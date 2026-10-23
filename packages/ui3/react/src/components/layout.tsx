@@ -2,6 +2,7 @@
 import type { ReactNode } from "react";
 import { Box, type BoxProps } from "../ui/box/box";
 import { cn } from "../utils";
+import { FormErrorContext } from "./field";
 
 type Gap = "0" | "2" | "4" | "6" | "8";
 const gapCls: Record<Gap, string> = { "0": "gap-0", "2": "gap-2", "4": "gap-4", "6": "gap-6", "8": "gap-8" };
@@ -25,10 +26,16 @@ export function Divider({ className }: { className?: string }) {
   return <Box role="presentation" aria-hidden="true" className={cn("h-px w-full shrink-0 bg-border", className)} />;
 }
 
-export type FormProps = Omit<BoxProps, "tag"> & { action?: string; method?: "get" | "post"; children?: ReactNode };
+export type FormProps = Omit<BoxProps, "tag"> & { action?: string; method?: "get" | "post"; children?: ReactNode;
+  /** id of the server error element; every Field inside points aria-describedby at it and sets aria-invalid. */
+  errorId?: string };
 
 /** <form> through Box tag="form"; BoxProps has no form attributes, they are forwarded untyped (see XGenBot note). */
-export function Form({ action, method = "post", className, ...rest }: FormProps) {
+export function Form({ action, method = "post", className, errorId, ...rest }: FormProps) {
   const formAttrs = { action, method } as Record<string, string | undefined>;
-  return <Box tag="form" className={cn("grid gap-4", className)} {...formAttrs} {...rest} />;
+  return (
+    <FormErrorContext.Provider value={errorId}>
+      <Box tag="form" className={cn("grid gap-4", className)} {...formAttrs} {...rest} />
+    </FormErrorContext.Provider>
+  );
 }

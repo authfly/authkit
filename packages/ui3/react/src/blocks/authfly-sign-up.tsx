@@ -9,7 +9,7 @@ import { Input } from "../ui/input/input";
 import { Label } from "../ui/label/label";
 import { Checkbox } from "../ui/checkbox/checkbox";
 import { buttonSkin, linkSkin, inputSkin, checkboxSkin, labelSkin, textSkin } from "../skin/skin";
-import { WidgetHead, Messages, Hidden, landmark } from "./_parts";
+import { WidgetHead, Messages, Hidden, landmark, errorIdOf } from "./_parts";
 import type { SignUpLabels } from "./authfly-sign-up.types";
 
 export type AuthflySignUpProps = {
@@ -29,8 +29,8 @@ export function AuthflySignUp({ id, title, text, action, csrf = "", error = "", 
   return (
     <Card data-testid="authfly-sign-up" {...landmark(id, landmarkLabel)}>
       <WidgetHead id={id} title={title} text={text} />
-      <Messages error={error} info={info} />
-      <Form method="post" action={action} data-testid="authfly-form">
+      <Messages id={id} error={error} info={info} />
+      <Form method="post" action={action} errorId={errorIdOf(id, error)} data-testid="authfly-form">
         <Hidden name="csrf" value={csrf} />
         <Field label={labels.name} htmlFor={`${id}-name`}>
           <Input type="text" name="name" autoComplete="name" id={`${id}-name`} className={inputSkin()} data-testid="field" />
@@ -42,7 +42,7 @@ export function AuthflySignUp({ id, title, text, action, csrf = "", error = "", 
           </Group>
         </Field>
         <Field label={labels.password} htmlFor={`${id}-password`} hint={labels.hint}>
-          <Input type="password" name="password" autoComplete="new-password" required id={`${id}-password`} aria-describedby={labels.hint ? `${id}-password-hint` : undefined} className={inputSkin()} data-testid="field" />
+          <Input type="password" name="password" autoComplete="new-password" required id={`${id}-password`} className={inputSkin()} data-testid="field" />
         </Field>
         {terms === "show" ? (
           <Group gap="2" className="w-fit">
