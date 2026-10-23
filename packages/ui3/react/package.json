@@ -1,0 +1,45 @@
+{
+  "name": "@authfly/react-ui3",
+  "version": "0.4.0-pilot.0",
+  "private": true,
+  "description": "Authfly widgets for react on UI8Kit 3 primitives (pilot; primitives installed by npx ui8kit@3)",
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": "./src/authfly.ts",
+    "./*": "./src/*"
+  },
+  "files": [
+    "src"
+  ],
+  "peerDependencies": {
+    "@authfly/core": "^1.0.0",
+    "react": ">=18"
+  },
+  "peerDependenciesMeta": {
+    "@authfly/core": {
+      "optional": true
+    }
+  },
+  "dependencies": {
+    "clsx": "^2.1.1",
+    "tailwind-merge": "^3.7.0"
+  },
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json",
+    "test": "bun test",
+    "css": "tailwindcss -i src/styles/index.css -o dist/authfly.css",
+    "check:kit": "npx ui8kit@3 check",
+    "icons": "bun tools/gen-icons.ts node_modules/lucide"
+  },
+  "devDependencies": {
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "react": "^19",
+    "react-dom": "^19",
+    "typescript": "^5",
+    "tailwindcss": "^4",
+    "@tailwindcss/cli": "^4",
+    "lucide": "^1.61.0"
+  }
+}
