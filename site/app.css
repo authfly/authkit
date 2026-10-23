@@ -1,8 +1,8 @@
-/* Docs site styles: the generated ui8kit theme (shadcn tokens, dark class) and kit, scanned over the templ set and the site. */
-@import "../packages/ui/react/src/styles/theme.css";
-@import "../packages/ui/react/src/styles/kit.css";
-@source "../packages/ui/templ/ui";
-@source "../packages/ui/templ/blocks";
+/* Docs site styles: the Authfly theme (shadcn tokens, dark class), scanned over the UI8Kit 3 templ primitives, the
+   Authfly templ layer and the site. No kit.css in v3: primitives carry utility classes only. */
+@import "../packages/ui3/react/src/styles/theme.css";
+@source "../packages/ui3/templ/ui";
+@source "../packages/ui3/templ/authfly";
 @source "./";
 
 /* page body: full height, smoothed text (plain CSS, kept out of class lists) */
