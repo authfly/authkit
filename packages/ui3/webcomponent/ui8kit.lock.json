@@ -1,0 +1,243 @@
+{
+  "lockVersion": 2,
+  "cli": "3.2.1",
+  "items": {
+    "npm:@ui8kit/registry|webcomponent|box": {
+      "name": "box",
+      "type": "registry:ui",
+      "source": "https://unpkg.com/@ui8kit/registry@3.2.0/r/webcomponent",
+      "version": "3.2.0",
+      "runtime": "webcomponent",
+      "files": {
+        "src/ui/box/box.shared.ts": "59f52e34fbf633e2fb85f253ac81c93b0b5a62adf9e20d719c452dfa31048150",
+        "src/ui/box/box.wc.ts": "633b900ad31871087a0c4bbc8ecc8f9137be56bb74a6172efd5f7b104fe2cbbf"
+      }
+    },
+    "npm:@ui8kit/registry|webcomponent|button": {
+      "name": "button",
+      "type": "registry:ui",
+      "source": "https://unpkg.com/@ui8kit/registry@3.2.0/r/webcomponent",
+      "version": "3.2.0",
+      "runtime": "webcomponent",
+      "files": {
+        "src/ui/button/button.shared.ts": "c1666ca1a228d99bd84aecff67f6d5335ec4a0db6197c7fbb9aa9bf1e4973fbc",
+        "src/ui/button/button.wc.ts": "6ac343ba68016018bc2837fd27c0b30327e96f96045e09f062fcaa2c108d36ce"
+      }
+    },
+    "npm:@ui8kit/registry|webcomponent|checkbox": {
+      "name": "checkbox",
+      "type": "registry:ui",
+      "source": "https://unpkg.com/@ui8kit/registry@3.2.0/r/webcomponent",
+      "version": "3.2.0",
+      "runtime": "webcomponent",
+      "files": {
+        "src/ui/checkbox/checkbox.shared.ts": "e68cd1fb0c6cd5bf1e6293440e0e995d6be7097602ae990b94231471013eeddc",
+        "src/ui/checkbox/checkbox.wc.ts": "1d4fca7fed022c35d7aad973766bab6dea59d69373ee64e31fd367653e103a65"
+      }
+    },
+    "npm:@ui8kit/registry|webcomponent|dialog": {
+      "name": "dialog",
+      "type": "registry:ui",
+      "source": "https://unpkg.com/@ui8kit/registry@3.2.0/r/webcomponent",
+      "version": "3.2.0",
+      "runtime": "webcomponent",
+      "files": {
+        "src/ui/dialog/dialog.shared.ts": "51414cef876fa635cb4add3c22dff978fb7f7e3eb6c86c8139caf63b10346888",
+        "src/ui/dialog/dialog.wc.ts": "61b9211615be6747156e10d85063f70bc1054d1cb508b4b86f546defaa829607"
+      }
+    },
+    "npm:@ui8kit/registry|webcomponent|disclosure": {
+      "name": "disclosure",
+      "type": "registry:ui",
+      "source": "https://unpkg.com/@ui8kit/registry@3.2.0/r/webcomponent",
+      "version": "3.2.0",
+      "runtime": "webcomponent",
+      "files": {
+        "src/ui/disclosure/disclosure.shared.ts": "2aa7b3cc137998037b9cb3c5af1c18617b7d220519a56a99e6b4ebd9b720f106",
+        "src/ui/disclosure/disclosure.wc.ts": "8f24cd4a518d57247ea69c74e6e48f9370c37583565b489ca0350520d5b4138f"
+      }
+    },
+    "npm:@ui8kit/registry|webcomponent|form": {
+      "name": "form",
+      "type": "registry:ui",
+      "source": "https://unpkg.com/@ui8kit/registry@3.2.0/r/webcomponent",
+      "version": "3.2.0",
+      "runtime": "webcomponent",
+      "files": {
+        "src/ui/form/form.shared.ts": "d168c15d3a66a521580f5857dd0c8cfc3f43a9ff089a87cd1b4fdd143c9730b5",
+        "src/ui/form/form.wc.ts": "24003778db21a2cb3948fb5842c11f868b5c227ae3ff5fba5be28ad9eaee3209"
+      }
+    },
+    "npm:@ui8kit/registry|webcomponent|icon": {
+      "name": "icon",
+      "type": "registry:ui",
+      "source": "https://unpkg.com/@ui8kit/registry@3.2.0/r/webcomponent",
+      "version": "3.2.0",
+      "runtime": "webcomponent",
+      "files": {
+        "src/ui/icon/icon.shared.ts": "5cc9c9474996f0d06ad2c277c24ab9a6d2ff4814a49f4024ce978947c098a11e",
+        "src/ui/icon/icon.variants.json": "3411086ff914c3d68ed81fa575f1ae22b6b5202198d505de4c1abf1509d8904a",
+        "src/ui/icon/icon.wc.ts": "be1e4aa20188e34009a732dfe2fb38582d460bee670fef77b750328b318dc4aa"
+      }
+    },
+    "npm:@ui8kit/registry|webcomponent|image": {
+      "name": "image",
+      "type": "registry:ui",
+      "source": "https://unpkg.com/@ui8kit/registry@3.2.0/r/webcomponent",
+      "version": "3.2.0",
+      "runtime": "webcomponent",
+      "files": {
+        "src/ui/image/image.shared.ts": "a67db7814370b79a1164b83e74b99d9d04d7e532d31dc0fa457c190e840cd05a",
+        "src/ui/image/image.wc.ts": "8e9be687418df18e734c06796cca95b67f830993a97433032255d3d34e49055a"
+      }
+    },
+    "npm:@ui8kit/registry|webcomponent|input": {
+      "name": "input",
+      "type": "registry:ui",
+      "source": "https://unpkg.com/@ui8kit/registry@3.2.0/r/webcomponent",
+      "version": "3.2.0",
+      "runtime": "webcomponent",
+      "files": {
+        "src/ui/input/input.shared.ts": "70f35d175c8f36d35d5b3f5a2faaf866042154ddaaf9af1a8d821d34ca90147c",
+        "src/ui/input/input.wc.ts": "e3284f85a4d33c76b1a3a271fe7bc64606ba37226d363c99d5a6bd6b865270a1"
+      }
+    },
+    "npm:@ui8kit/registry|webcomponent|label": {
+      "name": "label",
+      "type": "registry:ui",
+      "source": "https://unpkg.com/@ui8kit/registry@3.2.0/r/webcomponent",
+      "version": "3.2.0",
+      "runtime": "webcomponent",
+      "files": {
+        "src/ui/label/label.shared.ts": "0bcf690a2be25bfa1736733431ffae5009f4878a8e6122abb8884fe0a923cdbd",
+        "src/ui/label/label.wc.ts": "19217ac58ec96ea91b380714183e2c77b025c43d8c2120e8b3d2789d89943c95"
+      }
+    },
+    "npm:@ui8kit/registry|webcomponent|link": {
+      "name": "link",
+      "type": "registry:ui",
+      "source": "https://unpkg.com/@ui8kit/registry@3.2.0/r/webcomponent",
+      "version": "3.2.0",
+      "runtime": "webcomponent",
+      "files": {
+        "src/ui/link/link.shared.ts": "35ab6935736cc2e3871a1d3c76aa5fd092da590a373c94f3e0d0c0f3e0481039",
+        "src/ui/link/link.wc.ts": "40c8ccc0479a3c820b3813ade7bfeba2936b8f84d1c61ffd2ed96ab734556ed1"
+      }
+    },
+    "npm:@ui8kit/registry|webcomponent|meter": {
+      "name": "meter",
+      "type": "registry:ui",
+      "source": "https://unpkg.com/@ui8kit/registry@3.2.0/r/webcomponent",
+      "version": "3.2.0",
+      "runtime": "webcomponent",
+      "files": {
+        "src/ui/meter/meter.shared.ts": "f3be45a354c1af95345dde53ddf7974165dbe98efc7f31e7465fa4139578be91",
+        "src/ui/meter/meter.wc.ts": "e1f191039b0ad502cb133520bd19742a2aeb6ec75e97e603995aa83d44b4b27c"
+      }
+    },
+    "npm:@ui8kit/registry|webcomponent|progress": {
+      "name": "progress",
+      "type": "registry:ui",
+      "source": "https://unpkg.com/@ui8kit/registry@3.2.0/r/webcomponent",
+      "version": "3.2.0",
+      "runtime": "webcomponent",
+      "files": {
+        "src/ui/progress/progress.shared.ts": "cabe85d6c85b64fb2aeaf15b068e8d796ff12a33a6ce7b505a50943abf2e7df4",
+        "src/ui/progress/progress.wc.ts": "ff674dd3d581009445d228e9596b5757c9baf6dc8a79dfee20d10d196f3e9d04"
+      }
+    },
+    "npm:@ui8kit/registry|webcomponent|radio": {
+      "name": "radio",
+      "type": "registry:ui",
+      "source": "https://unpkg.com/@ui8kit/registry@3.2.0/r/webcomponent",
+      "version": "3.2.0",
+      "runtime": "webcomponent",
+      "files": {
+        "src/ui/radio/radio.shared.ts": "90a7a83d2a61327f4f4a76ff7b63b5e5c81e2291d33a3ad0477ca275b9607746",
+        "src/ui/radio/radio.wc.ts": "9a5f164f5cd29a0c884daa5181bc9b505e07ae650ad4376ba7bdaee8a8726846"
+      }
+    },
+    "npm:@ui8kit/registry|webcomponent|rules": {
+      "name": "rules",
+      "type": "registry:rules",
+      "source": "https://unpkg.com/@ui8kit/registry@3.2.0/r/webcomponent",
+      "version": "3.2.0",
+      "runtime": "webcomponent",
+      "files": {
+        ".cursor/rules/ui8kit-primitives.mdc": "b8079f604d0934ed71f3f4bf37782e6a5e4cd600ef4c482871804c1c4fc1331d"
+      }
+    },
+    "npm:@ui8kit/registry|webcomponent|select": {
+      "name": "select",
+      "type": "registry:ui",
+      "source": "https://unpkg.com/@ui8kit/registry@3.2.0/r/webcomponent",
+      "version": "3.2.0",
+      "runtime": "webcomponent",
+      "files": {
+        "src/ui/select/select.shared.ts": "fbfd77060f93463a61673bd34fb3d53edf78d5f8ead587253eb0fea8d2a19bba",
+        "src/ui/select/select.wc.ts": "49697e19548dac3ec09c39de3ac081bebcd1e34d14001b445c5bba7f60d8e71e"
+      }
+    },
+    "npm:@ui8kit/registry|webcomponent|separator": {
+      "name": "separator",
+      "type": "registry:ui",
+      "source": "https://unpkg.com/@ui8kit/registry@3.2.0/r/webcomponent",
+      "version": "3.2.0",
+      "runtime": "webcomponent",
+      "files": {
+        "src/ui/separator/separator.shared.ts": "65711a64c434b5c90dfb6ad3924bde68436c1017d1af973dd4c11431d9cfc084",
+        "src/ui/separator/separator.wc.ts": "c31894e082081549243d7efc2faa8d63bb58315567671baad796d9703134e88f"
+      }
+    },
+    "npm:@ui8kit/registry|webcomponent|switch": {
+      "name": "switch",
+      "type": "registry:ui",
+      "source": "https://unpkg.com/@ui8kit/registry@3.2.0/r/webcomponent",
+      "version": "3.2.0",
+      "runtime": "webcomponent",
+      "files": {
+        "src/ui/switch/switch.shared.ts": "0e67fbba43cff2a46f1a929f0e7e5a10e2ec8e0a384bf730f5da8bd9f119d5b8",
+        "src/ui/switch/switch.wc.ts": "2949bf5230deeaacb0b4bc02962730ae324c9d5d9161d4cd3a2120e33f1efba7"
+      }
+    },
+    "npm:@ui8kit/registry|webcomponent|text": {
+      "name": "text",
+      "type": "registry:ui",
+      "source": "https://unpkg.com/@ui8kit/registry@3.2.0/r/webcomponent",
+      "version": "3.2.0",
+      "runtime": "webcomponent",
+      "files": {
+        "src/ui/text/text.shared.ts": "d2c44f00ce9de5449c1f0fc9a40dacfb19cac763d461ed925ff92561300e3216",
+        "src/ui/text/text.wc.ts": "9f54ba4faa2c714d0d710b2fe82d3917b0acb56b2e1a5f1a4e3e592e384fc4c5"
+      }
+    },
+    "npm:@ui8kit/registry|webcomponent|textarea": {
+      "name": "textarea",
+      "type": "registry:ui",
+      "source": "https://unpkg.com/@ui8kit/registry@3.2.0/r/webcomponent",
+      "version": "3.2.0",
+      "runtime": "webcomponent",
+      "files": {
+        "src/ui/textarea/textarea.shared.ts": "07e46370404a3406345328fdaf390666c4aa4fd31c1d9de0f64f62cd9ee20c43",
+        "src/ui/textarea/textarea.wc.ts": "934b23fcef41f2cb0d3649b0486a369934a8b26bc240f50fc55f6ab1a8cc63e1"
+      }
+    },
+    "npm:@ui8kit/registry|webcomponent|utils": {
+      "name": "utils",
+      "type": "registry:utils",
+      "source": "https://unpkg.com/@ui8kit/registry@3.2.0/r/webcomponent",
+      "version": "3.2.0",
+      "runtime": "webcomponent",
+      "files": {
+        "src/utils/cn.ts": "71e49505248438b14660406596be49812819f912e0aeb0f3e2f46677e1d481d7",
+        "src/utils/env.ts": "fd1211a0349b8b86ecc3e0069c44701754c8697f029be1530951731dee8d96b2",
+        "src/utils/expr.ts": "b3c7c370dd9f83f6fadc2aa396347a6051d40ac0671506b27daf53af1c5e00f0",
+        "src/utils/index.ts": "098142c6140472cdb594686e1d23807c898c2218f24639a421a465b6924cfda5",
+        "src/utils/recipe-types.ts": "5f25c506bbcac1b32569023a00c27497eea9b6684cd96a98708233cad313191b",
+        "src/utils/tags.ts": "a978a913dbebfe73d64f9645f92664a72ead75bcebe24bba9e0b1cd9334e9661",
+        "src/utils/variants.ts": "f82accf10129f4f56d0b2e3d9d85d370b0a9066f3b802c3f7c31dc94576fb47a",
+        "src/utils/wc.ts": "98eed8749bd13b16df97c2f212247ef7021726889bf37a22e83c37289b182c47"
+      }
+    }
+  }
+}
