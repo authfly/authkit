@@ -40,7 +40,7 @@ export const Button = forwardRef<HTMLAnchorElement | HTMLButtonElement, ButtonPr
         {children}
       </a>
     ) : (
-      <button ref={ref as Ref<HTMLButtonElement>} type={oneOfOr(type, "button", "submit", "reset")} className={cls || undefined} disabled={disabled || undefined} {...rest}>
+      <button ref={ref as Ref<HTMLButtonElement>} type={oneOfOr(type, "button", "submit", "reset")} className={cls || undefined} disabled={disabled} {...rest}>
         {children}
       </button>
     )

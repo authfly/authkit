@@ -5,7 +5,7 @@ import { cn } from "../../utils";
 
 /** Box renders the requested structural HTML element (default div). */
 export type BoxBaseProps = {
-  tag?: "div" | "section" | "article" | "aside" | "header" | "footer" | "main" | "nav" | "figure" | "search" | "ul" | "ol" | "li" | "dl" | "dt" | "dd" | "fieldset" | "form" | "table" | "thead" | "tbody" | "tfoot" | "tr" | "th" | "td" | "caption" | "colgroup" | "col";
+  tag?: "div" | "section" | "article" | "aside" | "header" | "footer" | "main" | "nav" | "figure" | "search" | "ul" | "ol" | "li" | "dl" | "dt" | "dd" | "fieldset" | "table" | "thead" | "tbody" | "tfoot" | "tr" | "th" | "td" | "caption" | "colgroup" | "col";
 };
 
 export type BoxClassesInput = {

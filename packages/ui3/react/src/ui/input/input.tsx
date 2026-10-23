@@ -24,7 +24,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
 ) {
   const cls = inputClasses({ className });
   return (
-    <input ref={ref} type={defaultIfEmpty(type, "text")} className={cls || undefined} required={required || undefined} disabled={disabled || undefined} readOnly={readOnly || undefined} {...rest} />
+    <input ref={ref} type={defaultIfEmpty(type, "text")} className={cls || undefined} required={required} disabled={disabled} readOnly={readOnly} {...rest} />
   );
 });
 Input.displayName = "Input";

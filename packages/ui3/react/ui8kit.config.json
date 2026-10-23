@@ -11,12 +11,13 @@
     "@/lib": "./src/lib",
     "@/utils": "./src/utils",
     "@/components": "./src/components",
-    "@/ui": "./src/components/ui",
+    "@/ui": "./src/ui",
     "@/blocks": "./src/blocks",
     "@/layouts": "./src/layouts",
     "@/variants": "./src/variants",
     "@/widgets": "./src/widgets"
   },
   "registry": "@ui8kit",
+  "registryVersion": "3.2.0",
   "importStyle": "alias"
 }

@@ -23,7 +23,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(function 
 ) {
   const cls = textareaClasses({ className });
   return (
-    <textarea ref={ref} className={cls || undefined} required={required || undefined} disabled={disabled || undefined} readOnly={readOnly || undefined} {...rest} defaultValue={(value) ?? ""} />
+    <textarea ref={ref} className={cls || undefined} required={required} disabled={disabled} readOnly={readOnly} {...rest} defaultValue={(value) ?? ""} />
   );
 });
 Textarea.displayName = "Textarea";

@@ -21,7 +21,7 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(function Dialog
 ) {
   const cls = dialogClasses({ className });
   return (
-    <dialog ref={ref} className={cls || undefined} open={open || undefined} {...rest}>
+    <dialog ref={ref} className={cls || undefined} open={open} {...rest}>
       {children}
     </dialog>
   );

@@ -24,7 +24,7 @@ export const Switch = forwardRef<HTMLButtonElement, SwitchProps>(function Switch
 ) {
   const cls = switchClasses({ className });
   return (
-    <button ref={ref} type="button" role="switch" aria-checked={boolStr(checked)} data-state={boolStr(checked)} className={cls || undefined} disabled={disabled || undefined} {...rest}>
+    <button ref={ref} type="button" role="switch" aria-checked={boolStr(checked)} data-state={boolStr(checked)} className={cls || undefined} disabled={disabled} {...rest}>
       {children}
     </button>
   );

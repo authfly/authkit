@@ -22,7 +22,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(function Che
 ) {
   const cls = checkboxClasses({ className });
   return (
-    <input ref={ref} type="checkbox" className={cls || undefined} checked={checked || undefined} required={required || undefined} disabled={disabled || undefined} {...rest} />
+    <input ref={ref} type="checkbox" className={cls || undefined} checked={checked} required={required} disabled={disabled} {...rest} />
   );
 });
 Checkbox.displayName = "Checkbox";

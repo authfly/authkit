@@ -21,7 +21,7 @@ export const Disclosure = forwardRef<HTMLDetailsElement, DisclosureProps>(functi
 ) {
   const cls = disclosureClasses({ className });
   return (
-    <details ref={ref} className={cls || undefined} open={open || undefined} {...rest}>
+    <details ref={ref} className={cls || undefined} open={open} {...rest}>
       {children}
     </details>
   );

@@ -26,9 +26,9 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(function Select
 ) {
   const cls = selectClasses({ className });
   return (
-    <select ref={ref} className={cls || undefined} multiple={multiple || undefined} required={required || undefined} disabled={disabled || undefined} {...(value === undefined ? {} : { [rest.onChange ? "value" : "defaultValue"]: multiple ? [value] : value })} {...rest}>
+    <select ref={ref} className={cls || undefined} multiple={multiple} required={required} disabled={disabled} {...(value === undefined ? {} : { [rest.onChange ? "value" : "defaultValue"]: multiple ? [value] : value })} {...rest}>
       {(options ?? []).map((item, index) => (
-        <option key={index} value={(item.value) ?? ""} disabled={item.disabled || undefined}>
+        <option key={index} value={(item.value) ?? ""} disabled={item.disabled}>
           {item.label}
         </option>
       ))}
@@ -53,7 +53,7 @@ export const SelectOption = forwardRef<HTMLOptionElement, SelectOptionProps>(fun
   ref
 ) {
   return (
-    <option ref={ref} selected={selected || undefined} disabled={disabled || undefined} {...rest}>
+    <option ref={ref} selected={selected} disabled={disabled} {...rest}>
       {children}
     </option>
   );
@@ -74,7 +74,7 @@ export const SelectOptGroup = forwardRef<HTMLOptGroupElement, SelectOptGroupProp
   ref
 ) {
   return (
-    <optgroup ref={ref} disabled={disabled || undefined} {...rest}>
+    <optgroup ref={ref} disabled={disabled} {...rest}>
       {children}
     </optgroup>
   );

@@ -22,7 +22,7 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>(function Radio(
 ) {
   const cls = radioClasses({ className });
   return (
-    <input ref={ref} type="radio" className={cls || undefined} checked={checked || undefined} required={required || undefined} disabled={disabled || undefined} {...rest} />
+    <input ref={ref} type="radio" className={cls || undefined} checked={checked} required={required} disabled={disabled} {...rest} />
   );
 });
 Radio.displayName = "Radio";
