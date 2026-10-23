@@ -1,0 +1,564 @@
+[
+ {
+  "name": "sign-in",
+  "widget": "AuthflySignIn",
+  "props": {
+   "id": "preview-signin",
+   "title": "Sign in",
+   "text": "Use your mail account to continue.",
+   "action": "#",
+   "csrf": "preview",
+   "error": "",
+   "labels": {
+    "identifier": "Email or username",
+    "password": "Password",
+    "submit": "Sign in",
+    "forgot": "Forgot password?",
+    "forgotHref": "/auth/forgot",
+    "magic": "Email me a sign-in link",
+    "magicHref": "/auth/magic",
+    "signupText": "No account yet?",
+    "signupLink": "Create one",
+    "signupHref": "/auth/sign-up",
+    "providers": "Sign in with a provider",
+    "socialUrl": "/auth/social"
+   },
+   "providers": [
+    {
+     "id": "github",
+     "title": "Continue with GitHub",
+     "text": "",
+     "icon": "globe"
+    },
+    {
+     "id": "google",
+     "title": "Continue with Google",
+     "text": "",
+     "icon": "globe"
+    }
+   ],
+   "method": "password",
+   "identifier": "any",
+   "social": "none"
+  }
+ },
+ {
+  "name": "sign-in-error",
+  "widget": "AuthflySignIn",
+  "props": {
+   "id": "preview-signin-error",
+   "title": "Sign in",
+   "text": "Use your mail account to continue.",
+   "action": "#",
+   "csrf": "preview",
+   "error": "The address or the password is wrong.",
+   "labels": {
+    "identifier": "Email or username",
+    "password": "Password",
+    "submit": "Sign in",
+    "forgot": "Forgot password?",
+    "forgotHref": "/auth/forgot",
+    "magic": "Email me a sign-in link",
+    "magicHref": "/auth/magic",
+    "signupText": "No account yet?",
+    "signupLink": "Create one",
+    "signupHref": "/auth/sign-up",
+    "providers": "Sign in with a provider",
+    "socialUrl": "/auth/social"
+   },
+   "providers": [
+    {
+     "id": "github",
+     "title": "Continue with GitHub",
+     "text": "",
+     "icon": "globe"
+    },
+    {
+     "id": "google",
+     "title": "Continue with Google",
+     "text": "",
+     "icon": "globe"
+    }
+   ],
+   "method": "password",
+   "identifier": "any",
+   "social": "none"
+  }
+ },
+ {
+  "name": "sign-in-social",
+  "widget": "AuthflySignIn",
+  "props": {
+   "id": "preview-signin-social",
+   "title": "Sign in",
+   "text": "Use your mail account to continue.",
+   "action": "#",
+   "csrf": "preview",
+   "error": "",
+   "labels": {
+    "identifier": "Email or username",
+    "password": "Password",
+    "submit": "Sign in",
+    "forgot": "Forgot password?",
+    "forgotHref": "/auth/forgot",
+    "magic": "Email me a sign-in link",
+    "magicHref": "/auth/magic",
+    "signupText": "No account yet?",
+    "signupLink": "Create one",
+    "signupHref": "/auth/sign-up",
+    "providers": "Sign in with a provider",
+    "socialUrl": "/auth/social"
+   },
+   "providers": [
+    {
+     "id": "github",
+     "title": "Continue with GitHub",
+     "text": "",
+     "icon": "globe"
+    },
+    {
+     "id": "google",
+     "title": "Continue with Google",
+     "text": "",
+     "icon": "globe"
+    }
+   ],
+   "method": "password",
+   "identifier": "email",
+   "social": "show"
+  }
+ },
+ {
+  "name": "magic",
+  "widget": "AuthflySignIn",
+  "props": {
+   "id": "preview-magic",
+   "title": "Sign in with a link",
+   "text": "We email you a link that signs you in. No password needed.",
+   "action": "#",
+   "csrf": "preview",
+   "error": "",
+   "labels": {
+    "identifier": "Email",
+    "password": "Password",
+    "submit": "Send the link",
+    "forgot": "",
+    "forgotHref": "",
+    "magic": "Use a password instead",
+    "magicHref": "/auth/sign-in",
+    "signupText": "No account yet?",
+    "signupLink": "Create one",
+    "signupHref": "/auth/sign-up",
+    "providers": "Sign in with a provider",
+    "socialUrl": "/auth/social"
+   },
+   "providers": [
+    {
+     "id": "github",
+     "title": "Continue with GitHub",
+     "text": "",
+     "icon": "globe"
+    },
+    {
+     "id": "google",
+     "title": "Continue with Google",
+     "text": "",
+     "icon": "globe"
+    }
+   ],
+   "method": "magic",
+   "identifier": "email",
+   "social": "none"
+  }
+ },
+ {
+  "name": "sign-up",
+  "widget": "AuthflySignUp",
+  "props": {
+   "id": "preview-signup",
+   "title": "Create your account",
+   "text": "You get a mailbox and one sign-in for every app.",
+   "action": "#",
+   "csrf": "preview",
+   "labels": {
+    "name": "Full name",
+    "username": "Username",
+    "domain": "@example.com",
+    "password": "Password",
+    "hint": "At least 10 characters.",
+    "terms": "I accept the terms of use",
+    "submit": "Create account",
+    "signinText": "Already have an account?",
+    "signinLink": "Sign in",
+    "signinHref": "/auth/sign-in"
+   },
+   "terms": "show"
+  }
+ },
+ {
+  "name": "sign-up-error-info",
+  "widget": "AuthflySignUp",
+  "props": {
+   "id": "preview-signup",
+   "title": "Create your account",
+   "text": "You get a mailbox and one sign-in for every app.",
+   "action": "#",
+   "csrf": "preview",
+   "labels": {
+    "name": "Full name",
+    "username": "Username",
+    "domain": "@example.com",
+    "password": "Password",
+    "hint": "At least 10 characters.",
+    "terms": "I accept the terms of use",
+    "submit": "Create account",
+    "signinText": "Already have an account?",
+    "signinLink": "Sign in",
+    "signinHref": "/auth/sign-in"
+   },
+   "terms": "none",
+   "error": "Username taken",
+   "info": "Info message"
+  }
+ },
+ {
+  "name": "check-email",
+  "widget": "AuthflyNotice",
+  "props": {
+   "id": "preview-check",
+   "title": "Check your email",
+   "text": "We sent a link to the address below. It expires in 15 minutes.",
+   "detail": "alice@example.com",
+   "icon": "mail-check",
+   "labels": {
+    "cta": "Back to sign in",
+    "ctaHref": "/auth/sign-in",
+    "secondary": "Send it again",
+    "secondaryHref": "/auth/magic"
+   },
+   "tone": "default",
+   "action": "link"
+  }
+ },
+ {
+  "name": "verified",
+  "widget": "AuthflyNotice",
+  "props": {
+   "id": "preview-verified",
+   "title": "Email verified",
+   "text": "Your address is confirmed. You can sign in now.",
+   "detail": "alice@example.com",
+   "icon": "badge-check",
+   "labels": {
+    "cta": "Continue",
+    "ctaHref": "/account",
+    "secondary": "",
+    "secondaryHref": ""
+   },
+   "tone": "success",
+   "action": "link"
+  }
+ },
+ {
+  "name": "forgot",
+  "widget": "AuthflyRequest",
+  "props": {
+   "id": "preview-forgot",
+   "title": "Forgot your password?",
+   "text": "Enter your address and we email you a reset link.",
+   "action": "#",
+   "csrf": "preview",
+   "labels": {
+    "field": "Email",
+    "confirm": "",
+    "submit": "Send reset link",
+    "back": "Back to sign in",
+    "backHref": "/auth/sign-in"
+   },
+   "token": "",
+   "kind": "email"
+  }
+ },
+ {
+  "name": "reset",
+  "widget": "AuthflyRequest",
+  "props": {
+   "id": "preview-reset",
+   "title": "Choose a new password",
+   "text": "The new password replaces the old one everywhere.",
+   "action": "#",
+   "csrf": "preview",
+   "labels": {
+    "field": "New password",
+    "confirm": "Repeat the password",
+    "submit": "Save password",
+    "back": "Back to sign in",
+    "backHref": "/auth/sign-in"
+   },
+   "token": "token",
+   "kind": "password"
+  }
+ },
+ {
+  "name": "code",
+  "widget": "AuthflyRequest",
+  "props": {
+   "id": "preview-code",
+   "title": "Two-step verification",
+   "text": "Enter the six-digit code from your authenticator app.",
+   "action": "#",
+   "csrf": "preview",
+   "labels": {
+    "field": "Code",
+    "confirm": "",
+    "submit": "Verify",
+    "back": "Use another method",
+    "backHref": "/auth/sign-in"
+   },
+   "token": "",
+   "kind": "code",
+   "error": "Wrong code",
+   "info": "Code sent"
+  }
+ },
+ {
+  "name": "link-error",
+  "widget": "AuthflyNotice",
+  "props": {
+   "id": "preview-linkerror",
+   "title": "This link does not work",
+   "text": "It was already used or it expired. Ask for a new one.",
+   "detail": "",
+   "icon": "shield-alert",
+   "labels": {
+    "cta": "Get a new link",
+    "ctaHref": "/auth/magic",
+    "secondary": "Back to sign in",
+    "secondaryHref": "/auth/sign-in"
+   },
+   "tone": "error",
+   "action": "link"
+  }
+ },
+ {
+  "name": "sign-out",
+  "widget": "AuthflyNotice",
+  "props": {
+   "id": "preview-signout",
+   "title": "Sign out?",
+   "text": "You will be signed out of this browser.",
+   "icon": "log-out",
+   "labels": {
+    "cta": "Sign out",
+    "ctaHref": "",
+    "secondary": "Stay signed in",
+    "secondaryHref": "/account"
+   },
+   "tone": "default",
+   "action": "form",
+   "actionUrl": "#",
+   "csrf": "preview"
+  }
+ },
+ {
+  "name": "account",
+  "widget": "AuthflyAccount",
+  "props": {
+   "id": "preview-account",
+   "title": "Your account",
+   "text": "Signed in with a password.",
+   "name": "Alice Example",
+   "email": "alice@example.com",
+   "verified": true,
+   "methods": [
+    {
+     "id": "password",
+     "title": "Password",
+     "text": "On",
+     "icon": "key-round"
+    },
+    {
+     "id": "magic",
+     "title": "Magic link",
+     "text": "On",
+     "icon": "mail"
+    },
+    {
+     "id": "totp",
+     "title": "Authenticator app",
+     "text": "Soon",
+     "icon": "smartphone"
+    },
+    {
+     "id": "webauthn",
+     "title": "Security key",
+     "text": "Soon",
+     "icon": "key"
+    }
+   ],
+   "labels": {
+    "name": "Name",
+    "email": "Email",
+    "verified": "Verified",
+    "unverified": "Not verified",
+    "security": "Sign-in methods",
+    "signout": "Sign out"
+   },
+   "signoutUrl": "#",
+   "csrf": "preview"
+  }
+ },
+ {
+  "name": "account-unverified",
+  "widget": "AuthflyAccount",
+  "props": {
+   "id": "preview-account2",
+   "title": "Your account",
+   "text": "x",
+   "name": "Bob",
+   "email": "bob@example.com",
+   "verified": false,
+   "methods": [],
+   "labels": {
+    "name": "Name",
+    "email": "Email",
+    "verified": "Verified",
+    "unverified": "Not verified",
+    "security": "Sign-in methods",
+    "signout": "Sign out"
+   },
+   "signoutUrl": "#",
+   "csrf": "preview"
+  }
+ },
+ {
+  "name": "consent",
+  "widget": "AuthflyConsent",
+  "props": {
+   "id": "preview-consent",
+   "title": "Allow access",
+   "text": "Demo app wants to sign you in with your mail account.",
+   "action": "#",
+   "csrf": "preview",
+   "client": "Demo app",
+   "account": "alice@example.com",
+   "scopes": [
+    {
+     "id": "openid",
+     "title": "Your account identifier",
+     "text": "openid",
+     "icon": "check"
+    },
+    {
+     "id": "email",
+     "title": "Your email address",
+     "text": "email",
+     "icon": "check"
+    },
+    {
+     "id": "profile",
+     "title": "Your name",
+     "text": "profile",
+     "icon": "check"
+    }
+   ],
+   "labels": {
+    "account": "Signed in as",
+    "scopes": "It will see",
+    "approve": "Allow",
+    "deny": "Deny"
+   }
+  }
+ },
+ {
+  "name": "err-sign-up",
+  "widget": "AuthflySignUp",
+  "props": {
+   "id": "u",
+   "title": "t",
+   "text": "x",
+   "action": "#",
+   "error": "Taken",
+   "labels": {
+    "identifier": "Email",
+    "password": "Password",
+    "submit": "Go",
+    "name": "Name",
+    "username": "User",
+    "domain": "@x.org",
+    "hint": "10+ chars",
+    "terms": "Terms",
+    "field": "Field",
+    "confirm": "Confirm"
+   }
+  }
+ },
+ {
+  "name": "err-request-email",
+  "widget": "AuthflyRequest",
+  "props": {
+   "id": "q",
+   "title": "t",
+   "text": "x",
+   "action": "#",
+   "error": "Bad",
+   "kind": "email",
+   "labels": {
+    "identifier": "Email",
+    "password": "Password",
+    "submit": "Go",
+    "name": "Name",
+    "username": "User",
+    "domain": "@x.org",
+    "hint": "10+ chars",
+    "terms": "Terms",
+    "field": "Field",
+    "confirm": "Confirm"
+   }
+  }
+ },
+ {
+  "name": "err-request-password",
+  "widget": "AuthflyRequest",
+  "props": {
+   "id": "q",
+   "title": "t",
+   "text": "x",
+   "action": "#",
+   "error": "Bad",
+   "kind": "password",
+   "labels": {
+    "identifier": "Email",
+    "password": "Password",
+    "submit": "Go",
+    "name": "Name",
+    "username": "User",
+    "domain": "@x.org",
+    "hint": "10+ chars",
+    "terms": "Terms",
+    "field": "Field",
+    "confirm": "Confirm"
+   }
+  }
+ },
+ {
+  "name": "err-consent",
+  "widget": "AuthflyConsent",
+  "props": {
+   "id": "c",
+   "title": "t",
+   "text": "x",
+   "action": "#",
+   "error": "Denied",
+   "client": "App",
+   "account": "a@x",
+   "scopes": [],
+   "labels": {
+    "account": "As",
+    "scopes": "S",
+    "deny": "No",
+    "approve": "Yes"
+   }
+  }
+ }
+]
