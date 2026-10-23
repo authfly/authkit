@@ -1,0 +1,18 @@
+{#- Authfly notice on UI8Kit 3 primitives. Props (p): id, title, text, detail, icon, labels, actionUrl, csrf,
+    tone (default|success|error), action (link|form), landmarkLabel. -#}
+{%- import 'authfly/components.html.twig' as af -%}
+{%- set id = p.id ?? '' -%}{%- set l = p.labels ?? {} -%}
+{%- set tone = p.tone ?? 'default' -%}{%- set isError = tone == 'error' -%}
+{%- set detail -%}{% if p.detail ?? '' %}{{ af.text('', 'text-sm font-semibold text-foreground', {'data-testid': 'detail'}, af_esc(p.detail)) }}{% endif %}{%- endset -%}
+{%- set body -%}
+{{ af.icon_badge(p.icon ?? 'mail-check', isError ? 'destructive' : 'default') }}
+{{- af.head(id, p.title ?? '', p.text ?? '', 'center', isError ? 'alert' : 'status', detail) }}
+{%- if (p.action ?? 'link') == 'form' -%}
+{%- set f -%}{{ af.hidden('csrf', p.csrf ?? '') }}{{ af.button('', 'submit', af_skin('button', 'default', 'w-full'), {'data-testid': 'submit'}, af_esc(l.cta ?? '')) }}{%- endset -%}
+{{ af.form(p.actionUrl ?? '', 'w-full', {'data-testid': 'authfly-form'}, f) }}
+{%- else -%}
+{{ af.button(l.ctaHref ?? '', '', af_skin('button', 'default', 'w-full'), {'data-testid': 'cta'}, af_esc(l.cta ?? '')) }}
+{%- endif -%}
+{%- if l.secondary ?? '' %}{{ af.link(l.secondaryHref ?? '', af_skin('link', 'text-sm'), 'secondary', l.secondary) }}{% endif -%}
+{%- endset -%}
+{{ af.card('items-center text-center', {'data-testid': 'authfly-notice', 'data-tone': tone}|merge({'aria-labelledby': (p.landmarkLabel ?? '') ? null : id ~ '-title', 'aria-label': p.landmarkLabel ?? null}), body) }}

@@ -1,0 +1,26 @@
+{#- Authfly account on UI8Kit 3 primitives. Props (p): id, title, text, name, email, verified, methods, labels,
+    signoutUrl, csrf, landmarkLabel. -#}
+{%- import 'authfly/components.html.twig' as af -%}
+{%- set id = p.id ?? '' -%}{%- set l = p.labels ?? {} -%}{%- set verified = p.verified ?? false -%}
+{%- set nameRow -%}{{ af.box('dt', af_text('muted'), {}, af_esc(l.name ?? '')) }}{{ af.box('dd', 'm-0 font-semibold text-foreground', {'data-testid': 'profile-name'}, af_esc(p.name ?? '')) }}{%- endset -%}
+{%- set emailVal -%}{{ p.email ?? '' }}{{ af.badge(verified ? 'default' : 'secondary', 'verified', verified ? (l.verified ?? '') : (l.unverified ?? '')) }}{%- endset -%}
+{%- set emailRow -%}{{ af.box('dt', af_text('muted'), {}, af_esc(l.email ?? '')) }}{{ af.box('dd', 'm-0 flex flex-wrap items-center gap-2 font-semibold text-foreground', {'data-testid': 'profile-email'}, emailVal) }}{%- endset -%}
+{%- set profile -%}{{ af.box('', 'grid gap-2', {}, nameRow) }}{{ af.box('', 'grid gap-2', {}, emailRow) }}{%- endset -%}
+{%- set items -%}
+{%- for m in p.methods ?? [] -%}
+{%- set lead -%}{{ af.icon((m.icon ?? '') ?: 'shield') }}{{ m.title ?? '' }}{%- endset -%}
+{%- set li -%}{{ af.text('span', 'flex items-center gap-2', {}, lead) }}{{ af.badge('outline', '', m.text ?? '') }}{%- endset -%}
+{{ af.box('li', 'flex items-center justify-between gap-4 text-sm text-foreground', {'data-method': m.id ?? null}, li) }}
+{%- endfor -%}
+{%- endset -%}
+{%- set methods -%}{{ af.title(2, id ~ '-methods', '', l.security ?? '') }}{{ af.box('ul', 'm-0 flex list-none flex-col gap-2 p-0', {'aria-labelledby': id ~ '-methods', 'data-testid': 'methods'}, items) }}{%- endset -%}
+{%- set out -%}{{ af.icon('log-out') }}{{ l.signout ?? '' }}{%- endset -%}
+{%- set signout -%}{{ af.hidden('csrf', p.csrf ?? '') }}{{ af.button('', 'submit', af_skin('button', 'outline', 'w-full'), {'data-testid': 'signout'}, out) }}{%- endset -%}
+{%- set body -%}
+{{ af.head(id, p.title ?? '', p.text ?? '') }}
+{{- af.box('dl', 'm-0 grid gap-4', {'data-testid': 'profile'}, profile) }}
+{{- include('ui/separator/Separator.html.twig', {decorative: true, class: 'w-full border-border'}, with_context = false) }}
+{{- af.stack('2', '', '', '', {}, methods) }}
+{{- af.form(p.signoutUrl ?? '', '', {'data-testid': 'signout-form'}, signout) }}
+{%- endset -%}
+{{ af.card('max-w-lg', {'data-testid': 'authfly-account'}|merge({'aria-labelledby': (p.landmarkLabel ?? '') ? null : id ~ '-title', 'aria-label': p.landmarkLabel ?? null}), body) }}
