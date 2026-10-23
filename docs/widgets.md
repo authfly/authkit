@@ -1,6 +1,6 @@
 # Widgets
 
-Six widgets cover every Authfly screen. Each is a real HTML form (method post) with the field names of the [form contract](contract.md), so it works without JavaScript in all eight runtimes. Below, every state the hosted pages use, rendered live by the generated templ set; React, Svelte, Vue, Solid, Twig, Latte and Jinja2 render the same DOM (checked by the codegen parity gate, see [Codegen and parity](codegen.md)).
+Six widgets cover every Authfly screen. Each is a real HTML form (method post) with the field names of the [form contract](contract.md), so it works without JavaScript in every runtime. Below, every state the hosted pages use, rendered live by the templ set; React, Vue, Svelte, Solid, web components, Twig, Latte and Jinja2 render the same DOM (see [Primitives and parity](codegen.md)).
 
 - `AuthflySignIn`: axes `method` (password, magic), `identifier` (any, email, username), `social` (none, show).
 - `AuthflySignUp`: axis `terms` (show, none); name, username at your domain, password.

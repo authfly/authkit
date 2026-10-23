@@ -1,0 +1,13 @@
+---
+description: Authfly widgets on UI8Kit 3 (packages/ui/*)
+globs: packages/ui/**
+alwaysApply: false
+---
+- Primitives in `ui/`, `src/ui/`, utils/runtime folders, `ui8kit.config.json`, `ui8kit.lock.json` are CLI-owned
+  (`npx ui8kit@3`, registry 3.2.0): never edit by hand; run `npx ui8kit@3 check` before committing.
+- Build widgets from primitives + the Authfly skin (tokens only) + the middle layer (Card, Stack, Group, Form,
+  Title, Alert, Badge, IconBadge, Field, LucideIcon). No asChild outside React.
+- Pass text via props; children HTML is trusted. Field: aria-describedby = hint + field error + form error id,
+  aria-invalid when an error is shown.
+- Keep props identical across runtimes and DOM parity with React for `packages/ui/react/tests/states.json`.
+- Don't touch `.ui8px/` policy; lint rendered HTML with ui8px.

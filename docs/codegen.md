@@ -1,27 +1,32 @@
-# Codegen and parity
+# Primitives and parity
 
-The widgets are not hand-written per runtime. They are specified once with the authoring builder of [ui8kit/codegen](https://github.com/ui8kit/codegen) and generated for React, Svelte, Vue, Solid, templ, Twig, Latte and Jinja2.
+The widgets are written once per runtime on top of the **UI8Kit 3** primitives (Box, Text, Button, Link, Input,
+Label, Checkbox, Form, Separator, Icon and the rest of the 19), installed by the CLI from `@ui8kit/registry` 3.2.0.
 
-## Sources
-
-- `specs/authoring/authfly.ts`: the six organisms (`AuthflySignIn`, `AuthflySignUp`, `AuthflyRequest`, `AuthflyNotice`, `AuthflyConsent`, `AuthflyAccount`), built from ui8kit primitives only (Block, Stack, Group, Form, Field, Input, Button, Alert, Link, List, Badge, IconBadge, Title, Text, Checkbox, Label, Separator, LucideIcon).
-- `specs/authoring/blocks-authfly.ts`: the blocks (variants, sample props, data sources) for the catalog and the parity cases.
-- `specs/content/authfly.en.json`: the English texts (dictionary under `authfly`); `specs/fixtures/*.json`: sample collections.
-
-## Generate
+## Install (per runtime folder)
 
 ```sh
-tools/gen-ui.sh            # build and export to packages/ui
-tools/gen-ui.sh --check    # plus bun run check (all gates, parity included)
-tools/gen-ui.sh --verify   # plus bun run verify (check, codex validate, typecheck, unit tests)
+npx ui8kit@3 init --yes --framework <rt> --runtime <rt> --dir <dir> --registry-version 3.2.0
+npx ui8kit@3 add --all --runtime <rt> --registry-version 3.2.0
+npx ui8kit@3 check        # before every commit: CLI-owned files are unchanged
 ```
 
-The script clones ui8kit/codegen at the commit pinned in `codegen.lock` into `.cache/codegen`, overlays the Authfly specs (`tools/overlay.py`), runs the xgen build and exports the primitives, helpers, styles and the Authfly blocks to `packages/ui/<runtime>` (`tools/export-ui.ts`). Upstream is never modified; the overlay only adds files and registers them (organisms, blocks, catalog pages, theme pages, dictionary, fixtures).
+The CLI owns `ui/`, the utils/runtime folder, `ui8kit.config.json` and `ui8kit.lock.json`; they are never edited by hand.
 
-## Gates
+## Layers
 
-`bun run check` in the overlaid checkout runs every codegen gate on the Authfly widgets together with the kit: props and text rules, readability limits, duplicates, the composition rules (no raw HTML tags in blocks), drift, and **parity**: templ, Solid, Twig, Jinja2 and Latte render the same DOM as React for every brick and block case, and every document passes html-validate. Svelte and Vue are typechecked (svelte-check, vue-tsc) by `bun run verify`.
+- **Skin**: class recipes (`buttonSkin`, `inputSkin`, `badgeSkin`, `alertSkin`, `cardSkin`, …), tokens only, 8px layout step.
+- **Middle layer**: Card, Stack, Group, Form (Form primitive; its error id feeds every Field), Title, Alert, Badge,
+  IconBadge, Field (`aria-describedby` = hint + error + form error, `aria-invalid`), LucideIcon (lucide 1.61 glyphs).
+- **Widgets**: the six Authfly forms, identical props in every runtime.
+
+## Parity
+
+`packages/ui/react/tests/states.json` holds 20 states (the 16 docs states plus 4 error states). Every runtime renders
+them (`tests/render.*` or `tools/render.*`) and the HTML is compared with the React output after normalising attribute
+order and whitespace: DOM, classes and ARIA must match exactly. Each package also runs its own tests (typecheck,
+invariants: unique ids, no dangling ARIA references, error wiring, escaping).
 
 ## Lint
 
-`npx ui8px@latest lint` passes on the repository (policy in `.ui8px/`, see its README for the five utilities added for the upstream templ primitives).
+`npx ui8px@latest lint` runs on the rendered HTML (policy in `.ui8px/`, unchanged).

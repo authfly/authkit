@@ -25,7 +25,7 @@ var nav = []Section{
 		{"architecture", "Architecture", "", "docs/architecture.md"},
 		{"widgets", "Widgets", "", "docs/widgets.md"},
 		{"contract", "Form contract", "", "docs/contract.md"},
-		{"codegen", "Codegen and parity", "", "docs/codegen.md"},
+		{"codegen", "Primitives and parity", "", "docs/codegen.md"},
 	}},
 	{"Runtimes", []Page{
 		{"runtime-react", "React", "@authfly/react", "docs/runtimes/react.md"},
