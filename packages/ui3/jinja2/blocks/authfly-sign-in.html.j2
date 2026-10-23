@@ -1,0 +1,33 @@
+{#- Authfly sign-in on UI8Kit 3 primitives. Props (p): id, title, text, action, csrf, error, labels, providers,
+    method (password|magic), identifier (any|email|username), social (none|show), landmarkLabel. -#}
+{%- import 'authfly/components.html.j2' as af -%}
+{%- set id = p.id or '' -%}{%- set l = p.labels or {} -%}{%- set error = p.error or '' -%}
+{%- set email = (p.identifier or 'any') == 'email' -%}
+{%- set formError = id ~ '-error' if error else none -%}
+{%- set providers -%}
+{%- for pr in p.providers or [] -%}
+{%- set c -%}{{ af.icon(pr.icon or '') }}{{ pr.title or '' }}{%- endset -%}
+{{ af.button((l.socialUrl or '') ~ '/' ~ (pr.id or ''), '', af_skin('button', 'outline', 'w-full'), {'data-provider': pr.id or none}, c) }}
+{%- endfor -%}
+{%- endset -%}
+{%- set form -%}
+{{ af.hidden('csrf', p.csrf or '') }}
+{{- af.field({'label': l.identifier or '', 'for': id ~ '-identifier', 'formError': formError, 'input': {'type': 'email' if email else 'text', 'name': 'identifier', 'required': true, 'attrs': {'autocomplete': 'email' if email else 'username'}}}) }}
+{%- if (p.method or 'password') == 'password' -%}
+{{ af.field({'label': l.password or '', 'for': id ~ '-password', 'formError': formError, 'input': {'type': 'password', 'name': 'password', 'required': true, 'attrs': {'autocomplete': 'current-password'}}}) }}
+{%- if l.forgot or '' %}{{ af.link(l.forgotHref or '', af_skin('link', 'w-fit text-sm'), 'forgot', l.forgot) }}{% endif -%}
+{%- endif -%}
+{{ af.button('', 'submit', af_skin('button', 'default', 'w-full'), {'data-testid': 'submit'}, af_esc(l.submit or '')) }}
+{%- endset -%}
+{%- set body -%}
+{{ af.head(id, p.title or '', p.text or '') }}
+{{- af.messages(id, error, '') }}
+{%- if (p.social or 'none') == 'show' %}{{ af.stack('2', '', '', '', {'role': 'group', 'aria-label': l.providers or none, 'data-testid': 'authfly-providers'}, providers) }}{% endif -%}
+{{ af.form(p.action or '', '', {'data-testid': 'authfly-form'}, form) }}
+{%- if l.magic or '' %}{{ af.button(l.magicHref or '', '', af_skin('button', 'outline', 'w-full'), {'data-testid': 'switch-method'}, af_esc(l.magic)) }}{% endif -%}
+{%- if l.signupLink or '' -%}
+{%- set foot -%}{{ l.signupText or '' }} {{ af.link(l.signupHref or '', af_skin('link'), 'signup-link', l.signupLink) }}{%- endset -%}
+{{ af.text('', af_text('muted'), {}, foot) }}
+{%- endif -%}
+{%- endset -%}
+{{ af.card('', {'data-testid': 'authfly-sign-in', 'aria-labelledby': none if p.landmarkLabel else id ~ '-title', 'aria-label': p.landmarkLabel or none}, body) }}
