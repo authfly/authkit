@@ -1,0 +1,166 @@
+// Authfly middle layer for templ: Card, Stack, Group, Form, Title, Alert, Badge, IconBadge, Field, LucideIcon,
+// composed from the UI8Kit 3 primitives (ui/*) with class recipes from skin.go. Text is always passed as props
+// (escaped by templ), never as raw children HTML.
+package authfly
+
+import (
+	"github.com/authfly/authkit/widgets/templ/ui/box"
+	"github.com/authfly/authkit/widgets/templ/ui/form"
+	"github.com/authfly/authkit/widgets/templ/ui/icon"
+	"github.com/authfly/authkit/widgets/templ/ui/input"
+	"github.com/authfly/authkit/widgets/templ/ui/label"
+	"github.com/authfly/authkit/widgets/templ/ui/text"
+)
+
+// LucideIcon: a Lucide glyph inside the Icon primitive. Size xs|sm|md|lg|xl (default sm).
+templ LucideIcon(name, size string) {
+	@icon.Icon(icon.IconProps{Size: or(size, "sm"), Attrs: A("data-lucide", name)}) {
+		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="100%" height="100%" aria-hidden="true" focusable="false">
+			@templ.Raw(lucideInner(name))
+		</svg>
+	}
+}
+
+templ Card(class string, attrs templ.Attributes) {
+	@box.Box(box.BoxProps{Tag: "section", Class: CardSkin(class), Attrs: attrs}) {
+		{ children... }
+	}
+}
+
+// Stack: vertical flex; gap 0|2|4|6|8 (default 4), align start|center|end|stretch (default stretch).
+templ Stack(gap, align, justify, class string, attrs templ.Attributes) {
+	@box.Box(box.BoxProps{Class: cn("flex flex-col", gapCls[or(gap, "4")], alignCls[or(align, "stretch")], justifyCls[justify], class), Attrs: attrs}) {
+		{ children... }
+	}
+}
+
+// Group: horizontal flex row; gap default 2, align default center.
+templ Group(gap, align, justify, class string, attrs templ.Attributes) {
+	@box.Box(box.BoxProps{Class: cn("flex min-w-0", gapCls[or(gap, "2")], alignCls[or(align, "center")], justifyCls[justify], class), Attrs: attrs}) {
+		{ children... }
+	}
+}
+
+// Form: the Form primitive (method post) with the Authfly grid. The form-level error id goes to each Field.
+templ Form(action, class string, attrs templ.Attributes) {
+	@form.Form(form.FormProps{Action: action, Method: "post", Class: cn("grid gap-4", class), Attrs: attrs}) {
+		{ children... }
+	}
+}
+
+// Hidden: value is always emitted (InputProps.Value "" means "unset" in the primitive, so an empty csrf/token
+// goes through Attrs to keep value="" like the react output).
+templ Hidden(name, value string) {
+	if value == "" {
+		@input.Input(input.InputProps{Type: "hidden", Name: name, Attrs: templ.Attributes{"value": ""}})
+	} else {
+		@input.Input(input.InputProps{Type: "hidden", Name: name, Value: value})
+	}
+}
+
+// Title: h1 (title size) or h2/h3 (subtitle size) via the Text primitive.
+templ Title(level int, id, role, title string) {
+	if level == 1 {
+		@text.Text(text.TextProps{Tag: "h1", Class: TextTitle, Attrs: A("id", id, "role", role)}) {
+			{ title }
+		}
+	} else {
+		@text.Text(text.TextProps{Tag: "h2", Class: TextSubtitle, Attrs: A("id", id, "role", role)}) {
+			{ title }
+		}
+	}
+}
+
+// Alert: tone destructive → role=alert, otherwise role=status; aria-live polite.
+templ Alert(tone, iconName, id, testid, message string) {
+	@box.Box(box.BoxProps{Class: AlertSkin(tone), Attrs: A("role", map[bool]string{true: "alert", false: "status"}[tone == "destructive"], "aria-live", "polite", "data-slot", "alert", "id", id, "data-testid", testid)}) {
+		if iconName != "" {
+			@LucideIcon(iconName, "")
+		}
+		{ message }
+	}
+}
+
+templ Badge(variant, testid, label string) {
+	@text.Text(text.TextProps{Tag: "span", Class: BadgeSkin(variant), Attrs: A("data-slot", "badge", "data-testid", testid)}) {
+		{ label }
+	}
+}
+
+templ IconBadge(iconName, tone string) {
+	@text.Text(text.TextProps{Tag: "span", Class: IconBadgeSkin(tone), Attrs: A("data-slot", "icon-badge")}) {
+		@LucideIcon(iconName, "lg")
+	}
+}
+
+// FieldControl tells the control what to put in aria-describedby / aria-invalid.
+type FieldControl struct{ hint, err, form string; Invalid string }
+
+// Describe returns the control's aria-describedby: own ids + hint + field error + form error.
+func (f FieldControl) Describe(own ...string) string {
+	return describe(append(own, f.hint, f.err, f.form)...)
+}
+
+type FieldProps struct {
+	Label, HtmlFor, Hint, Error, FormError, Class string
+}
+
+func fieldControl(p FieldProps) FieldControl {
+	f := FieldControl{form: p.FormError}
+	if p.Hint != "" {
+		f.hint = p.HtmlFor + "-hint"
+	}
+	if p.Error != "" {
+		f.err = p.HtmlFor + "-error"
+	}
+	if p.Error != "" || p.FormError != "" {
+		f.Invalid = "true"
+	}
+	return f
+}
+
+// Field: label + control(f) + hint + error.
+templ Field(p FieldProps, control func(FieldControl) templ.Component) {
+	@box.Box(box.BoxProps{Class: cn("flex min-w-0 flex-col gap-2", p.Class)}) {
+		@label.Label(label.LabelProps{For: p.HtmlFor, Class: LabelSkin()}) {
+			{ p.Label }
+		}
+		@control(fieldControl(p))
+		if p.Hint != "" {
+			@text.Text(text.TextProps{Class: TextHint, Attrs: A("id", p.HtmlFor+"-hint")}) {
+				{ p.Hint }
+			}
+		}
+		if p.Error != "" {
+			@text.Text(text.TextProps{Class: "text-xs font-semibold text-destructive", Attrs: A("id", p.HtmlFor+"-error")}) {
+				{ p.Error }
+			}
+		}
+	}
+}
+
+// TextInput: Input primitive with the Authfly skin and the Field wiring.
+func TextInput(f FieldControl, typ, name, autocomplete, id string, required bool, own string, extra ...string) templ.Component {
+	return input.Input(input.InputProps{Type: typ, Name: name, ID: id, Required: required, Class: InputSkin(),
+		AriaDescribedBy: f.Describe(own), AriaInvalid: f.Invalid, Attrs: A(append([]string{"autocomplete", autocomplete, "data-testid", "field"}, extra...)...)})
+}
+
+// WidgetHead: title + lead (+ children), used by every widget.
+templ WidgetHead(id, title, lead, align, role string) {
+	@Stack("2", or(align, "start"), "", "", nil) {
+		@Title(1, id+"-title", role, title)
+		@text.Text(text.TextProps{Class: TextMuted}) {
+			{ lead }
+		}
+		{ children... }
+	}
+}
+
+templ Messages(id, err, info string) {
+	if err != "" {
+		@Alert("destructive", "circle-alert", id+"-error", "authfly-error", err)
+	}
+	if info != "" {
+		@Alert("success", "info", "", "authfly-info", info)
+	}
+}

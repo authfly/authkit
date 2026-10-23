@@ -1,0 +1,277 @@
+// The six Authfly widgets on UI8Kit 3 primitives for templ. Props keep the xgen templ API (see props.go);
+// markup mirrors packages/ui3/react/src/blocks one to one.
+package authfly
+
+import (
+	"github.com/authfly/authkit/widgets/templ/ui/box"
+	"github.com/authfly/authkit/widgets/templ/ui/button"
+	"github.com/authfly/authkit/widgets/templ/ui/checkbox"
+	"github.com/authfly/authkit/widgets/templ/ui/label"
+	"github.com/authfly/authkit/widgets/templ/ui/link"
+	"github.com/authfly/authkit/widgets/templ/ui/separator"
+	"github.com/authfly/authkit/widgets/templ/ui/text"
+)
+
+func field(f func(FieldControl) templ.Component) func(FieldControl) templ.Component { return f }
+
+templ authLink(href, class, testid, label string) {
+	@link.Link(link.LinkProps{Href: href, Class: class, Attrs: A("data-testid", testid)}) {
+		{ label }
+	}
+}
+
+templ buttonLink(href, class, testid, label string) {
+	@button.Button(button.ButtonProps{Href: href, Class: class, Attrs: A("data-testid", testid)}) {
+		{ label }
+	}
+}
+
+templ submit(class, testid, label string) {
+	@button.Button(button.ButtonProps{Type: "submit", Class: class, Attrs: A("data-testid", testid)}) {
+		{ label }
+	}
+}
+
+templ footLine(lead, href, testid, label string) {
+	@text.Text(text.TextProps{Class: TextMuted}) {
+		{ lead }{ " " }
+		@authLink(href, LinkSkin(), testid, label)
+	}
+}
+
+templ AuthflySignIn(p AuthflySignInProps) {
+	{{ id, labels, errs := Str(p.Id), p.Labels, Str(p.Error) }}
+	{{ email := Str(p.Identifier) == "email" }}
+	{{ formErr := errorID(id, errs) }}
+	@Card("", landmark(id, Str(p.LandmarkLabel), "data-testid", "authfly-sign-in")) {
+		@WidgetHead(id, Str(p.Title), Str(p.Text), "", "")
+		@Messages(id, errs, "")
+		if Str(p.Social) == "show" {
+			@Stack("2", "", "", "", A("role", "group", "aria-label", Lab(labels, "providers"), "data-testid", "authfly-providers")) {
+				for _, pr := range Items(p.Providers) {
+					@button.Button(button.ButtonProps{Href: Lab(labels, "socialUrl") + "/" + pr.ID, Class: ButtonSkin("outline", "w-full"), Attrs: A("data-provider", pr.ID)}) {
+						@LucideIcon(pr.Icon, "")
+						{ pr.Title }
+					}
+				}
+			}
+		}
+		@Form(Str(p.Action), "", A("data-testid", "authfly-form")) {
+			@Hidden("csrf", Str(p.Csrf))
+			@Field(FieldProps{Label: Lab(labels, "identifier"), HtmlFor: id + "-identifier", FormError: formErr}, field(func(f FieldControl) templ.Component {
+				return TextInput(f, map[bool]string{true: "email", false: "text"}[email], "identifier", map[bool]string{true: "email", false: "username"}[email], id+"-identifier", true, "")
+			}))
+			if or(Str(p.Method), "password") == "password" {
+				@Field(FieldProps{Label: Lab(labels, "password"), HtmlFor: id + "-password", FormError: formErr}, field(func(f FieldControl) templ.Component {
+					return TextInput(f, "password", "password", "current-password", id+"-password", true, "")
+				}))
+				if Lab(labels, "forgot") != "" {
+					@authLink(Lab(labels, "forgotHref"), LinkSkin("w-fit text-sm"), "forgot", Lab(labels, "forgot"))
+				}
+			}
+			@submit(ButtonSkin("default", "w-full"), "submit", Lab(labels, "submit"))
+		}
+		if Lab(labels, "magic") != "" {
+			@buttonLink(Lab(labels, "magicHref"), ButtonSkin("outline", "w-full"), "switch-method", Lab(labels, "magic"))
+		}
+		if Lab(labels, "signupLink") != "" {
+			@footLine(Lab(labels, "signupText"), Lab(labels, "signupHref"), "signup-link", Lab(labels, "signupLink"))
+		}
+	}
+}
+
+templ AuthflySignUp(p AuthflySignUpProps) {
+	{{ id, labels, errs := Str(p.Id), p.Labels, Str(p.Error) }}
+	{{ formErr := errorID(id, errs) }}
+	{{ domain := Lab(labels, "domain") }}
+	@Card("", landmark(id, Str(p.LandmarkLabel), "data-testid", "authfly-sign-up")) {
+		@WidgetHead(id, Str(p.Title), Str(p.Text), "", "")
+		@Messages(id, errs, Str(p.Info))
+		@Form(Str(p.Action), "", A("data-testid", "authfly-form")) {
+			@Hidden("csrf", Str(p.Csrf))
+			@Field(FieldProps{Label: Lab(labels, "name"), HtmlFor: id + "-name", FormError: formErr}, field(func(f FieldControl) templ.Component {
+				return TextInput(f, "text", "name", "name", id+"-name", false, "")
+			}))
+			@Field(FieldProps{Label: Lab(labels, "username"), HtmlFor: id + "-username", FormError: formErr}, field(func(f FieldControl) templ.Component {
+				return usernameRow(f, id, domain)
+			}))
+			@Field(FieldProps{Label: Lab(labels, "password"), HtmlFor: id + "-password", Hint: Lab(labels, "hint"), FormError: formErr}, field(func(f FieldControl) templ.Component {
+				return TextInput(f, "password", "password", "new-password", id+"-password", true, "")
+			}))
+			if or(Str(p.Terms), "show") == "show" {
+				@Group("2", "", "", "w-fit", nil) {
+					@checkbox.Checkbox(checkbox.CheckboxProps{Name: "terms", Required: true, ID: id + "-terms", Class: CheckboxSkin()})
+					@label.Label(label.LabelProps{For: id + "-terms", Class: LabelSkin("font-normal")}) {
+						{ Lab(labels, "terms") }
+					}
+				}
+			}
+			@submit(ButtonSkin("default", "w-full"), "submit", Lab(labels, "submit"))
+		}
+		if Lab(labels, "signinLink") != "" {
+			@footLine(Lab(labels, "signinText"), Lab(labels, "signinHref"), "signin-link", Lab(labels, "signinLink"))
+		}
+	}
+}
+
+templ usernameRow(f FieldControl, id, domain string) {
+	@Group("2", "", "", "", nil) {
+		@TextInput(f, "text", "username", "username", id+"-username", true, when(domain != "", id+"-domain"))
+		if domain != "" {
+			@text.Text(text.TextProps{Tag: "span", Class: TextMuted, Attrs: A("id", id+"-domain", "data-testid", "domain")}) {
+				{ domain }
+			}
+		}
+	}
+}
+
+templ AuthflyRequest(p AuthflyRequestProps) {
+	{{ id, labels, errs := Str(p.Id), p.Labels, Str(p.Error) }}
+	{{ formErr := errorID(id, errs) }}
+	{{ kind := or(Str(p.Kind), "email") }}
+	@Card("", landmark(id, Str(p.LandmarkLabel), "data-testid", "authfly-request")) {
+		@WidgetHead(id, Str(p.Title), Str(p.Text), "", "")
+		@Messages(id, errs, Str(p.Info))
+		@Form(Str(p.Action), "", A("data-testid", "authfly-form")) {
+			@Hidden("csrf", Str(p.Csrf))
+			if kind == "email" {
+				@Field(FieldProps{Label: Lab(labels, "field"), HtmlFor: id + "-email", FormError: formErr}, field(func(f FieldControl) templ.Component {
+					return TextInput(f, "email", "email", "email", id+"-email", true, "")
+				}))
+			}
+			if kind == "password" {
+				@Hidden("token", Str(p.Token))
+				@Field(FieldProps{Label: Lab(labels, "field"), HtmlFor: id + "-password", FormError: formErr}, field(func(f FieldControl) templ.Component {
+					return TextInput(f, "password", "password", "new-password", id+"-password", true, "")
+				}))
+				@Field(FieldProps{Label: Lab(labels, "confirm"), HtmlFor: id + "-confirm", FormError: formErr}, field(func(f FieldControl) templ.Component {
+					return TextInput(f, "password", "confirm", "new-password", id+"-confirm", true, "")
+				}))
+			}
+			if kind == "code" {
+				@Field(FieldProps{Label: Lab(labels, "field"), HtmlFor: id + "-code", FormError: formErr}, field(func(f FieldControl) templ.Component {
+					return TextInput(f, "text", "code", "one-time-code", id+"-code", true, "", "inputmode", "numeric")
+				}))
+			}
+			@submit(ButtonSkin("default", "w-full"), "submit", Lab(labels, "submit"))
+		}
+		if Lab(labels, "back") != "" {
+			@authLink(Lab(labels, "backHref"), LinkSkin("w-fit text-sm"), "back", Lab(labels, "back"))
+		}
+	}
+}
+
+templ AuthflyNotice(p AuthflyNoticeProps) {
+	{{ id, labels := Str(p.Id), p.Labels }}
+	{{ tone := or(Str(p.Tone), "default") }}
+	{{ isError := tone == "error" }}
+	@Card("items-center text-center", landmark(id, Str(p.LandmarkLabel), "data-testid", "authfly-notice", "data-tone", tone)) {
+		@IconBadge(or(Str(p.Icon), "mail-check"), when(isError, "destructive"))
+		@WidgetHead(id, Str(p.Title), Str(p.Text), "center", map[bool]string{true: "alert", false: "status"}[isError]) {
+			if Str(p.Detail) != "" {
+				@text.Text(text.TextProps{Class: "text-sm font-semibold text-foreground", Attrs: A("data-testid", "detail")}) {
+					{ Str(p.Detail) }
+				}
+			}
+		}
+		if Str(p.Action) == "form" {
+			@Form(Str(p.ActionUrl), "w-full", A("data-testid", "authfly-form")) {
+				@Hidden("csrf", Str(p.Csrf))
+				@submit(ButtonSkin("default", "w-full"), "submit", Lab(labels, "cta"))
+			}
+		} else {
+			@buttonLink(Lab(labels, "ctaHref"), ButtonSkin("default", "w-full"), "cta", Lab(labels, "cta"))
+		}
+		if Lab(labels, "secondary") != "" {
+			@authLink(Lab(labels, "secondaryHref"), LinkSkin("text-sm"), "secondary", Lab(labels, "secondary"))
+		}
+	}
+}
+
+templ decision(action, csrf, value, variant, label, testid string) {
+	@Form(action, "flex-1", A("data-testid", testid)) {
+		@Hidden("csrf", csrf)
+		@Hidden("decision", value)
+		@button.Button(button.ButtonProps{Type: "submit", Class: ButtonSkin(variant, "w-full")}) {
+			{ label }
+		}
+	}
+}
+
+templ AuthflyConsent(p AuthflyConsentProps) {
+	{{ id, labels := Str(p.Id), p.Labels }}
+	@Card("", landmark(id, Str(p.LandmarkLabel), "data-testid", "authfly-consent", "data-client", Str(p.Client))) {
+		@WidgetHead(id, Str(p.Title), Str(p.Text), "", "")
+		@Messages(id, Str(p.Error), Str(p.Info))
+		@text.Text(text.TextProps{Class: "text-sm text-foreground", Attrs: A("data-testid", "account")}) {
+			{ Lab(labels, "account") }{ " " }
+			@text.Text(text.TextProps{Tag: "strong", Class: "font-semibold"}) {
+				{ Str(p.Account) }
+			}
+		}
+		@Stack("2", "", "", "", nil) {
+			@Title(2, id+"-scopes", "", Lab(labels, "scopes"))
+			@box.Box(box.BoxProps{Tag: "ul", Class: "m-0 flex list-none flex-col gap-2 p-0", Attrs: A("aria-labelledby", id+"-scopes", "data-testid", "scopes")}) {
+				for _, s := range Items(p.Scopes) {
+					@box.Box(box.BoxProps{Tag: "li", Class: "flex items-center gap-2 text-sm text-foreground", Attrs: A("data-scope", s.ID)}) {
+						@LucideIcon("check", "")
+						{ s.Title }
+					}
+				}
+			}
+		}
+		@Group("2", "", "between", "", nil) {
+			@decision(Str(p.Action), Str(p.Csrf), "deny", "outline", Lab(labels, "deny"), "deny")
+			@decision(Str(p.Action), Str(p.Csrf), "approve", "default", Lab(labels, "approve"), "approve")
+		}
+	}
+}
+
+templ AuthflyAccount(p AuthflyAccountProps) {
+	{{ id, labels := Str(p.Id), p.Labels }}
+	{{ verified := Bool(p.Verified) }}
+	@Card("max-w-lg", landmark(id, Str(p.LandmarkLabel), "data-testid", "authfly-account")) {
+		@WidgetHead(id, Str(p.Title), Str(p.Text), "", "")
+		@box.Box(box.BoxProps{Tag: "dl", Class: "m-0 grid gap-4", Attrs: A("data-testid", "profile")}) {
+			@box.Box(box.BoxProps{Class: "grid gap-2"}) {
+				@box.Box(box.BoxProps{Tag: "dt", Class: TextMuted}) {
+					{ Lab(labels, "name") }
+				}
+				@box.Box(box.BoxProps{Tag: "dd", Class: "m-0 font-semibold text-foreground", Attrs: A("data-testid", "profile-name")}) {
+					{ Str(p.Name) }
+				}
+			}
+			@box.Box(box.BoxProps{Class: "grid gap-2"}) {
+				@box.Box(box.BoxProps{Tag: "dt", Class: TextMuted}) {
+					{ Lab(labels, "email") }
+				}
+				@box.Box(box.BoxProps{Tag: "dd", Class: "m-0 flex flex-wrap items-center gap-2 font-semibold text-foreground", Attrs: A("data-testid", "profile-email")}) {
+					{ Str(p.Email) }
+					@Badge(map[bool]string{true: "default", false: "secondary"}[verified], "verified", map[bool]string{true: Lab(labels, "verified"), false: Lab(labels, "unverified")}[verified])
+				}
+			}
+		}
+		@separator.Separator(separator.SeparatorProps{Decorative: true, Class: "w-full border-border"})
+		@Stack("2", "", "", "", nil) {
+			@Title(2, id+"-methods", "", Lab(labels, "security"))
+			@box.Box(box.BoxProps{Tag: "ul", Class: "m-0 flex list-none flex-col gap-2 p-0", Attrs: A("aria-labelledby", id+"-methods", "data-testid", "methods")}) {
+				for _, m := range Items(p.Methods) {
+					@box.Box(box.BoxProps{Tag: "li", Class: "flex items-center justify-between gap-4 text-sm text-foreground", Attrs: A("data-method", m.ID)}) {
+						@text.Text(text.TextProps{Tag: "span", Class: "flex items-center gap-2"}) {
+							@LucideIcon(or(m.Icon, "shield"), "")
+							{ m.Title }
+						}
+						@Badge("outline", "", m.Text)
+					}
+				}
+			}
+		}
+		@Form(Str(p.SignoutUrl), "", A("data-testid", "signout-form")) {
+			@Hidden("csrf", Str(p.Csrf))
+			@button.Button(button.ButtonProps{Type: "submit", Class: ButtonSkin("outline", "w-full"), Attrs: A("data-testid", "signout")}) {
+				@LucideIcon("log-out", "")
+				{ Lab(labels, "signout") }
+			}
+		}
+	}
+}
