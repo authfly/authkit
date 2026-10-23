@@ -1,0 +1,95 @@
+{* Authfly middle layer for Latte: {define} blocks over the UI8Kit 3 primitives (ui/*), classes from Authfly\Latte\Skin.
+   Text arguments are escaped (afEsc / {$x}); `children` arguments are trusted Html built by these blocks only. *}
+
+{define icon, string $name, string $size = 'sm'}
+{capture $svg}<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="100%" height="100%" aria-hidden="true" focusable="false">{afLucide($name)}</svg>{/capture}
+{include '../ui/icon/Icon.latte', size: $size ?: 'sm', attrs: ['data-lucide' => $name], children: (string) $svg}
+{/define}
+
+{define box, string $tag = '', string $class = '', array $attrs = [], $children = ''}
+{include '../ui/box/Box.latte', tag: $tag, class: $class, attrs: afAttrs($attrs), children: (string) $children}
+{/define}
+
+{define text, string $tag = '', string $class = '', array $attrs = [], $children = ''}
+{include '../ui/text/Text.latte', tag: $tag, class: $class, attrs: afAttrs($attrs), children: (string) $children}
+{/define}
+
+{define card, string $class = '', array $attrs = [], $children = ''}
+{include box, 'section', afSkin('card', $class), $attrs, $children}
+{/define}
+
+{define stack, string $gap = '', string $align = '', string $justify = '', string $class = '', array $attrs = [], $children = ''}
+{include box, '', afCn('flex flex-col', afGap($gap, '4'), afAlign($align, 'stretch'), afJustify($justify), $class), $attrs, $children}
+{/define}
+
+{define group, string $gap = '', string $align = '', string $justify = '', string $class = '', array $attrs = [], $children = ''}
+{include box, '', afCn('flex min-w-0', afGap($gap, '2'), afAlign($align, 'center'), afJustify($justify), $class), $attrs, $children}
+{/define}
+
+{* form: the Form primitive (method post) with the Authfly grid; the form error id is passed to each field. *}
+{define form, string $action = '', string $class = '', array $attrs = [], $children = ''}
+{include '../ui/form/Form.latte', action: $action, method: 'post', class: afCn('grid gap-4', $class), attrs: afAttrs($attrs), children: (string) $children}
+{/define}
+
+{* hidden: value always emitted (an empty value goes through attrs; the primitive drops value=""). *}
+{define hidden, string $name, $value = ''}
+{if $value === '' || $value === null}
+{include '../ui/input/Input.latte', type: 'hidden', name: $name, attrs: ['value' => '']}
+{else}
+{include '../ui/input/Input.latte', type: 'hidden', name: $name, value: (string) $value}
+{/if}
+{/define}
+
+{define title, int $level, string $id, $role, $title}
+{include text, $level === 1 ? 'h1' : 'h2', afText($level === 1 ? 'title' : 'subtitle'), ['id' => $id, 'role' => $role], afEsc($title)}
+{/define}
+
+{define alert, string $tone, string $icon, string $id, string $testid, $message}
+{capture $c}{if $icon}{include icon, $icon}{/if}{$message}{/capture}
+{include box, '', afSkin('alert', $tone), ['role' => $tone === 'destructive' ? 'alert' : 'status', 'aria-live' => 'polite', 'data-slot' => 'alert', 'id' => $id, 'data-testid' => $testid], $c}
+{/define}
+
+{define badge, string $variant, string $testid, $label}
+{include text, 'span', afSkin('badge', $variant ?: 'default'), ['data-slot' => 'badge', 'data-testid' => $testid], afEsc($label)}
+{/define}
+
+{define iconBadge, string $icon, string $tone = 'default'}
+{capture $c}{include icon, $icon, 'lg'}{/capture}
+{include text, 'span', afSkin('iconBadge', $tone ?: 'default'), ['data-slot' => 'icon-badge'], $c}
+{/define}
+
+{* field: label + Input + hint + error. $f = [label, for, hint, error, formError, input: Input params, describe: own ids,
+   suffix: trusted Html after the input, in a Group]. aria-describedby = own + hint + error + form error;
+   aria-invalid="true" when the field or the form shows an error. *}
+{define field, array $f}
+{var $hintId = ($f['hint'] ?? '') !== '' ? $f['for'] . '-hint' : null}
+{var $errId = ($f['error'] ?? '') !== '' ? $f['for'] . '-error' : null}
+{var $in = $f['input'] ?? []}
+{capture $ctl}{include '../ui/input/Input.latte', type: $in['type'] ?? '', name: $in['name'] ?? '', required: $in['required'] ?? false, id: $f['for'], class: afSkin('input'), ariaDescribedBy: afDescribe($f['describe'] ?? null, $hintId, $errId, $f['formError'] ?? null) ?? '', ariaInvalid: (($f['error'] ?? '') !== '' || ($f['formError'] ?? null)) ? 'true' : '', attrs: afAttrs(($in['attrs'] ?? []) + ['data-testid' => 'field'])}{/capture}
+{if ($f['suffix'] ?? '') !== ''}{capture $ctl}{include group, '2', '', '', '', [], $ctl . $f['suffix']}{/capture}{/if}
+{capture $c}
+{include '../ui/label/Label.latte', htmlFor: $f['for'], class: afSkin('label'), children: (string) afEsc($f['label'] ?? '')}
+{$ctl}
+{if $hintId}{include text, '', afText('hint'), ['id' => $hintId], afEsc($f['hint'])}{/if}
+{if $errId}{include text, '', 'text-xs font-semibold text-destructive', ['id' => $errId], afEsc($f['error'])}{/if}
+{/capture}
+{include box, '', 'flex min-w-0 flex-col gap-2', [], $c}
+{/define}
+
+{define head, string $id, $title, $lead, string $align = 'start', $role = null, $extra = ''}
+{capture $c}{include title, 1, $id . '-title', $role, $title}{include text, '', afText('muted'), [], afEsc($lead)}{$extra}{/capture}
+{include stack, '2', $align ?: 'start', '', '', [], $c}
+{/define}
+
+{define messages, string $id, $error, $info}
+{if $error}{include alert, 'destructive', 'circle-alert', $id . '-error', 'authfly-error', $error}{/if}
+{if $info}{include alert, 'success', 'info', '', 'authfly-info', $info}{/if}
+{/define}
+
+{define link, $href, string $class, string $testid, $label}
+{include '../ui/link/Link.latte', href: (string) $href, class: $class, attrs: afAttrs(['data-testid' => $testid]), children: (string) afEsc($label)}
+{/define}
+
+{define button, $href, string $type, string $class, array $attrs = [], $children = ''}
+{include '../ui/button/Button.latte', href: (string) $href, type: $type, class: $class, attrs: afAttrs($attrs), children: (string) $children}
+{/define}

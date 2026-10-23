@@ -1,0 +1,20 @@
+{* Authfly OIDC consent on UI8Kit 3 primitives. Props ($p): id, title, text, action, csrf, error, info, client,
+   account, scopes, labels, landmarkLabel. *}
+{import '../authfly/components.latte'}
+{var $id = $p['id'] ?? ''}{var $l = $p['labels'] ?? []}{var $error = $p['error'] ?? ''}
+{var $formError = $error ? $id . '-error' : null}
+{var $lm = ['aria-labelledby' => ($p['landmarkLabel'] ?? '') ? null : $id . '-title', 'aria-label' => $p['landmarkLabel'] ?? null]}
+{capture $acc}{$l['account'] ?? ''} {include text, 'strong', 'font-semibold', [], afEsc($p['account'] ?? '')}{/capture}
+{capture $items}{foreach $p['scopes'] ?? [] as $s}{capture $c}{include icon, 'check'}{$s['title'] ?? ''}{/capture}{include box, 'li', 'flex items-center gap-2 text-sm text-foreground', ['data-scope' => $s['id'] ?? null], $c}{/foreach}{/capture}
+{capture $scopes}{include title, 2, $id . '-scopes', null, $l['scopes'] ?? ''}{include box, 'ul', 'm-0 flex list-none flex-col gap-2 p-0', ['aria-labelledby' => $id . '-scopes', 'data-testid' => 'scopes'], $items}{/capture}
+{capture $deny}{include hidden, 'csrf', $p['csrf'] ?? ''}{include hidden, 'decision', 'deny'}{include button, '', 'submit', afSkin('button', 'outline', 'w-full'), [], afEsc($l['deny'] ?? '')}{/capture}
+{capture $approve}{include hidden, 'csrf', $p['csrf'] ?? ''}{include hidden, 'decision', 'approve'}{include button, '', 'submit', afSkin('button', 'default', 'w-full'), [], afEsc($l['approve'] ?? '')}{/capture}
+{capture $row}{include form, $p['action'] ?? '', 'flex-1', ['data-testid' => 'deny'], $deny}{include form, $p['action'] ?? '', 'flex-1', ['data-testid' => 'approve'], $approve}{/capture}
+{capture $body}
+{include head, $id, $p['title'] ?? '', $p['text'] ?? ''}
+{include messages, $id, $error, $p['info'] ?? ''}
+{include text, '', 'text-sm text-foreground', ['data-testid' => 'account'], $acc}
+{include stack, '2', '', '', '', [], $scopes}
+{include group, '2', '', 'between', '', [], $row}
+{/capture}
+{include card, '', ['data-testid' => 'authfly-consent', 'data-client' => $p['client'] ?? null] + $lm, $body}
