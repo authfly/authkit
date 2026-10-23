@@ -6,8 +6,8 @@ import { textSkin } from "../skin/skin";
 const p = withDefaults(defineProps<{ id: string; title: string; text: string; align?: "start" | "center"; role?: "alert" | "status" }>(), { align: "start" });
 </script>
 <template>
-  <Stack gap="2" :align="p.align">
-    <Title :level="1" :id="`${p.id}-title`" :role="p.role">{{ p.title }}</Title>
+  <Stack gap="2" :align="p.align" :role="p.role">
+    <Title :level="1" :id="`${p.id}-title`">{{ p.title }}</Title>
     <Text :class="textSkin.muted">{{ p.text }}</Text>
     <slot />
   </Stack>

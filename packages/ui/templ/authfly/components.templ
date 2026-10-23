@@ -147,8 +147,8 @@ func TextInput(f FieldControl, typ, name, autocomplete, id string, required bool
 
 // WidgetHead: title + lead (+ children), used by every widget.
 templ WidgetHead(id, title, lead, align, role string) {
-	@Stack("2", or(align, "start"), "", "", nil) {
-		@Title(1, id+"-title", role, title)
+	@Stack("2", or(align, "start"), "", "", A("role", role)) {
+		@Title(1, id+"-title", "", title)
 		@text.Text(text.TextProps{Class: TextMuted}) {
 			{ lead }
 		}

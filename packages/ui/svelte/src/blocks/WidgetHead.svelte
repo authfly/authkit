@@ -7,8 +7,8 @@
   let { id, title, text, align = "start", role, children }: { id: string; title: string; text: string; align?: "start" | "center"; role?: "alert" | "status"; children?: Snippet } = $props();
 </script>
 
-<Stack gap="2" {align}>
-  <Title level={1} id={`${id}-title`} {role}>{title}</Title>
+<Stack gap="2" {align} {role}>
+  <Title level={1} id={`${id}-title`}>{title}</Title>
   <Text class={textSkin.muted}>{text}</Text>
   {@render children?.()}
 </Stack>

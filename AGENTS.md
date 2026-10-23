@@ -28,3 +28,5 @@ Authfly widgets on **UI8Kit 3** primitives. Read this before changing anything u
 - Solid: Input without a class renders `class=""`.
 - templ/twig/latte/jinja2: `Value: ""` means "unset", so hidden inputs with an empty value pass `value` via `Attrs`.
 - Web components: `utils/env.ts` uses `import.meta`, bundles must be ESM.
+
+- HTML/ARIA gates: `bun run gates` (`tools/gates.sh`, vendored `tools/ui-gates` from codegen-x/ui8kit@313885e6, see its VENDORED.md): source gate (no raw HTML where a primitive exists, Box/Text tag allowlist) + html-validate/axe-core over the 20 states × 9 runtimes. Must report 0 problems before a commit. Live-region roles (`status`/`alert`) go on the widget head Stack, never on the heading.

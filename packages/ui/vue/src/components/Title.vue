@@ -8,4 +8,4 @@ const p = withDefaults(defineProps<{ level?: 1 | 2 | 3; size?: "title" | "subtit
 const tag = computed(() => (["h1", "h2", "h3"] as const)[p.level - 1]);
 const size = computed(() => p.size ?? (p.level === 1 ? "title" : "subtitle"));
 </script>
-<template><Text :tag="tag" v-bind="$attrs" :class="cn(textSkin[size], p.class)"><slot /></Text></template>
+<template><Text v-bind="{ ...$attrs, tag }" :class="cn(textSkin[size], p.class)"><slot /></Text></template>

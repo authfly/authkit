@@ -73,8 +73,8 @@
 {%- endmacro -%}
 
 {%- macro head(id, title_, lead, align='start', role=none, extra='') -%}
-{%- set c -%}{{ title(1, id ~ '-title', role, title_) }}{{ text('', af_text('muted'), {}, af_esc(lead)) }}{{ extra }}{%- endset -%}
-{{ stack('2', align or 'start', '', '', {}, c) }}
+{%- set c -%}{{ title(1, id ~ '-title', none, title_) }}{{ text('', af_text('muted'), {}, af_esc(lead)) }}{{ extra }}{%- endset -%}
+{{ stack('2', align or 'start', '', '', {'role': role}, c) }}
 {%- endmacro -%}
 
 {%- macro messages(id, error, info) -%}

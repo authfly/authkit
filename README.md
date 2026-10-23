@@ -35,3 +35,7 @@ Parity: every runtime renders the 20 states of `packages/ui/react/tests/states.j
 compared with the React output. See [docs/codegen.md](docs/codegen.md) and [AGENTS.md](AGENTS.md).
 
 Shadcn tokens (light/dark), Lucide icons, mobile first, 8+4 spacing. MIT, © Auth Fly.
+
+## Gates
+
+HTML/ARIA gates: `bun run gates` (`tools/gates.sh`, vendored `tools/ui-gates` from codegen-x/ui8kit@313885e6, see its VENDORED.md): source gate (no raw HTML where a primitive exists, Box/Text tag allowlist) + html-validate/axe-core over the 20 states × 9 runtimes. Must report 0 problems before a commit. Live-region roles (`status`/`alert`) go on the widget head Stack, never on the heading.

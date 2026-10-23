@@ -9,8 +9,8 @@ import { textSkin } from "../skin/skin";
 /** Title + lead text of every widget. */
 export function WidgetHead(props: { id: string; title: string; text: string; align?: "start" | "center"; role?: "alert" | "status"; children?: JSX.Element }) {
   return (
-    <Stack gap="2" align={props.align ?? "start"}>
-      <Title level={1} id={`${props.id}-title`} role={props.role}>{props.title}</Title>
+    <Stack gap="2" align={props.align ?? "start"} role={props.role}>
+      <Title level={1} id={`${props.id}-title`}>{props.title}</Title>
       <Text class={textSkin.muted}>{props.text}</Text>
       {props.children}
     </Stack>

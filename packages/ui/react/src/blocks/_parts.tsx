@@ -10,8 +10,8 @@ import { textSkin } from "../skin/skin";
 /** Title + lead text of every widget. */
 export function WidgetHead({ id, title, text, align = "start", role, children }: { id: string; title: string; text: string; align?: "start" | "center"; role?: "alert" | "status"; children?: ReactNode }) {
   return (
-    <Stack gap="2" align={align}>
-      <Title level={1} id={`${id}-title`} role={role}>{title}</Title>
+    <Stack gap="2" align={align} role={role}>
+      <Title level={1} id={`${id}-title`}>{title}</Title>
       <Text className={textSkin.muted}>{text}</Text>
       {children}
     </Stack>

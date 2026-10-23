@@ -77,8 +77,8 @@
 {/define}
 
 {define head, string $id, $title, $lead, string $align = 'start', $role = null, $extra = ''}
-{capture $c}{include title, 1, $id . '-title', $role, $title}{include text, '', afText('muted'), [], afEsc($lead)}{$extra}{/capture}
-{include stack, '2', $align ?: 'start', '', '', [], $c}
+{capture $c}{include title, 1, $id . '-title', null, $title}{include text, '', afText('muted'), [], afEsc($lead)}{$extra}{/capture}
+{include stack, '2', $align ?: 'start', '', '', ['role' => $role], $c}
 {/define}
 
 {define messages, string $id, $error, $info}

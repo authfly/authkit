@@ -13,7 +13,7 @@ import type { AuthflyAccountProps, AuthflyConsentProps, AuthflyNoticeProps, Auth
 
 const lm = (id: string, landmarkLabel?: string) => ({ "aria-labelledby": landmarkLabel ? undefined : `${id}-title`, "aria-label": landmarkLabel });
 const head = (id: string, t: string, x: string, align: "start" | "center" = "start", role?: "alert" | "status", extra: (Element | null)[] = []) =>
-  stack({ gap: "2", align }, [title(1, { id: `${id}-title`, role }, [t]), text({ class: textSkin.muted }, [x]), ...extra]);
+  stack({ gap: "2", align, role }, [title(1, { id: `${id}-title` }, [t]), text({ class: textSkin.muted }, [x]), ...extra]);
 const messages = (id: string, error?: string, info?: string) => [
   error ? alert({ id: `${id}-error`, tone: "destructive", icon: "circle-alert", "data-testid": "authfly-error" }, [error]) : null,
   info ? alert({ tone: "success", icon: "info", "data-testid": "authfly-info" }, [info]) : null,
