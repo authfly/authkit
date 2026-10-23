@@ -1,0 +1,87 @@
+// Widget props, identical across runtimes (source of truth: packages/ui/react/src/blocks/*.tsx).
+import type { AccountLabels } from "./authfly-account.types";
+import type { ConsentLabels } from "./authfly-consent.types";
+import type { Feature } from "./feature-grid.types";
+import type { NoticeLabels } from "./authfly-notice.types";
+import type { RequestLabels } from "./authfly-request.types";
+import type { SignInLabels } from "./authfly-sign-in.types";
+import type { SignUpLabels } from "./authfly-sign-up.types";
+export type AuthflySignInProps = {
+  id: string;
+  title: string;
+  text: string;
+  action: string;
+  csrf?: string;
+  error?: string;
+  labels: SignInLabels;
+  providers: Feature[];
+  method?: "password" | "magic";
+  identifier?: "any" | "email" | "username";
+  social?: "none" | "show";
+  landmarkLabel?: string;
+};
+export type AuthflySignUpProps = {
+  id: string;
+  title: string;
+  text: string;
+  action: string;
+  csrf?: string;
+  error?: string;
+  info?: string;
+  labels: SignUpLabels;
+  terms?: "show" | "none";
+  landmarkLabel?: string;
+};
+export type AuthflyRequestProps = {
+  id: string;
+  title: string;
+  text: string;
+  action: string;
+  csrf?: string;
+  error?: string;
+  info?: string;
+  labels: RequestLabels;
+  token?: string;
+  kind?: "email" | "password" | "code";
+  landmarkLabel?: string;
+};
+export type AuthflyNoticeProps = {
+  id: string;
+  title: string;
+  text: string;
+  detail?: string;
+  icon?: string;
+  labels: NoticeLabels;
+  actionUrl?: string;
+  csrf?: string;
+  tone?: "default" | "success" | "error";
+  action?: "link" | "form";
+  landmarkLabel?: string;
+};
+export type AuthflyConsentProps = {
+  id: string;
+  title: string;
+  text: string;
+  action: string;
+  csrf?: string;
+  error?: string;
+  info?: string;
+  client: string;
+  account: string;
+  scopes: Feature[];
+  labels: ConsentLabels;
+  landmarkLabel?: string;
+};
+export type AuthflyAccountProps = {
+  id: string;
+  title: string;
+  text: string;
+  name: string;
+  email: string;
+  verified?: boolean;
+  methods: Feature[];
+  labels: AccountLabels;
+  signoutUrl: string;
+  csrf?: string;
+  landmarkLabel?: string;
+};

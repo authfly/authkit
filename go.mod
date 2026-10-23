@@ -7,4 +7,4 @@ require (
 	github.com/authfly/authkit/widgets/templ v0.0.0
 )
 
-replace github.com/authfly/authkit/widgets/templ => ./packages/ui3/templ
+replace github.com/authfly/authkit/widgets/templ => ./packages/ui/templ

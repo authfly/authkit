@@ -3,11 +3,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "gen:ui": "bash tools/gen-ui.sh",
-    "check:ui": "bash tools/gen-ui.sh --check",
-    "verify:ui": "bash tools/gen-ui.sh --verify",
     "lint:px": "ui8px lint",
-    "site": "go run github.com/a-h/templ/cmd/templ@v0.3.1070 generate -path site && go run github.com/a-h/templ/cmd/templ@v0.3.1070 generate -path packages/ui3/templ && tailwindcss -i site/app.css -o site/dist/assets/app.css --minify && go run ./site",
+    "site": "go run github.com/a-h/templ/cmd/templ@v0.3.1070 generate -path site && go run github.com/a-h/templ/cmd/templ@v0.3.1070 generate -path packages/ui/templ && tailwindcss -i site/app.css -o site/dist/assets/app.css --minify && go run ./site",
     "site:serve": "bun run site && python3 -m http.server 4100 -d site/dist"
   },
   "devDependencies": {
