@@ -1,6 +1,6 @@
-// Layout helpers: thin wrappers over the Box primitive with 8px-step gaps. No new DOM semantics.
-import type { ReactNode } from "react";
+// Layout helpers: Stack/Group over Box (8px-step gaps) and Form over the Form primitive (+ error context).
 import { Box, type BoxProps } from "../ui/box/box";
+import { Form as UiForm, type FormProps as UiFormProps } from "../ui/form/form";
 import { cn } from "../utils";
 import { FormErrorContext } from "./field";
 
@@ -21,21 +21,17 @@ export function Group({ gap = "2", align = "center", justify, className, ...rest
   return <Box className={cn("flex min-w-0", gapCls[gap], alignCls[align], justify && justifyCls[justify], className)} {...rest} />;
 }
 
-/** Thin rule. Box has no `hr` tag, so it is a presentational div. */
-export function Divider({ className }: { className?: string }) {
-  return <Box role="presentation" aria-hidden="true" className={cn("h-px w-full shrink-0 bg-border", className)} />;
-}
-
-export type FormProps = Omit<BoxProps, "tag"> & { action?: string; method?: "get" | "post"; children?: ReactNode;
+export type FormProps = Omit<UiFormProps, "method"> & {
+  method?: "get" | "post";
   /** id of the server error element; every Field inside points aria-describedby at it and sets aria-invalid. */
-  errorId?: string };
+  errorId?: string;
+};
 
-/** <form> through Box tag="form"; BoxProps has no form attributes, they are forwarded untyped (see XGenBot note). */
-export function Form({ action, method = "post", className, errorId, ...rest }: FormProps) {
-  const formAttrs = { action, method } as Record<string, string | undefined>;
+/** The UI8Kit Form primitive with the Authfly grid and the form-level error context. */
+export function Form({ method = "post", className, errorId, ...rest }: FormProps) {
   return (
     <FormErrorContext.Provider value={errorId}>
-      <Box tag="form" className={cn("grid gap-4", className)} {...formAttrs} {...rest} />
+      <UiForm method={method} className={cn("grid gap-4", className)} {...rest} />
     </FormErrorContext.Provider>
   );
 }

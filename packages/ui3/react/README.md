@@ -6,9 +6,9 @@ untouched until the owner approves its removal.
 | Path | What | Who writes it |
 |---|---|---|
 | `src/ui/*`, `src/utils/*`, `.cursor/rules/ui8kit-primitives.mdc` | 17 primitives (+ slot) and utils | `npx ui8kit@3 init/add` only — never edit, `npx ui8kit@3 check` guards them |
-| `ui8kit.config.json`, `ui8kit.lock.json` | CLI config and lock (registry `@ui8kit/registry` 3.1.0) | CLI only |
+| `ui8kit.config.json`, `ui8kit.lock.json` | CLI config and lock (registry `@ui8kit/registry` 3.2.0, pinned via `registryVersion`) | CLI only |
 | `src/skin/skin.ts` | Authfly skin: class recipes for primitives (tokens only, 8px layout step, 4px inside controls) | Authfly |
-| `src/components/*` | middle layer: Card, Stack/Group/Form/Divider, Title, Alert, Badge/IconBadge, Field, LucideIcon (+ generated `lucide-icons.ts`) | Authfly |
+| `src/components/*` | middle layer: Card, Stack/Group, Form (Form primitive + error context), Title, Alert, Badge/IconBadge, Field, LucideIcon (+ generated `lucide-icons.ts`) | Authfly |
 | `src/blocks/*` | the six widgets; props/types identical to `packages/ui/react` | Authfly |
 | `src/styles/{index,theme}.css` | skin tokens (shadcn neutral, carried over from xgen theme.css) | Authfly |
 | `tests/*` | SSR smoke tests over the docs-site states | Authfly |

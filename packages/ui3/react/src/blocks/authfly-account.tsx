@@ -1,6 +1,7 @@
 // Authfly account on UI8Kit 3 primitives: profile, verified badge, sign-in methods, sign out. Props as xgen.
 import { Card } from "../components/card";
-import { Stack, Form, Divider } from "../components/layout";
+import { Stack, Form } from "../components/layout";
+import { Separator } from "../ui/separator/separator";
 import { Title } from "../components/title";
 import { Badge } from "../components/badge";
 import { LucideIcon } from "../components/lucide-icon";
@@ -43,7 +44,7 @@ export function AuthflyAccount({ id, title, text, name, email, verified = false,
           </Box>
         </Box>
       </Box>
-      <Divider />
+      <Separator decorative className="w-full border-border" />
       <Stack gap="2">
         <Title level={2} id={`${id}-methods`}>{labels.security}</Title>
         <Box tag="ul" aria-labelledby={`${id}-methods`} className="m-0 flex list-none flex-col gap-2 p-0" data-testid="methods">

@@ -35,3 +35,12 @@ describe("authfly widgets on ui8kit 3", () => {
     for (const h of Object.values(html)) for (const s of h.match(/<span data-slot="icon"[^>]*>/g) ?? []) expect(s).toContain('aria-hidden="true"');
   });
 });
+
+describe("3.2.0 primitives", () => {
+  test("account divider is a decorative <hr> (Separator)", () => {
+    expect(html["account"]).toMatch(/<hr[^>]*role="none"/);
+  });
+  test("forms are real <form> with method/action (Form primitive)", () => {
+    for (const h of Object.values(html)) for (const f of h.match(/<form[^>]*>/g) ?? []) expect(f).toMatch(/action="[^"]*"[^>]*method="post"|method="post"[^>]*action=/);
+  });
+});
