@@ -30,7 +30,7 @@ export function renderButton(props: ButtonElementProps = {}, children: Children 
     if (cls !== "") setAttr(el0, "class", cls);
     if (disabled) setAttr(el0, "aria-disabled", str("true"));
     if (disabled) setAttr(el0, "tabindex", str(-1));
-    applyRest(el0, rest);
+    applyRest(el0, rest, { blank: ["aria-label", "aria-pressed", "aria-expanded", "aria-controls"] });
     append(el0, children);
     out.push(el0);
   } else {
@@ -38,7 +38,7 @@ export function renderButton(props: ButtonElementProps = {}, children: Children 
     { const s = str(oneOfOr(type, "button", "submit", "reset")); if (s.trim() !== "") setAttr(el1, "type", s); }
     if (cls !== "") setAttr(el1, "class", cls);
     if (disabled) setAttr(el1, "disabled", "");
-    applyRest(el1, rest);
+    applyRest(el1, rest, { blank: ["aria-label", "aria-pressed", "aria-expanded", "aria-controls"] });
     append(el1, children);
     out.push(el1);
   }

@@ -35,7 +35,7 @@ export function renderInput(props: InputElementProps = {}, children: Children = 
   if (required) setAttr(el0, "required", "");
   if (disabled) setAttr(el0, "disabled", "");
   if (readOnly) setAttr(el0, "readonly", "");
-  applyRest(el0, rest);
+  applyRest(el0, rest, { blank: ["id", "name", "placeholder", "min", "max", "step", "aria-invalid", "aria-describedby"] });
   out.push(el0);
   return out[0]!;
   void children;

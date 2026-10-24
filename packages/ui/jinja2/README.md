@@ -1,9 +1,9 @@
 # Authfly widgets — Jinja2 (UI8Kit 3)
 
-Primitives from `npx ui8kit@3` (CLI 3.2.1, registry 3.2.2):
+Primitives from `npx ui8kit@3` (CLI 3.2.1, registry 3.3.0):
 
-    npx ui8kit@3 init --yes --framework jinja2 --runtime jinja2 --dir . --registry-version 3.2.2
-    npx ui8kit@3 add --all --runtime jinja2 --registry-version 3.2.2
+    npx ui8kit@3 init --yes --framework jinja2 --runtime jinja2 --dir . --registry-version 3.3.0
+    npx ui8kit@3 add --all --runtime jinja2 --registry-version 3.3.0
     pip install "Jinja2>=3.1,<4"
 
 Installed from PyPI (`pip install authfly-jinja2`), the templates ship inside the wheel as `authfly_jinja2_templates`

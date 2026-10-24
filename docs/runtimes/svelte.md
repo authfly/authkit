@@ -1,6 +1,6 @@
 # Svelte
 
-The Svelte widgets live in `packages/ui/svelte`: UI8Kit 3 primitives installed by `npx ui8kit@3` (CLI 3.2.1, registry 3.2.2; CLI-owned, never edited), the Authfly skin and middle layer, and the six widgets. `@authfly/svelte` 0.4.0 (Svelte 5 runes).
+The Svelte widgets live in `packages/ui/svelte`: UI8Kit 3 primitives installed by `npx ui8kit@3` (CLI 3.2.1, registry 3.3.0; CLI-owned, never edited), the Authfly skin and middle layer, and the six widgets. `@authfly/svelte` 0.4.0 (Svelte 5 runes).
 
 ::preview sign-in
 

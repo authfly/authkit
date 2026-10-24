@@ -23,7 +23,7 @@ export function renderDialog(props: DialogElementProps = {}, children: Children 
   const el0 = document.createElement("dialog");
   if (cls !== "") setAttr(el0, "class", cls);
   if (open) setAttr(el0, "open", "");
-  applyRest(el0, rest);
+  applyRest(el0, rest, { blank: ["id", "aria-labelledby", "aria-describedby", "aria-label"] });
   append(el0, children);
   out.push(el0);
   return out[0]!;

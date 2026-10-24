@@ -20,7 +20,7 @@ export function renderDisclosure(props: DisclosureElementProps = {}, children: C
   const el0 = document.createElement("details");
   if (cls !== "") setAttr(el0, "class", cls);
   if (open) setAttr(el0, "open", "");
-  applyRest(el0, rest);
+  applyRest(el0, rest, { blank: ["name"] });
   append(el0, children);
   out.push(el0);
   return out[0]!;

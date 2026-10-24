@@ -29,7 +29,7 @@ export function renderCheckbox(props: CheckboxElementProps = {}, children: Child
   if (checked) setAttr(el0, "checked", "");
   if (required) setAttr(el0, "required", "");
   if (disabled) setAttr(el0, "disabled", "");
-  applyRest(el0, rest);
+  applyRest(el0, rest, { blank: ["id", "name", "aria-invalid", "aria-describedby"] });
   out.push(el0);
   return out[0]!;
   void children;

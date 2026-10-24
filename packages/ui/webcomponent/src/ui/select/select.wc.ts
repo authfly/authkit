@@ -30,7 +30,7 @@ export function renderSelect(props: SelectElementProps = {}, children: Children 
   if (multiple) setAttr(el0, "multiple", "");
   if (required) setAttr(el0, "required", "");
   if (disabled) setAttr(el0, "disabled", "");
-  applyRest(el0, rest);
+  applyRest(el0, rest, { blank: ["id", "name", "aria-invalid", "aria-describedby"] });
   for (const item of options ?? []) {
     const el1 = document.createElement("option");
     setAttr(el1, "value", str(item.value));
@@ -93,7 +93,7 @@ export function renderSelectOptGroup(props: SelectOptGroupElementProps = {}, chi
   const out: Element[] = [];
   const el0 = document.createElement("optgroup");
   if (disabled) setAttr(el0, "disabled", "");
-  applyRest(el0, rest);
+  applyRest(el0, rest, { blank: ["label"] });
   append(el0, children);
   out.push(el0);
   return out[0]!;

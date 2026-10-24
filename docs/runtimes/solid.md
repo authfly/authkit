@@ -1,6 +1,6 @@
 # Solid
 
-The Solid widgets live in `packages/ui/solid`: UI8Kit 3 primitives installed by `npx ui8kit@3` (CLI 3.2.1, registry 3.2.2; CLI-owned, never edited), the Authfly skin and middle layer, and the six widgets. `@authfly/solid` 0.4.0.
+The Solid widgets live in `packages/ui/solid`: UI8Kit 3 primitives installed by `npx ui8kit@3` (CLI 3.2.1, registry 3.3.0; CLI-owned, never edited), the Authfly skin and middle layer, and the six widgets. `@authfly/solid` 0.4.0.
 
 ::preview sign-in
 

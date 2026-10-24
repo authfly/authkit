@@ -26,7 +26,7 @@ export function renderImage(props: ImageElementProps, children: Children = []): 
   const el0 = document.createElement("img");
   setAttr(el0, "alt", str(alt));
   if (cls !== "") setAttr(el0, "class", cls);
-  applyRest(el0, rest);
+  applyRest(el0, rest, { img: true, blank: ["src", "srcset", "sizes", "width", "height", "loading", "decoding"] });
   out.push(el0);
   return out[0]!;
   void children;
@@ -79,7 +79,7 @@ export function renderSource(props: SourceElementProps = {}, children: Children 
   const { ...rest } = props;
   const out: Element[] = [];
   const el0 = document.createElement("source");
-  applyRest(el0, rest);
+  applyRest(el0, rest, { blank: ["srcset", "media", "type", "sizes"] });
   out.push(el0);
   return out[0]!;
   void children;

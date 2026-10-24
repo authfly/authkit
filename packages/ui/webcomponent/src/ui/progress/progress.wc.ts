@@ -20,7 +20,7 @@ export function renderProgress(props: ProgressElementProps = {}, children: Child
   const out: Element[] = [];
   const el0 = document.createElement("progress");
   if (cls !== "") setAttr(el0, "class", cls);
-  applyRest(el0, rest);
+  applyRest(el0, rest, { blank: ["max", "aria-label"] });
   append(el0, children);
   out.push(el0);
   return out[0]!;

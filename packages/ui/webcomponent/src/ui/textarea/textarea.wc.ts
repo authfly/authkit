@@ -30,7 +30,7 @@ export function renderTextarea(props: TextareaElementProps = {}, children: Child
   if (required) setAttr(el0, "required", "");
   if (disabled) setAttr(el0, "disabled", "");
   if (readOnly) setAttr(el0, "readonly", "");
-  applyRest(el0, rest);
+  applyRest(el0, rest, { blank: ["id", "name", "placeholder", "rows", "aria-invalid", "aria-describedby"] });
   append(el0, str(value));
   out.push(el0);
   return out[0]!;

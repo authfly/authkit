@@ -1,7 +1,7 @@
 [project]
 name = "authfly-jinja2"
 version = "0.4.0"
-description = "Authfly widgets for Jinja2 on UI8Kit 3 primitives (CLI 3.2.1, registry 3.2.2)"
+description = "Authfly widgets for Jinja2 on UI8Kit 3 primitives (CLI 3.2.1, registry 3.3.0)"
 readme = "README.md"
 license = "MIT"
 requires-python = ">=3.10"

@@ -1,7 +1,7 @@
 # Architecture
 
 ```
-@ui8kit/registry 3.2.2  ──  npx ui8kit@3 init/add (CLI 3.2.1)  ──  19 primitives per runtime (CLI-owned, ui8kit.lock.json)
+@ui8kit/registry 3.3.0  ──  npx ui8kit@3 init/add (CLI 3.2.1)  ──  19 primitives per runtime (CLI-owned, ui8kit.lock.json)
    │
    ▼
 packages/ui/<runtime>: skin (class recipes, tokens) → middle layer (Card, Stack, Group, Form, Title, Alert, Badge,

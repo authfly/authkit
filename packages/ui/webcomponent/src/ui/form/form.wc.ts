@@ -31,7 +31,7 @@ export function renderForm(props: FormElementProps = {}, children: Children = []
   if (cls !== "") setAttr(el0, "class", cls);
   { const s = str(oneOfOrLower(method, "", "get", "post", "dialog")); if (s.trim() !== "") setAttr(el0, "method", s); }
   if (noValidate) setAttr(el0, "novalidate", "");
-  applyRest(el0, rest);
+  applyRest(el0, rest, { blank: ["id", "name", "action", "enctype", "autocomplete", "target", "aria-label", "aria-labelledby", "aria-describedby"] });
   append(el0, children);
   out.push(el0);
   return out[0]!;

@@ -1,7 +1,7 @@
 # Authfly widgets (authfly/authkit)
 
 Sign-in, sign-up, magic link, password reset, account and consent widgets for nine runtimes, built on
-**UI8Kit 3** primitives (CLI `npx ui8kit@3` 3.2.1, registry `@ui8kit/registry` 3.2.2) with the same DOM everywhere.
+**UI8Kit 3** primitives (CLI `npx ui8kit@3` 3.2.1, registry `@ui8kit/registry` 3.3.0) with the same DOM everywhere.
 
 | Runtime | Package / folder |
 |---|---|

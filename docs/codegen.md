@@ -1,13 +1,13 @@
 # Primitives and parity
 
 The widgets are written once per runtime on top of the **UI8Kit 3** primitives (Box, Text, Button, Link, Input,
-Label, Checkbox, Form, Separator, Icon and the rest of the 19), installed by the CLI from `@ui8kit/registry` 3.2.2.
+Label, Checkbox, Form, Separator, Icon and the rest of the 19), installed by the CLI from `@ui8kit/registry` 3.3.0.
 
 ## Install (per runtime folder)
 
 ```sh
-npx ui8kit@3 init --yes --framework <rt> --runtime <rt> --dir <dir> --registry-version 3.2.2
-npx ui8kit@3 add --all --runtime <rt> --registry-version 3.2.2
+npx ui8kit@3 init --yes --framework <rt> --runtime <rt> --dir <dir> --registry-version 3.3.0
+npx ui8kit@3 add --all --runtime <rt> --registry-version 3.3.0
 npx ui8kit@3 check        # before every commit: CLI-owned files are unchanged
 ```
 

@@ -18,7 +18,7 @@ export function renderLabel(props: LabelElementProps = {}, children: Children = 
   const out: Element[] = [];
   const el0 = document.createElement("label");
   if (cls !== "") setAttr(el0, "class", cls);
-  applyRest(el0, rest);
+  applyRest(el0, rest, { blank: ["for", "htmlfor"] });
   append(el0, children);
   out.push(el0);
   return out[0]!;

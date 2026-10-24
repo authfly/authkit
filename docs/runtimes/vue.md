@@ -1,6 +1,6 @@
 # Vue
 
-The Vue widgets live in `packages/ui/vue`: UI8Kit 3 primitives installed by `npx ui8kit@3` (CLI 3.2.1, registry 3.2.2; CLI-owned, never edited), the Authfly skin and middle layer, and the six widgets. `@authfly/vue` 0.4.0 (single-file components, Vue 3).
+The Vue widgets live in `packages/ui/vue`: UI8Kit 3 primitives installed by `npx ui8kit@3` (CLI 3.2.1, registry 3.3.0; CLI-owned, never edited), the Authfly skin and middle layer, and the six widgets. `@authfly/vue` 0.4.0 (single-file components, Vue 3).
 
 ::preview sign-in
 

@@ -29,7 +29,7 @@ export function renderLink(props: LinkElementProps = {}, children: Children = []
   if (cls !== "") setAttr(el0, "class", cls);
   { const s = str(targetValue); if (s.trim() !== "") setAttr(el0, "target", s); }
   { const s = str(relValue); if (s.trim() !== "") setAttr(el0, "rel", s); }
-  applyRest(el0, rest);
+  applyRest(el0, rest, { blank: ["href", "download", "aria-current", "aria-label"] });
   append(el0, children);
   out.push(el0);
   return out[0]!;

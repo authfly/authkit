@@ -30,7 +30,7 @@ export function renderSwitch(props: SwitchElementProps = {}, children: Children 
   { const s = str(boolStr(checked)); if (s.trim() !== "") setAttr(el0, "data-state", s); }
   if (cls !== "") setAttr(el0, "class", cls);
   if (disabled) setAttr(el0, "disabled", "");
-  applyRest(el0, rest);
+  applyRest(el0, rest, { blank: ["id", "name", "aria-label", "aria-labelledby"] });
   append(el0, children);
   out.push(el0);
   return out[0]!;

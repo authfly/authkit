@@ -6,7 +6,7 @@ Authfly widgets on **UI8Kit 3** primitives. Read this before changing anything u
 
 - CLI-owned — never edit by hand, never edit `ui8kit.lock.json`: `ui/` (or `src/ui/`), the utils/runtime folder
   (`src/utils`, `utils/`, `runtime/`, `ui8kit_jinja/`), `ui8kit.config.json`, `ui8kit.lock.json`,
-  `.cursor/rules/ui8kit-primitives.mdc`. Change them only with `npx ui8kit@3 init/add --registry-version 3.2.2`.
+  `.cursor/rules/ui8kit-primitives.mdc`. Change them only with `npx ui8kit@3 init/add --registry-version 3.3.0`.
   `npx ui8kit@3 check` must pass before every commit.
 - Authfly-owned: skin (class recipes, tokens only), the middle layer (Card, Stack, Group, Form, Title, Alert, Badge,
   IconBadge, Field, LucideIcon), the six widgets (`AuthflySignIn`, `AuthflySignUp`, `AuthflyRequest`, `AuthflyNotice`,
@@ -24,8 +24,9 @@ Authfly widgets on **UI8Kit 3** primitives. Read this before changing anything u
 - HTML/ARIA gates: `bun run gates` (`tools/gates.sh`, vendored `tools/ui-gates` from codegen-x/ui8kit@9b70551e, see its VENDORED.md): source gate (no raw HTML where a primitive exists, Box/Text tag allowlist) + html-validate/axe-core over the 20 states × 9 runtimes. Must report 0 problems before a commit. Live-region roles (`status`/`alert`) go on the widget head Stack, never on the heading.
 - Primitive bugs: note them (README / report), do not patch CLI-owned files.
 
-## Known primitive notes (registry 3.2.2)
+## Known primitive notes (registry 3.3.0)
 
 - templ: `InputProps.Value` is `*string` (nil = no attribute, `&""` prints `value=""`).
-- twig/latte/jinja2: passthrough attributes are nullable: `null`/`None` omits the attribute, `''` prints it empty, so
-  pass `null` for an absent `aria-describedby` / `aria-invalid`.
+- Blank optional attributes (`''`/whitespace, `null`/`None`/nil) are omitted in every runtime, `href=""` included;
+  only `value` keeps `value=""` (Hidden csrf/token). Attrs/rest win over the primitive's attribute of the same name;
+  an unsafe winning URL drops the attribute.
