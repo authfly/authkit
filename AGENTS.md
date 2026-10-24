@@ -21,7 +21,7 @@ Authfly widgets on **UI8Kit 3** primitives. Read this before changing anything u
 - Props are identical in all runtimes (React types are the source of truth). templ keeps `any`-typed props.
 - Parity: render `packages/ui/react/tests/states.json` in your runtime and compare with the React output; 0 diffs.
 - Lint: `npx ui8px@latest lint` on rendered HTML; do not change `.ui8px/` policy.
-- HTML/ARIA gates: `bun run gates` (`tools/gates.sh`, vendored `tools/ui-gates` from codegen-x/ui8kit@313885e6, see its VENDORED.md): source gate (no raw HTML where a primitive exists, Box/Text tag allowlist) + html-validate/axe-core over the 20 states × 9 runtimes. Must report 0 problems before a commit. Live-region roles (`status`/`alert`) go on the widget head Stack, never on the heading.
+- HTML/ARIA gates: `bun run gates` (`tools/gates.sh`, vendored `tools/ui-gates` from codegen-x/ui8kit@9b70551e, see its VENDORED.md): source gate (no raw HTML where a primitive exists, Box/Text tag allowlist) + html-validate/axe-core over the 20 states × 9 runtimes. Must report 0 problems before a commit. Live-region roles (`status`/`alert`) go on the widget head Stack, never on the heading.
 - Primitive bugs: note them (README / report), do not patch CLI-owned files.
 
 ## Known primitive notes (registry 3.2.2)
