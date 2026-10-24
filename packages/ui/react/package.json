@@ -1,7 +1,6 @@
 {
   "name": "@authfly/react",
   "version": "0.4.0",
-  "private": true,
   "description": "Authfly widgets for React on UI8Kit 3 primitives",
   "repository": {
     "type": "git",
@@ -46,5 +45,8 @@
     "tailwindcss": "^4",
     "@tailwindcss/cli": "^4",
     "lucide": "^1.61.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

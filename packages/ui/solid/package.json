@@ -1,7 +1,6 @@
 {
   "name": "@authfly/solid",
   "version": "0.4.0",
-  "private": true,
   "type": "module",
   "dependencies": {
     "clsx": "^2.1.1",
@@ -43,5 +42,8 @@
     "vite": "^6",
     "vite-plugin-solid": "^2",
     "typescript": "^5"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

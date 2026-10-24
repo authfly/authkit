@@ -1,7 +1,6 @@
 {
   "name": "@authfly/svelte",
   "version": "0.4.0",
-  "private": true,
   "type": "module",
   "dependencies": {
     "clsx": "^2.1.1",
@@ -45,5 +44,8 @@
     "vite": "^6",
     "svelte-check": "^4",
     "typescript": "^5"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

@@ -1,7 +1,6 @@
 {
   "name": "@authfly/vue",
   "version": "0.4.0",
-  "private": true,
   "type": "module",
   "dependencies": {
     "clsx": "^2.1.1",
@@ -43,5 +42,8 @@
     "vue-tsc": "^2",
     "typescript": "^5",
     "happy-dom": "^15"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
