@@ -156,6 +156,6 @@ templ Messages(id, err, info string) {
 		@Alert("destructive", "circle-alert", id+"-error", "authfly-error", err)
 	}
 	if info != "" {
-		@Alert("success", "info", "", "authfly-info", info)
+		@Alert("default", "info", "", "authfly-info", info)
 	}
 }

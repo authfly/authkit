@@ -22,7 +22,7 @@ export function Messages(props: { id: string; error?: string; info?: string }) {
   return (
     <>
       <Show when={props.error}><Alert id={`${props.id}-error`} tone="destructive" icon="circle-alert" data-testid="authfly-error">{props.error}</Alert></Show>
-      <Show when={props.info}><Alert tone="success" icon="info" data-testid="authfly-info">{props.info}</Alert></Show>
+      <Show when={props.info}><Alert tone="default" icon="info" data-testid="authfly-info">{props.info}</Alert></Show>
     </>
   );
 }

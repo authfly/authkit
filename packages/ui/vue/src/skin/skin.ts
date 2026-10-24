@@ -48,11 +48,19 @@ export function badgeSkin(variant: BadgeVariant = "default", className?: string)
   );
 }
 
-export type Tone = "default" | "success" | "destructive";
+export type Tone = "default" | "success" | "warning" | "destructive";
+// Alert is a block, not a control: 8px layout step, py-2 px-4 (one text-xs line + py-2 = the old min-h-8, so a
+// one-line alert keeps its 32px height). Tones only recolour text + ring on the shared bg-muted surface.
+const alertTone: Record<Tone, string> = {
+  default: "text-foreground inset-ring-border",
+  success: "text-success inset-ring-success",
+  warning: "text-warning inset-ring-warning",
+  destructive: "text-destructive inset-ring-destructive",
+};
 export function alertSkin(tone: Tone = "default", className?: string): string {
   return cn(
-    "flex min-h-8 items-center gap-2 rounded bg-muted px-2 text-xs font-semibold inset-ring",
-    tone === "destructive" ? "text-destructive inset-ring-destructive" : "text-foreground inset-ring-border",
+    "flex min-h-8 items-start gap-2 rounded bg-muted px-4 py-2 text-xs font-semibold inset-ring",
+    alertTone[tone] ?? alertTone.default,
     className,
   );
 }
@@ -65,8 +73,15 @@ export function iconBadgeSkin(tone: "default" | "destructive" = "default", class
   );
 }
 
+// Card surface only (no width, no centring): consumers place it in their own layout.
 export function cardSkin(className?: string): string {
-  return cn("mx-auto flex w-full max-w-sm flex-col gap-6 rounded bg-card p-6 text-card-foreground inset-ring inset-ring-border", className);
+  return cn("flex w-full flex-col gap-6 rounded bg-card p-6 text-card-foreground inset-ring inset-ring-border", className);
+}
+
+// Width + centring of the six Authfly widgets (sign-in, sign-up, request, notice, consent, account): passed to Card
+// as its class, so the widget HTML keeps `mx-auto max-w-sm` (account: max-w-lg).
+export function widgetCardSkin(className?: string): string {
+  return cn("mx-auto max-w-sm", className);
 }
 
 export const textSkin = {

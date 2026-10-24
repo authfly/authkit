@@ -8,7 +8,7 @@ import { Text } from "../ui/text/text";
 import { Button } from "../ui/button/button";
 import { Link } from "../ui/link/link";
 import { Input } from "../ui/input/input";
-import { buttonSkin, linkSkin, inputSkin, textSkin } from "../skin/skin";
+import { buttonSkin, linkSkin, inputSkin, textSkin, widgetCardSkin } from "../skin/skin";
 import { WidgetHead, Messages, Hidden, landmark, errorIdOf } from "./_parts";
 import type { SignInLabels } from "./authfly-sign-in.types";
 import type { Feature } from "./feature-grid.types";
@@ -31,7 +31,7 @@ export type AuthflySignInProps = {
 export function AuthflySignIn({ id, title, text, action, csrf = "", error = "", labels, providers, method = "password", identifier = "any", social = "none", landmarkLabel }: AuthflySignInProps) {
   const email = identifier === "email";
   return (
-    <Card data-testid="authfly-sign-in" {...landmark(id, landmarkLabel)}>
+    <Card className={widgetCardSkin()} data-testid="authfly-sign-in" {...landmark(id, landmarkLabel)}>
       <WidgetHead id={id} title={title} text={text} />
       <Messages id={id} error={error} />
       {social === "show" ? (

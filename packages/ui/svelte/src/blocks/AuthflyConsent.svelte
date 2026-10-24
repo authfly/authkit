@@ -12,13 +12,13 @@
   import Input from "../ui/input/Input.svelte";
   import WidgetHead from "./WidgetHead.svelte";
   import Messages from "./Messages.svelte";
-  import { buttonSkin, linkSkin, inputSkin, checkboxSkin, labelSkin, textSkin } from "../skin/skin";
+  import { buttonSkin, linkSkin, inputSkin, checkboxSkin, labelSkin, textSkin, widgetCardSkin } from "../skin/skin";
   import type { AuthflyConsentProps } from "./props";
   let { id, title, text, action, csrf = "", error = "", info = "", client, account, scopes, labels, landmarkLabel }: AuthflyConsentProps = $props();
   const lm = $derived({ "aria-labelledby": landmarkLabel ? undefined : `${id}-title`, "aria-label": landmarkLabel });
 </script>
 
-<Card data-testid="authfly-consent" data-client={client} {...lm}>
+<Card class={widgetCardSkin()} data-testid="authfly-consent" data-client={client} {...lm}>
   <WidgetHead {id} {title} {text} />
   <Messages {id} {error} {info} />
   <Text class="text-sm text-foreground" data-testid="account">{labels.account} <Text tag="strong" class="font-semibold">{account}</Text></Text>

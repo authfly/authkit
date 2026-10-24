@@ -43,7 +43,7 @@ templ AuthflySignIn(p AuthflySignInProps) {
 	{{ id, labels, errs := Str(p.Id), p.Labels, Str(p.Error) }}
 	{{ email := Str(p.Identifier) == "email" }}
 	{{ formErr := errorID(id, errs) }}
-	@Card("", landmark(id, Str(p.LandmarkLabel), "data-testid", "authfly-sign-in")) {
+	@Card(WidgetCardSkin(), landmark(id, Str(p.LandmarkLabel), "data-testid", "authfly-sign-in")) {
 		@WidgetHead(id, Str(p.Title), Str(p.Text), "", "")
 		@Messages(id, errs, "")
 		if Str(p.Social) == "show" {
@@ -84,7 +84,7 @@ templ AuthflySignUp(p AuthflySignUpProps) {
 	{{ id, labels, errs := Str(p.Id), p.Labels, Str(p.Error) }}
 	{{ formErr := errorID(id, errs) }}
 	{{ domain := Lab(labels, "domain") }}
-	@Card("", landmark(id, Str(p.LandmarkLabel), "data-testid", "authfly-sign-up")) {
+	@Card(WidgetCardSkin(), landmark(id, Str(p.LandmarkLabel), "data-testid", "authfly-sign-up")) {
 		@WidgetHead(id, Str(p.Title), Str(p.Text), "", "")
 		@Messages(id, errs, Str(p.Info))
 		@Form(Str(p.Action), "", A("data-testid", "authfly-form")) {
@@ -129,7 +129,7 @@ templ AuthflyRequest(p AuthflyRequestProps) {
 	{{ id, labels, errs := Str(p.Id), p.Labels, Str(p.Error) }}
 	{{ formErr := errorID(id, errs) }}
 	{{ kind := or(Str(p.Kind), "email") }}
-	@Card("", landmark(id, Str(p.LandmarkLabel), "data-testid", "authfly-request")) {
+	@Card(WidgetCardSkin(), landmark(id, Str(p.LandmarkLabel), "data-testid", "authfly-request")) {
 		@WidgetHead(id, Str(p.Title), Str(p.Text), "", "")
 		@Messages(id, errs, Str(p.Info))
 		@Form(Str(p.Action), "", A("data-testid", "authfly-form")) {
@@ -165,7 +165,7 @@ templ AuthflyNotice(p AuthflyNoticeProps) {
 	{{ id, labels := Str(p.Id), p.Labels }}
 	{{ tone := or(Str(p.Tone), "default") }}
 	{{ isError := tone == "error" }}
-	@Card("items-center text-center", landmark(id, Str(p.LandmarkLabel), "data-testid", "authfly-notice", "data-tone", tone)) {
+	@Card(WidgetCardSkin("items-center text-center"), landmark(id, Str(p.LandmarkLabel), "data-testid", "authfly-notice", "data-tone", tone)) {
 		@IconBadge(or(Str(p.Icon), "mail-check"), when(isError, "destructive"))
 		@WidgetHead(id, Str(p.Title), Str(p.Text), "center", map[bool]string{true: "alert", false: "status"}[isError]) {
 			if Str(p.Detail) != "" {
@@ -200,7 +200,7 @@ templ decision(action, csrf, value, variant, label, testid string) {
 
 templ AuthflyConsent(p AuthflyConsentProps) {
 	{{ id, labels := Str(p.Id), p.Labels }}
-	@Card("", landmark(id, Str(p.LandmarkLabel), "data-testid", "authfly-consent", "data-client", Str(p.Client))) {
+	@Card(WidgetCardSkin(), landmark(id, Str(p.LandmarkLabel), "data-testid", "authfly-consent", "data-client", Str(p.Client))) {
 		@WidgetHead(id, Str(p.Title), Str(p.Text), "", "")
 		@Messages(id, Str(p.Error), Str(p.Info))
 		@text.Text(text.TextProps{Class: "text-sm text-foreground", Attrs: A("data-testid", "account")}) {
@@ -230,7 +230,7 @@ templ AuthflyConsent(p AuthflyConsentProps) {
 templ AuthflyAccount(p AuthflyAccountProps) {
 	{{ id, labels := Str(p.Id), p.Labels }}
 	{{ verified := Bool(p.Verified) }}
-	@Card("max-w-lg", landmark(id, Str(p.LandmarkLabel), "data-testid", "authfly-account")) {
+	@Card(WidgetCardSkin("max-w-lg"), landmark(id, Str(p.LandmarkLabel), "data-testid", "authfly-account")) {
 		@WidgetHead(id, Str(p.Title), Str(p.Text), "", "")
 		@box.Box(box.BoxProps{Tag: "dl", Class: "m-0 grid gap-4", Attrs: A("data-testid", "profile")}) {
 			@box.Box(box.BoxProps{Class: "grid gap-2"}) {

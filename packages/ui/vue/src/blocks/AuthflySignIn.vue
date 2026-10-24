@@ -11,14 +11,14 @@ import Link from "../ui/link/Link.vue";
 import Input from "../ui/input/Input.vue";
 import WidgetHead from "./WidgetHead.vue";
 import Messages from "./Messages.vue";
-import { buttonSkin, linkSkin, inputSkin, checkboxSkin, labelSkin, textSkin } from "../skin/skin";
+import { buttonSkin, linkSkin, inputSkin, checkboxSkin, labelSkin, textSkin, widgetCardSkin } from "../skin/skin";
 import type { AuthflySignInProps } from "./props";
 const p = withDefaults(defineProps<AuthflySignInProps>(), { csrf: "", error: "", method: "password", identifier: "any", social: "none" });
 const lm = { "aria-labelledby": p.landmarkLabel ? undefined : `${p.id}-title`, "aria-label": p.landmarkLabel };
 const errorId = p.error ? `${p.id}-error` : undefined;
 </script>
 <template>
-  <Card data-testid="authfly-sign-in" v-bind="lm">
+  <Card :class="widgetCardSkin()" data-testid="authfly-sign-in" v-bind="lm">
     <WidgetHead :id="p.id" :title="p.title" :text="p.text" />
     <Messages :id="p.id" :error="p.error" />
     <Stack v-if="p.social === 'show'" gap="2" role="group" :aria-label="p.labels.providers" data-testid="authfly-providers">

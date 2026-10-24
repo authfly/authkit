@@ -15,4 +15,4 @@
 {%- endif -%}
 {%- if l.secondary or '' %}{{ af.link(l.secondaryHref or '', af_skin('link', 'text-sm'), 'secondary', l.secondary) }}{% endif -%}
 {%- endset -%}
-{{ af.card('items-center text-center', {'data-testid': 'authfly-notice', 'data-tone': tone, 'aria-labelledby': none if p.landmarkLabel else id ~ '-title', 'aria-label': p.landmarkLabel or none}, body) }}
+{{ af.card(af_skin('widgetCard', 'items-center text-center'), {'data-testid': 'authfly-notice', 'data-tone': tone, 'aria-labelledby': none if p.landmarkLabel else id ~ '-title', 'aria-label': p.landmarkLabel or none}, body) }}

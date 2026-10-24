@@ -8,13 +8,13 @@ import Button from "../ui/button/Button.vue";
 import Link from "../ui/link/Link.vue";
 import Input from "../ui/input/Input.vue";
 import WidgetHead from "./WidgetHead.vue";
-import { buttonSkin, linkSkin, inputSkin, checkboxSkin, labelSkin, textSkin } from "../skin/skin";
+import { buttonSkin, linkSkin, inputSkin, checkboxSkin, labelSkin, textSkin, widgetCardSkin } from "../skin/skin";
 import type { AuthflyNoticeProps } from "./props";
 const p = withDefaults(defineProps<AuthflyNoticeProps>(), { detail: "", icon: "mail-check", actionUrl: "", csrf: "", tone: "default", action: "link" });
 const lm = { "aria-labelledby": p.landmarkLabel ? undefined : `${p.id}-title`, "aria-label": p.landmarkLabel };
 </script>
 <template>
-  <Card class="items-center text-center" data-testid="authfly-notice" :data-tone="p.tone" v-bind="lm">
+  <Card :class="widgetCardSkin('items-center text-center')" data-testid="authfly-notice" :data-tone="p.tone" v-bind="lm">
     <IconBadge :icon="p.icon" :tone="p.tone === 'error' ? 'destructive' : 'default'" />
     <WidgetHead :id="p.id" :title="p.title" :text="p.text" align="center" :role="p.tone === 'error' ? 'alert' : 'status'">
       <Text v-if="p.detail" class="text-sm font-semibold text-foreground" data-testid="detail">{{ p.detail }}</Text>

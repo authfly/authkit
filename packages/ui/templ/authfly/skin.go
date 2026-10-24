@@ -55,13 +55,22 @@ func BadgeSkin(variant string, class ...string) string {
 	}, class...)...)
 }
 
-// AlertSkin: tone default | success | destructive.
+// alertTone: Alert tones recolour text + ring on the shared bg-muted surface (unknown tone = default).
+var alertTone = map[string]string{
+	"default":     "text-foreground inset-ring-border",
+	"success":     "text-success inset-ring-success",
+	"warning":     "text-warning inset-ring-warning",
+	"destructive": "text-destructive inset-ring-destructive",
+}
+
+// AlertSkin: tone default | success | warning | destructive. Alert is a block, not a control: 8px layout step,
+// py-2 px-4 (one text-xs line + py-2 = the old min-h-8, so a one-line alert keeps its 32px height).
 func AlertSkin(tone string, class ...string) string {
-	t := "text-foreground inset-ring-border"
-	if tone == "destructive" {
-		t = "text-destructive inset-ring-destructive"
+	t, ok := alertTone[tone]
+	if !ok {
+		t = alertTone["default"]
 	}
-	return cn(append([]string{"flex min-h-8 items-center gap-2 rounded bg-muted px-2 text-xs font-semibold inset-ring", t}, class...)...)
+	return cn(append([]string{"flex min-h-8 items-start gap-2 rounded bg-muted px-4 py-2 text-xs font-semibold inset-ring", t}, class...)...)
 }
 
 func IconBadgeSkin(tone string, class ...string) string {
@@ -72,8 +81,15 @@ func IconBadgeSkin(tone string, class ...string) string {
 	return cn(append([]string{"inline-flex size-12 shrink-0 items-center justify-center rounded inset-ring", t}, class...)...)
 }
 
+// CardSkin: the card surface only (no width, no centring): consumers place it in their own layout.
 func CardSkin(class ...string) string {
-	return cn(append([]string{"mx-auto flex w-full max-w-sm flex-col gap-6 rounded bg-card p-6 text-card-foreground inset-ring inset-ring-border"}, class...)...)
+	return cn(append([]string{"flex w-full flex-col gap-6 rounded bg-card p-6 text-card-foreground inset-ring inset-ring-border"}, class...)...)
+}
+
+// WidgetCardSkin: width + centring of the six Authfly widgets, passed to Card as its class (widget HTML keeps
+// mx-auto max-w-sm; account: max-w-lg).
+func WidgetCardSkin(class ...string) string {
+	return cn(append([]string{"mx-auto max-w-sm"}, class...)...)
 }
 
 const (

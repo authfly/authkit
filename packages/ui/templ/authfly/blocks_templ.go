@@ -418,7 +418,7 @@ func AuthflySignIn(p AuthflySignInProps) templ.Component {
 			}
 			return nil
 		})
-		templ_7745c5c3_Err = Card("", landmark(id, Str(p.LandmarkLabel), "data-testid", "authfly-sign-in")).Render(templ.WithChildren(ctx, templ_7745c5c3_Var15), templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = Card(WidgetCardSkin(), landmark(id, Str(p.LandmarkLabel), "data-testid", "authfly-sign-in")).Render(templ.WithChildren(ctx, templ_7745c5c3_Var15), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -577,7 +577,7 @@ func AuthflySignUp(p AuthflySignUpProps) templ.Component {
 			}
 			return nil
 		})
-		templ_7745c5c3_Err = Card("", landmark(id, Str(p.LandmarkLabel), "data-testid", "authfly-sign-up")).Render(templ.WithChildren(ctx, templ_7745c5c3_Var21), templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = Card(WidgetCardSkin(), landmark(id, Str(p.LandmarkLabel), "data-testid", "authfly-sign-up")).Render(templ.WithChildren(ctx, templ_7745c5c3_Var21), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -785,7 +785,7 @@ func AuthflyRequest(p AuthflyRequestProps) templ.Component {
 			}
 			return nil
 		})
-		templ_7745c5c3_Err = Card("", landmark(id, Str(p.LandmarkLabel), "data-testid", "authfly-request")).Render(templ.WithChildren(ctx, templ_7745c5c3_Var31), templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = Card(WidgetCardSkin(), landmark(id, Str(p.LandmarkLabel), "data-testid", "authfly-request")).Render(templ.WithChildren(ctx, templ_7745c5c3_Var31), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -925,7 +925,7 @@ func AuthflyNotice(p AuthflyNoticeProps) templ.Component {
 			}
 			return nil
 		})
-		templ_7745c5c3_Err = Card("items-center text-center", landmark(id, Str(p.LandmarkLabel), "data-testid", "authfly-notice", "data-tone", tone)).Render(templ.WithChildren(ctx, templ_7745c5c3_Var34), templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = Card(WidgetCardSkin("items-center text-center"), landmark(id, Str(p.LandmarkLabel), "data-testid", "authfly-notice", "data-tone", tone)).Render(templ.WithChildren(ctx, templ_7745c5c3_Var34), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -1221,7 +1221,7 @@ func AuthflyConsent(p AuthflyConsentProps) templ.Component {
 			}
 			return nil
 		})
-		templ_7745c5c3_Err = Card("", landmark(id, Str(p.LandmarkLabel), "data-testid", "authfly-consent", "data-client", Str(p.Client))).Render(templ.WithChildren(ctx, templ_7745c5c3_Var44), templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = Card(WidgetCardSkin(), landmark(id, Str(p.LandmarkLabel), "data-testid", "authfly-consent", "data-client", Str(p.Client))).Render(templ.WithChildren(ctx, templ_7745c5c3_Var44), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -1596,7 +1596,7 @@ func AuthflyAccount(p AuthflyAccountProps) templ.Component {
 			}
 			return nil
 		})
-		templ_7745c5c3_Err = Card("max-w-lg", landmark(id, Str(p.LandmarkLabel), "data-testid", "authfly-account")).Render(templ.WithChildren(ctx, templ_7745c5c3_Var56), templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = Card(WidgetCardSkin("max-w-lg"), landmark(id, Str(p.LandmarkLabel), "data-testid", "authfly-account")).Render(templ.WithChildren(ctx, templ_7745c5c3_Var56), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

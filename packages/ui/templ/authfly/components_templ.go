@@ -824,7 +824,7 @@ func Messages(id, err, info string) templ.Component {
 			}
 		}
 		if info != "" {
-			templ_7745c5c3_Err = Alert("success", "info", "", "authfly-info", info).Render(ctx, templ_7745c5c3_Buffer)
+			templ_7745c5c3_Err = Alert("default", "info", "", "authfly-info", info).Render(ctx, templ_7745c5c3_Buffer)
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}

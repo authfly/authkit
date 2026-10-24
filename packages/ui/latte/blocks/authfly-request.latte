@@ -24,4 +24,4 @@
 {include form, $p['action'] ?? '', '', ['data-testid' => 'authfly-form'], $form}
 {if $l['back'] ?? ''}{include link, $l['backHref'] ?? '', afSkin('link', 'w-fit text-sm'), 'back', $l['back']}{/if}
 {/capture}
-{include card, '', ['data-testid' => 'authfly-request'] + $lm, $body}
+{include card, afSkin('widgetCard'), ['data-testid' => 'authfly-request'] + $lm, $body}

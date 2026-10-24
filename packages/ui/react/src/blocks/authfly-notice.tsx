@@ -5,7 +5,7 @@ import { IconBadge } from "../components/badge";
 import { Text } from "../ui/text/text";
 import { Button } from "../ui/button/button";
 import { Link } from "../ui/link/link";
-import { buttonSkin, linkSkin } from "../skin/skin";
+import { buttonSkin, linkSkin, widgetCardSkin } from "../skin/skin";
 import { WidgetHead, Hidden, landmark } from "./_parts";
 import type { NoticeLabels } from "./authfly-notice.types";
 
@@ -26,7 +26,7 @@ export type AuthflyNoticeProps = {
 export function AuthflyNotice({ id, title, text, detail = "", icon = "mail-check", labels, actionUrl = "", csrf = "", tone = "default", action = "link", landmarkLabel }: AuthflyNoticeProps) {
   const isError = tone === "error";
   return (
-    <Card className="items-center text-center" data-testid="authfly-notice" data-tone={tone} {...landmark(id, landmarkLabel)}>
+    <Card className={widgetCardSkin("items-center text-center")} data-testid="authfly-notice" data-tone={tone} {...landmark(id, landmarkLabel)}>
       <IconBadge icon={icon} tone={isError ? "destructive" : "default"} />
       <WidgetHead id={id} title={title} text={text} align="center" role={isError ? "alert" : "status"}>
         {detail ? <Text className="text-sm font-semibold text-foreground" data-testid="detail">{detail}</Text> : null}

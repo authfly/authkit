@@ -8,7 +8,7 @@ import { Text } from "../ui/text/text.solid";
 import { Button } from "../ui/button/button.solid";
 import { Link } from "../ui/link/link.solid";
 import { Input } from "../ui/input/input.solid";
-import { buttonSkin, linkSkin, inputSkin, textSkin } from "../skin/skin";
+import { buttonSkin, linkSkin, inputSkin, textSkin, widgetCardSkin } from "../skin/skin";
 import { WidgetHead, Messages, Hidden, landmark, errorIdOf } from "./_parts";
 import type { AuthflySignInProps } from "./props";
 export type { AuthflySignInProps };
@@ -16,7 +16,7 @@ export type { AuthflySignInProps };
 export function AuthflySignIn(props: AuthflySignInProps) {
   const p = mergeProps({ csrf: "", error: "", method: "password" as const, identifier: "any" as const, social: "none" as const }, props);
   return (
-    <Card data-testid="authfly-sign-in" {...landmark(p.id, p.landmarkLabel)}>
+    <Card class={widgetCardSkin()} data-testid="authfly-sign-in" {...landmark(p.id, p.landmarkLabel)}>
       <WidgetHead id={p.id} title={p.title} text={p.text} />
       <Messages id={p.id} error={p.error} />
       <Show when={p.social === "show"}>

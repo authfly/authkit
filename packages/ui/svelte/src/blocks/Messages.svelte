@@ -4,4 +4,4 @@
 </script>
 
 {#if error}<Alert id={`${id}-error`} tone="destructive" icon="circle-alert" data-testid="authfly-error">{error}</Alert>{/if}
-{#if info}<Alert tone="success" icon="info" data-testid="authfly-info">{info}</Alert>{/if}
+{#if info}<Alert tone="default" icon="info" data-testid="authfly-info">{info}</Alert>{/if}

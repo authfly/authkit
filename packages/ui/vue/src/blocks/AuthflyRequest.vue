@@ -8,14 +8,14 @@ import Link from "../ui/link/Link.vue";
 import Input from "../ui/input/Input.vue";
 import WidgetHead from "./WidgetHead.vue";
 import Messages from "./Messages.vue";
-import { buttonSkin, linkSkin, inputSkin, checkboxSkin, labelSkin, textSkin } from "../skin/skin";
+import { buttonSkin, linkSkin, inputSkin, checkboxSkin, labelSkin, textSkin, widgetCardSkin } from "../skin/skin";
 import type { AuthflyRequestProps } from "./props";
 const p = withDefaults(defineProps<AuthflyRequestProps>(), { csrf: "", error: "", info: "", token: "", kind: "email" });
 const lm = { "aria-labelledby": p.landmarkLabel ? undefined : `${p.id}-title`, "aria-label": p.landmarkLabel };
 const errorId = p.error ? `${p.id}-error` : undefined;
 </script>
 <template>
-  <Card data-testid="authfly-request" v-bind="lm">
+  <Card :class="widgetCardSkin()" data-testid="authfly-request" v-bind="lm">
     <WidgetHead :id="p.id" :title="p.title" :text="p.text" />
     <Messages :id="p.id" :error="p.error" :info="p.info" />
     <Form method="post" :action="p.action" :error-id="errorId" data-testid="authfly-form">

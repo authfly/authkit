@@ -79,7 +79,7 @@
 
 {define messages, string $id, $error, $info}
 {if $error}{include alert, 'destructive', 'circle-alert', $id . '-error', 'authfly-error', $error}{/if}
-{if $info}{include alert, 'success', 'info', '', 'authfly-info', $info}{/if}
+{if $info}{include alert, 'default', 'info', '', 'authfly-info', $info}{/if}
 {/define}
 
 {define link, $href, string $class, string $testid, $label}

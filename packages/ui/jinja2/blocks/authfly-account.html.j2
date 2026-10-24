@@ -23,4 +23,4 @@
 {{- af.stack('2', '', '', '', {}, methods) }}
 {{- af.form(p.signoutUrl or '', '', {'data-testid': 'signout-form'}, signout) }}
 {%- endset -%}
-{{ af.card('max-w-lg', {'data-testid': 'authfly-account', 'aria-labelledby': none if p.landmarkLabel else id ~ '-title', 'aria-label': p.landmarkLabel or none}, body) }}
+{{ af.card(af_skin('widgetCard', 'max-w-lg'), {'data-testid': 'authfly-account', 'aria-labelledby': none if p.landmarkLabel else id ~ '-title', 'aria-label': p.landmarkLabel or none}, body) }}

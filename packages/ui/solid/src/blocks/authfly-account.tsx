@@ -9,7 +9,7 @@ import { Box } from "../ui/box/box.solid";
 import { Text } from "../ui/text/text.solid";
 import { Button } from "../ui/button/button.solid";
 import { Separator } from "../ui/separator/separator.solid";
-import { buttonSkin, textSkin } from "../skin/skin";
+import { buttonSkin, textSkin, widgetCardSkin } from "../skin/skin";
 import { WidgetHead, Hidden, landmark } from "./_parts";
 import type { AuthflyAccountProps } from "./props";
 export type { AuthflyAccountProps };
@@ -17,7 +17,7 @@ export type { AuthflyAccountProps };
 export function AuthflyAccount(props: AuthflyAccountProps) {
   const p = mergeProps({ verified: false, csrf: "" }, props);
   return (
-    <Card class="max-w-lg" data-testid="authfly-account" {...landmark(p.id, p.landmarkLabel)}>
+    <Card class={widgetCardSkin("max-w-lg")} data-testid="authfly-account" {...landmark(p.id, p.landmarkLabel)}>
       <WidgetHead id={p.id} title={p.title} text={p.text} />
       <Box tag="dl" class="m-0 grid gap-4" data-testid="profile">
         <Box class="grid gap-2">

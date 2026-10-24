@@ -23,4 +23,4 @@
 {include form, $p['action'] ?? '', '', ['data-testid' => 'authfly-form'], $form}
 {if $l['signinLink'] ?? ''}{capture $foot}{$l['signinText'] ?? ''} {include link, $l['signinHref'] ?? '', afSkin('link'), 'signin-link', $l['signinLink']}{/capture}{include text, '', afText('muted'), [], $foot}{/if}
 {/capture}
-{include card, '', ['data-testid' => 'authfly-sign-up'] + $lm, $body}
+{include card, afSkin('widgetCard'), ['data-testid' => 'authfly-sign-up'] + $lm, $body}

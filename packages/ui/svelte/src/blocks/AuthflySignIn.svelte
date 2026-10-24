@@ -11,13 +11,13 @@
   import Input from "../ui/input/Input.svelte";
   import WidgetHead from "./WidgetHead.svelte";
   import Messages from "./Messages.svelte";
-  import { buttonSkin, linkSkin, inputSkin, checkboxSkin, labelSkin, textSkin } from "../skin/skin";
+  import { buttonSkin, linkSkin, inputSkin, checkboxSkin, labelSkin, textSkin, widgetCardSkin } from "../skin/skin";
   import type { AuthflySignInProps } from "./props";
   let { id, title, text, action, csrf = "", error = "", labels, providers, method = "password", identifier = "any", social = "none", landmarkLabel }: AuthflySignInProps = $props();
   const lm = $derived({ "aria-labelledby": landmarkLabel ? undefined : `${id}-title`, "aria-label": landmarkLabel });
 </script>
 
-<Card data-testid="authfly-sign-in" {...lm}>
+<Card class={widgetCardSkin()} data-testid="authfly-sign-in" {...lm}>
   <WidgetHead {id} {title} {text} />
   <Messages {id} {error} />
   {#if social === "show"}

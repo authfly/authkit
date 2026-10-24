@@ -9,7 +9,7 @@ import { Link } from "../ui/link/link.solid";
 import { Input } from "../ui/input/input.solid";
 import { Label } from "../ui/label/label.solid";
 import { Checkbox } from "../ui/checkbox/checkbox.solid";
-import { buttonSkin, linkSkin, inputSkin, checkboxSkin, labelSkin, textSkin } from "../skin/skin";
+import { buttonSkin, linkSkin, inputSkin, checkboxSkin, labelSkin, textSkin, widgetCardSkin } from "../skin/skin";
 import { WidgetHead, Messages, Hidden, landmark, errorIdOf } from "./_parts";
 import type { AuthflySignUpProps } from "./props";
 export type { AuthflySignUpProps };
@@ -17,7 +17,7 @@ export type { AuthflySignUpProps };
 export function AuthflySignUp(props: AuthflySignUpProps) {
   const p = mergeProps({ csrf: "", error: "", info: "", terms: "show" as const }, props);
   return (
-    <Card data-testid="authfly-sign-up" {...landmark(p.id, p.landmarkLabel)}>
+    <Card class={widgetCardSkin()} data-testid="authfly-sign-up" {...landmark(p.id, p.landmarkLabel)}>
       <WidgetHead id={p.id} title={p.title} text={p.text} />
       <Messages id={p.id} error={p.error} info={p.info} />
       <Form method="post" action={p.action} errorId={errorIdOf(p.id, p.error)} data-testid="authfly-form">

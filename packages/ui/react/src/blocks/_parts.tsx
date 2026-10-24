@@ -23,7 +23,7 @@ export function Messages({ id, error, info }: { id: string; error?: string; info
   return (
     <>
       {error ? <Alert id={`${id}-error`} tone="destructive" icon="circle-alert" data-testid="authfly-error">{error}</Alert> : null}
-      {info ? <Alert tone="success" icon="info" data-testid="authfly-info">{info}</Alert> : null}
+      {info ? <Alert tone="default" icon="info" data-testid="authfly-info">{info}</Alert> : null}
     </>
   );
 }

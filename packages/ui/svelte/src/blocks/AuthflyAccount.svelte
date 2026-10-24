@@ -12,13 +12,13 @@
   import Input from "../ui/input/Input.svelte";
   import Separator from "../ui/separator/Separator.svelte";
   import WidgetHead from "./WidgetHead.svelte";
-  import { buttonSkin, linkSkin, inputSkin, checkboxSkin, labelSkin, textSkin } from "../skin/skin";
+  import { buttonSkin, linkSkin, inputSkin, checkboxSkin, labelSkin, textSkin, widgetCardSkin } from "../skin/skin";
   import type { AuthflyAccountProps } from "./props";
   let { id, title, text, name, email, verified = false, methods, labels, signoutUrl, csrf = "", landmarkLabel }: AuthflyAccountProps = $props();
   const lm = $derived({ "aria-labelledby": landmarkLabel ? undefined : `${id}-title`, "aria-label": landmarkLabel });
 </script>
 
-<Card class="max-w-lg" data-testid="authfly-account" {...lm}>
+<Card class={widgetCardSkin("max-w-lg")} data-testid="authfly-account" {...lm}>
   <WidgetHead {id} {title} {text} />
   <Box tag="dl" class="m-0 grid gap-4" data-testid="profile">
     <Box class="grid gap-2">

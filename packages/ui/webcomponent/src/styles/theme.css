@@ -5,6 +5,9 @@
    ("Default Theme CSS", base color neutral). Dark mode: the .dark class or data-theme="dark" on an ancestor. */
 @custom-variant dark (&:is(.dark *, [data-theme="dark"] *));
 
+/* Authfly additions to the shadcn set: --success / --warning (Alert tones; text + inset ring on bg-muted), the
+   Tailwind green-700 / amber-700 (light) and green-400 / amber-400 (dark) values, >= 4.5:1 on --muted. */
+
 /* The one corner token. Plain `rounded` reads the bare --radius theme key, so every corner of the kit follows it
    (shadcn keeps --radius in :root; here it sits in @theme so that `rounded` resolves to it; same value, 0.625rem). */
 @theme {
@@ -27,6 +30,8 @@
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
   --color-destructive: var(--destructive);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
@@ -68,6 +73,8 @@
   --accent: hsl(0 0% 96%);
   --accent-foreground: hsl(0 0% 9%);
   --destructive: hsl(0.6 88.4% 52.5%);
+  --success: hsl(142.4 71.8% 29.2%);
+  --warning: hsl(26 90.5% 37.1%);
   --border: hsl(0 0% 90%);
   --input: hsl(0 0% 90%);
   --ring: hsl(0 0% 63%);
@@ -102,6 +109,8 @@
   --accent: hsl(0 0% 15%);
   --accent-foreground: hsl(0 0% 98%);
   --destructive: hsl(356.1 62.4% 52%);
+  --success: hsl(141.9 69.2% 58%);
+  --warning: hsl(43.3 96.4% 56.3%);
   --border: hsl(0 0% 100% / 10%);
   --input: hsl(0 0% 100% / 15%);
   --ring: hsl(0 0% 45%);

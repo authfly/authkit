@@ -8,7 +8,7 @@ import { Link } from "../ui/link/link";
 import { Input } from "../ui/input/input";
 import { Label } from "../ui/label/label";
 import { Checkbox } from "../ui/checkbox/checkbox";
-import { buttonSkin, linkSkin, inputSkin, checkboxSkin, labelSkin, textSkin } from "../skin/skin";
+import { buttonSkin, linkSkin, inputSkin, checkboxSkin, labelSkin, textSkin, widgetCardSkin } from "../skin/skin";
 import { WidgetHead, Messages, Hidden, landmark, errorIdOf } from "./_parts";
 import type { SignUpLabels } from "./authfly-sign-up.types";
 
@@ -27,7 +27,7 @@ export type AuthflySignUpProps = {
 
 export function AuthflySignUp({ id, title, text, action, csrf = "", error = "", info = "", labels, terms = "show", landmarkLabel }: AuthflySignUpProps) {
   return (
-    <Card data-testid="authfly-sign-up" {...landmark(id, landmarkLabel)}>
+    <Card className={widgetCardSkin()} data-testid="authfly-sign-up" {...landmark(id, landmarkLabel)}>
       <WidgetHead id={id} title={title} text={text} />
       <Messages id={id} error={error} info={info} />
       <Form method="post" action={action} errorId={errorIdOf(id, error)} data-testid="authfly-form">

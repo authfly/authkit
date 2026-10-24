@@ -12,13 +12,13 @@ import Button from "../ui/button/Button.vue";
 import Input from "../ui/input/Input.vue";
 import Separator from "../ui/separator/Separator.vue";
 import WidgetHead from "./WidgetHead.vue";
-import { buttonSkin, linkSkin, inputSkin, checkboxSkin, labelSkin, textSkin } from "../skin/skin";
+import { buttonSkin, linkSkin, inputSkin, checkboxSkin, labelSkin, textSkin, widgetCardSkin } from "../skin/skin";
 import type { AuthflyAccountProps } from "./props";
 const p = withDefaults(defineProps<AuthflyAccountProps>(), { verified: false, csrf: "" });
 const lm = { "aria-labelledby": p.landmarkLabel ? undefined : `${p.id}-title`, "aria-label": p.landmarkLabel };
 </script>
 <template>
-  <Card class="max-w-lg" data-testid="authfly-account" v-bind="lm">
+  <Card :class="widgetCardSkin('max-w-lg')" data-testid="authfly-account" v-bind="lm">
     <WidgetHead :id="p.id" :title="p.title" :text="p.text" />
     <Box tag="dl" class="m-0 grid gap-4" data-testid="profile">
       <Box class="grid gap-2">

@@ -8,7 +8,7 @@ import { renderLabel as label } from "../ui/label/label.wc";
 import { renderCheckbox as checkbox } from "../ui/checkbox/checkbox.wc";
 import { renderSeparator as separator } from "../ui/separator/separator.wc";
 import { alert, badge, card, field, form, group, iconBadge, lucideIcon, stack, title } from "../components";
-import { buttonSkin, checkboxSkin, inputSkin, labelSkin, linkSkin, textSkin } from "../skin/skin";
+import { buttonSkin, checkboxSkin, inputSkin, labelSkin, linkSkin, textSkin, widgetCardSkin } from "../skin/skin";
 import type { AuthflyAccountProps, AuthflyConsentProps, AuthflyNoticeProps, AuthflyRequestProps, AuthflySignInProps, AuthflySignUpProps } from "./props";
 
 const lm = (id: string, landmarkLabel?: string) => ({ "aria-labelledby": landmarkLabel ? undefined : `${id}-title`, "aria-label": landmarkLabel });
@@ -16,7 +16,7 @@ const head = (id: string, t: string, x: string, align: "start" | "center" = "sta
   stack({ gap: "2", align, role }, [title(1, { id: `${id}-title` }, [t]), text({ class: textSkin.muted }, [x]), ...extra]);
 const messages = (id: string, error?: string, info?: string) => [
   error ? alert({ id: `${id}-error`, tone: "destructive", icon: "circle-alert", "data-testid": "authfly-error" }, [error]) : null,
-  info ? alert({ tone: "success", icon: "info", "data-testid": "authfly-info" }, [info]) : null,
+  info ? alert({ tone: "default", icon: "info", "data-testid": "authfly-info" }, [info]) : null,
 ];
 const hidden = (name: string, value: string) => input({ type: "hidden", name, value });
 const errOf = (id: string, error?: string) => (error ? `${id}-error` : undefined);
@@ -28,7 +28,7 @@ const submit = (label: string, variant: "default" | "outline" = "default", testi
 export function renderAuthflySignIn(p: AuthflySignInProps): Element {
   const { id, csrf = "", error = "", labels: L, method = "password", identifier = "any", social = "none" } = p;
   const fe = errOf(id, error); const email = identifier === "email";
-  return card({ "data-testid": "authfly-sign-in", ...lm(id, p.landmarkLabel) }, [
+  return card({ class: widgetCardSkin(), "data-testid": "authfly-sign-in", ...lm(id, p.landmarkLabel) }, [
     head(id, p.title, p.text), ...messages(id, error),
     social === "show" ? stack({ gap: "2", role: "group", "aria-label": L.providers, "data-testid": "authfly-providers" },
       (p.providers ?? []).map((pr) => button({ href: `${L.socialUrl ?? ""}/${pr.id}`, class: buttonSkin("outline", "w-full"), "data-provider": pr.id }, [lucideIcon(pr.icon), pr.title]))) : null,
@@ -48,7 +48,7 @@ export function renderAuthflySignIn(p: AuthflySignInProps): Element {
 
 export function renderAuthflySignUp(p: AuthflySignUpProps): Element {
   const { id, csrf = "", error = "", info = "", labels: L, terms = "show" } = p; const fe = errOf(id, error);
-  return card({ "data-testid": "authfly-sign-up", ...lm(id, p.landmarkLabel) }, [
+  return card({ class: widgetCardSkin(), "data-testid": "authfly-sign-up", ...lm(id, p.landmarkLabel) }, [
     head(id, p.title, p.text), ...messages(id, error, info),
     form({ action: p.action, "data-testid": "authfly-form" }, [
       hidden("csrf", csrf),
@@ -70,7 +70,7 @@ export function renderAuthflySignUp(p: AuthflySignUpProps): Element {
 
 export function renderAuthflyRequest(p: AuthflyRequestProps): Element {
   const { id, csrf = "", error = "", info = "", labels: L, token = "", kind = "email" } = p; const fe = errOf(id, error);
-  return card({ "data-testid": "authfly-request", ...lm(id, p.landmarkLabel) }, [
+  return card({ class: widgetCardSkin(), "data-testid": "authfly-request", ...lm(id, p.landmarkLabel) }, [
     head(id, p.title, p.text), ...messages(id, error, info),
     form({ action: p.action, "data-testid": "authfly-form" }, [
       hidden("csrf", csrf),
@@ -89,7 +89,7 @@ export function renderAuthflyRequest(p: AuthflyRequestProps): Element {
 
 export function renderAuthflyNotice(p: AuthflyNoticeProps): Element {
   const { id, detail = "", icon = "mail-check", labels: L, actionUrl = "", csrf = "", tone = "default", action = "link" } = p; const err = tone === "error";
-  return card({ class: "items-center text-center", "data-testid": "authfly-notice", "data-tone": tone, ...lm(id, p.landmarkLabel) }, [
+  return card({ class: widgetCardSkin("items-center text-center"), "data-testid": "authfly-notice", "data-tone": tone, ...lm(id, p.landmarkLabel) }, [
     iconBadge(icon, err ? "destructive" : "default"),
     head(id, p.title, p.text, "center", err ? "alert" : "status", [detail ? text({ class: "text-sm font-semibold text-foreground", "data-testid": "detail" }, [detail]) : null]),
     action === "form"
@@ -103,7 +103,7 @@ export function renderAuthflyConsent(p: AuthflyConsentProps): Element {
   const { id, csrf = "", error = "", info = "", labels: L } = p;
   const decide = (decision: "deny" | "approve", variant: "default" | "outline", lbl: string) =>
     form({ action: p.action, class: "flex-1", "data-testid": decision }, [hidden("csrf", csrf), hidden("decision", decision), button({ type: "submit", class: buttonSkin(variant, "w-full") }, [lbl])]);
-  return card({ "data-testid": "authfly-consent", "data-client": p.client, ...lm(id, p.landmarkLabel) }, [
+  return card({ class: widgetCardSkin(), "data-testid": "authfly-consent", "data-client": p.client, ...lm(id, p.landmarkLabel) }, [
     head(id, p.title, p.text), ...messages(id, error, info),
     text({ class: "text-sm text-foreground", "data-testid": "account" }, [L.account, " ", text({ tag: "strong", class: "font-semibold" }, [p.account])]),
     stack({ gap: "2" }, [
@@ -118,7 +118,7 @@ export function renderAuthflyConsent(p: AuthflyConsentProps): Element {
 export function renderAuthflyAccount(p: AuthflyAccountProps): Element {
   const { id, labels: L, verified = false, csrf = "" } = p;
   const row = (dt: string, dd: Element) => box({ class: "grid gap-2" }, [box({ tag: "dt", class: textSkin.muted }, [dt]), dd]);
-  return card({ class: "max-w-lg", "data-testid": "authfly-account", ...lm(id, p.landmarkLabel) }, [
+  return card({ class: widgetCardSkin("max-w-lg"), "data-testid": "authfly-account", ...lm(id, p.landmarkLabel) }, [
     head(id, p.title, p.text),
     box({ tag: "dl", class: "m-0 grid gap-4", "data-testid": "profile" }, [
       row(L.name, box({ tag: "dd", class: "m-0 font-semibold text-foreground", "data-testid": "profile-name" }, [p.name])),

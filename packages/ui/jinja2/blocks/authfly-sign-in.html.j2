@@ -30,4 +30,4 @@
 {{ af.text('', af_text('muted'), {}, foot) }}
 {%- endif -%}
 {%- endset -%}
-{{ af.card('', {'data-testid': 'authfly-sign-in', 'aria-labelledby': none if p.landmarkLabel else id ~ '-title', 'aria-label': p.landmarkLabel or none}, body) }}
+{{ af.card(af_skin('widgetCard'), {'data-testid': 'authfly-sign-in', 'aria-labelledby': none if p.landmarkLabel else id ~ '-title', 'aria-label': p.landmarkLabel or none}, body) }}

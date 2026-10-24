@@ -138,3 +138,24 @@ func TestLegacyPropShapes(t *testing.T) {
 		}
 	}
 }
+
+// Alert tones are tokens on bg-muted with block padding; the card surface has no width, the widgets add it.
+func TestSkinAlertTonesAndCardWidth(t *testing.T) {
+	for _, tone := range []string{"success", "warning", "destructive"} {
+		if c := AlertSkin(tone); !strings.Contains(c, "text-"+tone+" inset-ring-"+tone) || !strings.Contains(c, "bg-muted px-4 py-2") {
+			t.Errorf("AlertSkin(%q) = %q", tone, c)
+		}
+	}
+	if c := AlertSkin("default"); !strings.Contains(c, "text-foreground inset-ring-border") {
+		t.Errorf("AlertSkin(default) = %q", c)
+	}
+	if c := CardSkin(); regexp.MustCompile(`mx-auto|max-w-`).MatchString(c) {
+		t.Errorf("CardSkin() = %q", c)
+	}
+	if c := CardSkin(WidgetCardSkin()); !strings.Contains(c, "mx-auto max-w-sm") {
+		t.Errorf("CardSkin(WidgetCardSkin()) = %q", c)
+	}
+	if c := CardSkin(WidgetCardSkin("max-w-lg")); !strings.Contains(c, "mx-auto max-w-lg") {
+		t.Errorf("CardSkin(WidgetCardSkin(max-w-lg)) = %q", c)
+	}
+}

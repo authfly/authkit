@@ -6,7 +6,7 @@ import { LucideIcon } from "../components/lucide-icon";
 import { Box } from "../ui/box/box";
 import { Text } from "../ui/text/text";
 import { Button } from "../ui/button/button";
-import { buttonSkin } from "../skin/skin";
+import { buttonSkin, widgetCardSkin } from "../skin/skin";
 import { WidgetHead, Messages, Hidden, landmark } from "./_parts";
 import type { ConsentLabels } from "./authfly-consent.types";
 import type { Feature } from "./feature-grid.types";
@@ -28,7 +28,7 @@ export type AuthflyConsentProps = {
 
 export function AuthflyConsent({ id, title, text, action, csrf = "", error = "", info = "", client, account, scopes, labels, landmarkLabel }: AuthflyConsentProps) {
   return (
-    <Card data-testid="authfly-consent" data-client={client} {...landmark(id, landmarkLabel)}>
+    <Card className={widgetCardSkin()} data-testid="authfly-consent" data-client={client} {...landmark(id, landmarkLabel)}>
       <WidgetHead id={id} title={title} text={text} />
       <Messages id={id} error={error} info={info} />
       <Text className="text-sm text-foreground" data-testid="account">

@@ -20,4 +20,4 @@
 {include stack, '2', '', '', '', [], $methods}
 {include form, $p['signoutUrl'] ?? '', '', ['data-testid' => 'signout-form'], $signout}
 {/capture}
-{include card, 'max-w-lg', ['data-testid' => 'authfly-account'] + $lm, $body}
+{include card, afSkin('widgetCard', 'max-w-lg'), ['data-testid' => 'authfly-account'] + $lm, $body}

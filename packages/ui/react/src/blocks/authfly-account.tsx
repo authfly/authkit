@@ -8,7 +8,7 @@ import { LucideIcon } from "../components/lucide-icon";
 import { Box } from "../ui/box/box";
 import { Text } from "../ui/text/text";
 import { Button } from "../ui/button/button";
-import { buttonSkin, textSkin } from "../skin/skin";
+import { buttonSkin, textSkin, widgetCardSkin } from "../skin/skin";
 import { WidgetHead, Hidden, landmark } from "./_parts";
 import type { AccountLabels } from "./authfly-account.types";
 import type { Feature } from "./feature-grid.types";
@@ -29,7 +29,7 @@ export type AuthflyAccountProps = {
 
 export function AuthflyAccount({ id, title, text, name, email, verified = false, methods, labels, signoutUrl, csrf = "", landmarkLabel }: AuthflyAccountProps) {
   return (
-    <Card className="max-w-lg" data-testid="authfly-account" {...landmark(id, landmarkLabel)}>
+    <Card className={widgetCardSkin("max-w-lg")} data-testid="authfly-account" {...landmark(id, landmarkLabel)}>
       <WidgetHead id={id} title={title} text={text} />
       <Box tag="dl" className="m-0 grid gap-4" data-testid="profile">
         <Box className="grid gap-2">

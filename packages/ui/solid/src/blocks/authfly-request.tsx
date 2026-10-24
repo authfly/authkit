@@ -6,7 +6,7 @@ import { Field } from "../components/field";
 import { Button } from "../ui/button/button.solid";
 import { Link } from "../ui/link/link.solid";
 import { Input } from "../ui/input/input.solid";
-import { buttonSkin, linkSkin, inputSkin } from "../skin/skin";
+import { buttonSkin, linkSkin, inputSkin, widgetCardSkin } from "../skin/skin";
 import { WidgetHead, Messages, Hidden, landmark, errorIdOf } from "./_parts";
 import type { AuthflyRequestProps } from "./props";
 export type { AuthflyRequestProps };
@@ -14,7 +14,7 @@ export type { AuthflyRequestProps };
 export function AuthflyRequest(props: AuthflyRequestProps) {
   const p = mergeProps({ csrf: "", error: "", info: "", token: "", kind: "email" as const }, props);
   return (
-    <Card data-testid="authfly-request" {...landmark(p.id, p.landmarkLabel)}>
+    <Card class={widgetCardSkin()} data-testid="authfly-request" {...landmark(p.id, p.landmarkLabel)}>
       <WidgetHead id={p.id} title={p.title} text={p.text} />
       <Messages id={p.id} error={p.error} info={p.info} />
       <Form method="post" action={p.action} errorId={errorIdOf(p.id, p.error)} data-testid="authfly-form">

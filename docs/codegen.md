@@ -16,6 +16,8 @@ The CLI owns `ui/`, the utils/runtime folder, `ui8kit.config.json` and `ui8kit.l
 ## Layers
 
 - **Skin**: class recipes (`buttonSkin`, `inputSkin`, `badgeSkin`, `alertSkin`, `cardSkin`, …), tokens only, 8px layout step.
+  `alertSkin` tones `default | success | warning | destructive` (`--success` / `--warning` tokens in `theme.css`, next to
+  `--destructive`); `cardSkin` is the surface only (no width), the widgets add `widgetCardSkin()` (`mx-auto max-w-sm`).
 - **Middle layer**: Card, Stack, Group, Form (Form primitive; its error id feeds every Field), Title, Alert, Badge,
   IconBadge, Field (`aria-describedby` = hint + error + form error, `aria-invalid`), LucideIcon (lucide 1.61 glyphs).
 - **Widgets**: the six Authfly forms, identical props in every runtime.

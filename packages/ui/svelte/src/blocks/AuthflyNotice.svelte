@@ -8,13 +8,13 @@
   import Link from "../ui/link/Link.svelte";
   import Input from "../ui/input/Input.svelte";
   import WidgetHead from "./WidgetHead.svelte";
-  import { buttonSkin, linkSkin, inputSkin, checkboxSkin, labelSkin, textSkin } from "../skin/skin";
+  import { buttonSkin, linkSkin, inputSkin, checkboxSkin, labelSkin, textSkin, widgetCardSkin } from "../skin/skin";
   import type { AuthflyNoticeProps } from "./props";
   let { id, title, text, detail = "", icon = "mail-check", labels, actionUrl = "", csrf = "", tone = "default", action = "link", landmarkLabel }: AuthflyNoticeProps = $props();
   const lm = $derived({ "aria-labelledby": landmarkLabel ? undefined : `${id}-title`, "aria-label": landmarkLabel });
 </script>
 
-<Card class="items-center text-center" data-testid="authfly-notice" data-tone={tone} {...lm}>
+<Card class={widgetCardSkin("items-center text-center")} data-testid="authfly-notice" data-tone={tone} {...lm}>
   <IconBadge {icon} tone={tone === "error" ? "destructive" : "default"} />
   <WidgetHead {id} {title} {text} align="center" role={tone === "error" ? "alert" : "status"}>
     {#if detail}<Text class="text-sm font-semibold text-foreground" data-testid="detail">{detail}</Text>{/if}

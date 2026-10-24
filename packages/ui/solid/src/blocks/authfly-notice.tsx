@@ -6,7 +6,7 @@ import { IconBadge } from "../components/badge";
 import { Text } from "../ui/text/text.solid";
 import { Button } from "../ui/button/button.solid";
 import { Link } from "../ui/link/link.solid";
-import { buttonSkin, linkSkin } from "../skin/skin";
+import { buttonSkin, linkSkin, widgetCardSkin } from "../skin/skin";
 import { WidgetHead, Hidden, landmark } from "./_parts";
 import type { AuthflyNoticeProps } from "./props";
 export type { AuthflyNoticeProps };
@@ -14,7 +14,7 @@ export type { AuthflyNoticeProps };
 export function AuthflyNotice(props: AuthflyNoticeProps) {
   const p = mergeProps({ detail: "", icon: "mail-check", actionUrl: "", csrf: "", tone: "default" as const, action: "link" as const }, props);
   return (
-    <Card class="items-center text-center" data-testid="authfly-notice" data-tone={p.tone} {...landmark(p.id, p.landmarkLabel)}>
+    <Card class={widgetCardSkin("items-center text-center")} data-testid="authfly-notice" data-tone={p.tone} {...landmark(p.id, p.landmarkLabel)}>
       <IconBadge icon={p.icon} tone={p.tone === "error" ? "destructive" : "default"} />
       <WidgetHead id={p.id} title={p.title} text={p.text} align="center" role={p.tone === "error" ? "alert" : "status"}>
         <Show when={p.detail}><Text class="text-sm font-semibold text-foreground" data-testid="detail">{p.detail}</Text></Show>

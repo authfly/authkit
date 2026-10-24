@@ -46,5 +46,17 @@ class Widgets(unittest.TestCase):
             self.assertNotIn(bad, h)
 
 
+class Skin(unittest.TestCase):
+    def test_alert_tones_and_card_width(self):
+        from authfly_jinja import skin
+        for t in ("success", "warning", "destructive"):
+            self.assertIn(f"text-{t} inset-ring-{t}", skin.alert(t))
+            self.assertIn("bg-muted px-4 py-2", skin.alert(t))
+        self.assertIn("text-foreground inset-ring-border", skin.alert("default"))
+        self.assertNotRegex(skin.card(), r"mx-auto|max-w-")
+        self.assertIn("mx-auto max-w-sm", skin.card(skin.widgetCard()))
+        self.assertIn("mx-auto max-w-lg", skin.card(skin.widgetCard("max-w-lg")))
+
+
 if __name__ == "__main__":
     unittest.main()

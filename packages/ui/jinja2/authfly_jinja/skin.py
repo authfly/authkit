@@ -59,9 +59,20 @@ def badge(variant: str = "default", cls: str | None = None) -> str:
     )
 
 
+# Alert tones recolour text + ring on the shared bg-muted surface (unknown tone = default).
+ALERT_TONE = {
+    "default": "text-foreground inset-ring-border",
+    "success": "text-success inset-ring-success",
+    "warning": "text-warning inset-ring-warning",
+    "destructive": "text-destructive inset-ring-destructive",
+}
+
+
 def alert(tone: str = "default", cls: str | None = None) -> str:
-    return cn("flex min-h-8 items-center gap-2 rounded bg-muted px-2 text-xs font-semibold inset-ring",
-              "text-destructive inset-ring-destructive" if tone == "destructive" else "text-foreground inset-ring-border", cls)
+    """tone default|success|warning|destructive. Alert is a block, not a control: 8px layout step, py-2 px-4
+    (one text-xs line + py-2 = the old min-h-8, so a one-line alert keeps its 32px height)."""
+    return cn("flex min-h-8 items-start gap-2 rounded bg-muted px-4 py-2 text-xs font-semibold inset-ring",
+              ALERT_TONE.get(tone, ALERT_TONE["default"]), cls)
 
 
 def iconBadge(tone: str = "default", cls: str | None = None) -> str:  # noqa: N802 - same name as other runtimes
@@ -70,4 +81,10 @@ def iconBadge(tone: str = "default", cls: str | None = None) -> str:  # noqa: N8
 
 
 def card(cls: str | None = None) -> str:
-    return cn("mx-auto flex w-full max-w-sm flex-col gap-6 rounded bg-card p-6 text-card-foreground inset-ring inset-ring-border", cls)
+    """Card surface only (no width, no centring): consumers place it in their own layout."""
+    return cn("flex w-full flex-col gap-6 rounded bg-card p-6 text-card-foreground inset-ring inset-ring-border", cls)
+
+
+def widgetCard(cls: str | None = None) -> str:  # noqa: N802 - same name as other runtimes
+    """Width + centring of the six Authfly widgets, passed to card as its class (account: max-w-lg)."""
+    return cn("mx-auto max-w-sm", cls)

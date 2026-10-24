@@ -17,4 +17,4 @@
 {/if}
 {if $l['secondary'] ?? ''}{include link, $l['secondaryHref'] ?? '', afSkin('link', 'text-sm'), 'secondary', $l['secondary']}{/if}
 {/capture}
-{include card, 'items-center text-center', ['data-testid' => 'authfly-notice', 'data-tone' => $tone] + $lm, $body}
+{include card, afSkin('widgetCard', 'items-center text-center'), ['data-testid' => 'authfly-notice', 'data-tone' => $tone] + $lm, $body}

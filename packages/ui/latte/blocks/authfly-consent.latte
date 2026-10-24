@@ -17,4 +17,4 @@
 {include stack, '2', '', '', '', [], $scopes}
 {include group, '2', '', 'between', '', [], $row}
 {/capture}
-{include card, '', ['data-testid' => 'authfly-consent', 'data-client' => $p['client'] ?? null] + $lm, $body}
+{include card, afSkin('widgetCard'), ['data-testid' => 'authfly-consent', 'data-client' => $p['client'] ?? null] + $lm, $body}

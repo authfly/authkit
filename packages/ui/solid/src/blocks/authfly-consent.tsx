@@ -7,7 +7,7 @@ import { LucideIcon } from "../components/lucide-icon";
 import { Box } from "../ui/box/box.solid";
 import { Text } from "../ui/text/text.solid";
 import { Button } from "../ui/button/button.solid";
-import { buttonSkin } from "../skin/skin";
+import { buttonSkin, widgetCardSkin } from "../skin/skin";
 import { WidgetHead, Messages, Hidden, landmark } from "./_parts";
 import type { AuthflyConsentProps } from "./props";
 export type { AuthflyConsentProps };
@@ -15,7 +15,7 @@ export type { AuthflyConsentProps };
 export function AuthflyConsent(props: AuthflyConsentProps) {
   const p = mergeProps({ csrf: "", error: "", info: "" }, props);
   return (
-    <Card data-testid="authfly-consent" data-client={p.client} {...landmark(p.id, p.landmarkLabel)}>
+    <Card class={widgetCardSkin()} data-testid="authfly-consent" data-client={p.client} {...landmark(p.id, p.landmarkLabel)}>
       <WidgetHead id={p.id} title={p.title} text={p.text} />
       <Messages id={p.id} error={p.error} info={p.info} />
       <Text class="text-sm text-foreground" data-testid="account">{p.labels.account}{" "}<Text tag="strong" class="font-semibold">{p.account}</Text></Text>

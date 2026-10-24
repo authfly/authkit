@@ -1,5 +1,6 @@
 // SSR smoke tests of the six widgets in the states the docs site shows (site/previews.go).
 import { describe, expect, test } from "bun:test";
+import { alertSkin, cardSkin, widgetCardSkin } from "../src/skin/skin";
 import { renderToStaticMarkup } from "react-dom/server";
 import * as W from "../src/authfly";
 import { states } from "./states";
@@ -42,5 +43,27 @@ describe("3.2.0 primitives", () => {
   });
   test("forms are real <form> with method/action (Form primitive)", () => {
     for (const h of Object.values(html)) for (const f of h.match(/<form[^>]*>/g) ?? []) expect(f).toMatch(/action="[^"]*"[^>]*method="post"|method="post"[^>]*action=/);
+  });
+});
+
+describe("skin: alert tones and card width", () => {
+  test("success / warning / destructive are token colours on bg-muted, block padding on the 8px step", () => {
+    for (const t of ["success", "warning", "destructive"] as const) expect(alertSkin(t)).toContain(`text-${t} inset-ring-${t}`);
+    expect(alertSkin("default")).toContain("text-foreground inset-ring-border");
+    for (const t of ["default", "success", "warning", "destructive"] as const) expect(alertSkin(t)).toContain("bg-muted px-4 py-2");
+  });
+  test("the card surface has no width; the widgets add mx-auto max-w-sm (account max-w-lg)", () => {
+    expect(cardSkin()).not.toMatch(/mx-auto|max-w-/);
+    expect(cardSkin(widgetCardSkin())).toMatch(/mx-auto.*max-w-sm/);
+    expect(cardSkin(widgetCardSkin("max-w-lg"))).toContain("max-w-lg");
+    expect(cardSkin(widgetCardSkin("max-w-lg"))).not.toContain("max-w-sm");
+  });
+});
+
+describe("info message", () => {
+  test("info is the neutral default tone (bg-muted, text-foreground), not success", () => {
+    const tag = html["sign-up-error-info"]!.match(/<div[^>]*data-testid="authfly-info"[^>]*>/)?.[0] ?? "";
+    expect(tag).toContain("text-foreground");
+    expect(tag).not.toContain("text-success");
   });
 });
