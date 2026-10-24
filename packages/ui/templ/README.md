@@ -9,7 +9,7 @@ Go module `github.com/authfly/authkit/widgets/templ`. Primitives installed by `n
 `ui/` and `utils/` are CLI-owned (never edit; `npx ui8kit@3 check`). The Authfly layer is in `authfly/`:
 `skin.go` (class recipes, same as react), `components.templ` (Card, Stack, Group, Form, Title, Alert, Badge,
 IconBadge, Field, LucideIcon), `blocks.templ` (AuthflySignIn/SignUp/Request/Notice/Consent/Account).
-Props keep the xgen API (`any` fields, labels `map[string]any`, items `[]map[string]any`). All text goes through
+Props keep the 0.3.x API (`any` fields, labels `map[string]any`, items `[]map[string]any`). All text goes through
 props and is escaped; no children HTML. Field wiring: `aria-describedby` = hint + field error + `<id>-error`
 (form error), `aria-invalid="true"` when an error is shown.
 

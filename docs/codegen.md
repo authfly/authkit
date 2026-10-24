@@ -27,6 +27,11 @@ them (`tests/render.*` or `tools/render.*`) and the HTML is compared with the Re
 order and whitespace: DOM, classes and ARIA must match exactly. Each package also runs its own tests (typecheck,
 invariants: unique ids, no dangling ARIA references, error wiring, escaping).
 
+## Gates
+
+`bun run gates` (`tools/gates.sh`, vendored `tools/ui-gates`): the source gate (no raw HTML where a primitive exists,
+Box/Text tag allowlist) and html-validate + axe-core over the 20 states rendered by all 9 runtimes; 0 problems required.
+
 ## Lint
 
 `npx ui8px@latest lint` runs on the rendered HTML (policy in `.ui8px/`, unchanged).

@@ -1,4 +1,4 @@
-# Authfly widgets (authkit)
+# Authfly widgets (authfly/authkit)
 
 Sign-in, sign-up, magic link, password reset, account and consent widgets for nine runtimes, built on
 **UI8Kit 3** primitives (CLI `npx ui8kit@3` 3.2.1, registry `@ui8kit/registry` 3.2.0) with the same DOM everywhere.
@@ -28,6 +28,7 @@ bun install
 cd packages/ui/<runtime> && npx ui8kit@3 check     # CLI-owned files untouched (run before every commit)
 # per runtime: see packages/ui/<runtime>/README.md (typecheck, tests, parity render)
 npx ui8px@latest lint                               # on rendered HTML (policy in .ui8px/, unchanged)
+bun run gates                                       # HTML/ARIA gates (source + rendered HTML, 9 runtimes)
 bun run site                                        # docs + live templ previews -> site/dist
 ```
 

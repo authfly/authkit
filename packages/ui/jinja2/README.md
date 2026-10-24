@@ -9,7 +9,7 @@ Primitives from `npx ui8kit@3` (CLI 3.2.1, registry 3.2.0):
 `ui/` (templates) and `ui8kit_jinja/` (runtime) are CLI-owned — never edit; `npx ui8kit@3 check`.
 Authfly layer: `authfly_jinja/` (`environment()`, `skin.py`, `lucide_icons.py`), `authfly/components.html.j2`
 (macros: card, stack, group, form, hidden, title, alert, badge, icon_badge, field, icon, head, messages),
-`blocks/authfly-*.html.j2` (same `p` props as the xgen templates).
+`blocks/authfly-*.html.j2` (same `p` props as the React widgets).
 
     from authfly_jinja import environment
     html = environment().get_template("blocks/authfly-sign-in.html.j2").render(p=props)

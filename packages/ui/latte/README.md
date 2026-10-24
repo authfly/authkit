@@ -9,7 +9,7 @@ Composer package `authfly/latte`. Primitives from `npx ui8kit@3` (CLI 3.2.1, reg
 `ui/` (templates) and `runtime/` (`UI8Kit\Latte\*`) are CLI-owned — never edit; `npx ui8kit@3 check`.
 Authfly layer: `src/Skin.php` + `src/AuthflyExtension.php` (`af*` functions), `authfly/components.latte`
 (`{define}` blocks: card, stack, group, form, hidden, title, alert, badge, iconBadge, field, icon, head, messages),
-`blocks/authfly-*.latte` (same `$p` props as the xgen templates).
+`blocks/authfly-*.latte` (same `$p` props as the React widgets).
 
     $latte->addExtension(new Authfly\Latte\AuthflyExtension());
     echo $latte->renderToString('.../blocks/authfly-sign-in.latte', ['p' => $props]);

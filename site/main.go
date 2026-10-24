@@ -32,6 +32,7 @@ var nav = []Section{
 		{"runtime-vue", "Vue", "@authfly/vue, single-file components", "docs/runtimes/vue.md"},
 		{"runtime-svelte", "Svelte", "@authfly/svelte, Svelte 5", "docs/runtimes/svelte.md"},
 		{"runtime-solid", "Solid", "@authfly/solid", "docs/runtimes/solid.md"},
+		{"runtime-webcomponent", "Web components", "@authfly/webcomponent, custom elements", "docs/runtimes/webcomponent.md"},
 		{"runtime-templ", "templ (Go)", "Go templ components", "docs/runtimes/templ.md"},
 		{"runtime-twig", "Twig (PHP)", "Symfony and plain PHP", "docs/runtimes/twig.md"},
 		{"runtime-latte", "Latte (PHP)", "Nette and plain PHP", "docs/runtimes/latte.md"},

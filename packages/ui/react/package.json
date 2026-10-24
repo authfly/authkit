@@ -2,7 +2,12 @@
   "name": "@authfly/react",
   "version": "0.4.0",
   "private": true,
-  "description": "Authfly widgets for react on UI8Kit 3 primitives (pilot; primitives installed by npx ui8kit@3)",
+  "description": "Authfly widgets for React on UI8Kit 3 primitives",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/authfly/authkit.git",
+    "directory": "packages/ui/react"
+  },
   "license": "MIT",
   "type": "module",
   "exports": {

@@ -8,6 +8,11 @@
     "tailwind-merge": "^3.7.0"
   },
   "description": "Authfly widgets as light-DOM custom elements on UI8Kit 3 primitives",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/authfly/authkit.git",
+    "directory": "packages/ui/webcomponent"
+  },
   "license": "MIT",
   "exports": {
     ".": "./src/authfly.ts",
