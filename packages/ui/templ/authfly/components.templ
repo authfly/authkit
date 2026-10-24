@@ -54,7 +54,7 @@ templ Hidden(name, value string) {
 	if value == "" {
 		@input.Input(input.InputProps{Type: "hidden", Name: name, Attrs: templ.Attributes{"value": ""}})
 	} else {
-		@input.Input(input.InputProps{Type: "hidden", Name: name, Value: value})
+		@input.Input(input.InputProps{Type: "hidden", Name: name, Value: &value})
 	}
 }
 

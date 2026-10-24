@@ -1,6 +1,6 @@
 # Latte
 
-The Latte widgets live in `packages/ui/latte`: UI8Kit 3 primitives installed by `npx ui8kit@3` (CLI 3.2.1, registry 3.2.0; CLI-owned, never edited), the Authfly skin and middle layer, and the six widgets. Composer package `authfly/latte` (PHP 8.2, `latte/latte` ^3); templates take their props as `$p`.
+The Latte widgets live in `packages/ui/latte`: UI8Kit 3 primitives installed by `npx ui8kit@3` (CLI 3.2.1, registry 3.2.2; CLI-owned, never edited), the Authfly skin and middle layer, and the six widgets. Composer package `authfly/latte` (PHP 8.2, `latte/latte` ^3); templates take their props as `$p`.
 
 ::preview sign-in
 

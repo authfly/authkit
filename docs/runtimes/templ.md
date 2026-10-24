@@ -1,6 +1,6 @@
 # templ
 
-The templ widgets live in `packages/ui/templ`: UI8Kit 3 primitives installed by `npx ui8kit@3` (CLI 3.2.1, registry 3.2.0; CLI-owned, never edited), the Authfly skin and middle layer, and the six widgets. Go module `github.com/authfly/authkit/packages/ui/templ`; point it at your checkout with a `replace` directive and run `templ generate` there (`*_templ.go` is not committed).
+The templ widgets live in `packages/ui/templ`: UI8Kit 3 primitives installed by `npx ui8kit@3` (CLI 3.2.1, registry 3.2.2; CLI-owned, never edited), the Authfly skin and middle layer, and the six widgets. Go module `github.com/authfly/authkit/packages/ui/templ`; point it at your checkout with a `replace` directive and run `templ generate` there (`*_templ.go` is not committed).
 
 ::preview sign-in
 

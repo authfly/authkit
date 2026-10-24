@@ -65,7 +65,7 @@
 {var $hintId = ($f['hint'] ?? '') !== '' ? $f['for'] . '-hint' : null}
 {var $errId = ($f['error'] ?? '') !== '' ? $f['for'] . '-error' : null}
 {var $in = $f['input'] ?? []}
-{capture $ctl}{include '../ui/input/Input.latte', type: $in['type'] ?? '', name: $in['name'] ?? '', required: $in['required'] ?? false, id: $f['for'], class: afSkin('input'), ariaDescribedBy: afDescribe($f['describe'] ?? null, $hintId, $errId, $f['formError'] ?? null) ?? '', ariaInvalid: (($f['error'] ?? '') !== '' || ($f['formError'] ?? null)) ? 'true' : '', attrs: afAttrs(($in['attrs'] ?? []) + ['data-testid' => 'field'])}{/capture}
+{capture $ctl}{include '../ui/input/Input.latte', type: $in['type'] ?? '', name: $in['name'] ?? null, required: $in['required'] ?? false, id: $f['for'], class: afSkin('input'), ariaDescribedBy: afDescribe($f['describe'] ?? null, $hintId, $errId, $f['formError'] ?? null), ariaInvalid: (($f['error'] ?? '') !== '' || ($f['formError'] ?? null)) ? 'true' : null, attrs: afAttrs(($in['attrs'] ?? []) + ['data-testid' => 'field'])}{/capture}
 {if ($f['suffix'] ?? '') !== ''}{capture $ctl}{include group, '2', '', '', '', [], $ctl . $f['suffix']}{/capture}{/if}
 {capture $c}
 {include '../ui/label/Label.latte', htmlFor: $f['for'], class: afSkin('label'), children: (string) afEsc($f['label'] ?? '')}

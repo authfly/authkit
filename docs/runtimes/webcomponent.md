@@ -1,6 +1,6 @@
 # Web components
 
-The web-component widgets live in `packages/ui/webcomponent`: UI8Kit 3 `*.wc.ts` primitives installed by `npx ui8kit@3` (CLI 3.2.1, registry 3.2.0; CLI-owned, never edited), the Authfly skin and render functions, and the six widgets as light-DOM custom elements (`<authfly-sign-in>`, `<authfly-sign-up>`, `<authfly-request>`, `<authfly-notice>`, `<authfly-consent>`, `<authfly-account>`). `@authfly/webcomponent` 0.4.0.
+The web-component widgets live in `packages/ui/webcomponent`: UI8Kit 3 `*.wc.ts` primitives installed by `npx ui8kit@3` (CLI 3.2.1, registry 3.2.2; CLI-owned, never edited), the Authfly skin and render functions, and the six widgets as light-DOM custom elements (`<authfly-sign-in>`, `<authfly-sign-up>`, `<authfly-request>`, `<authfly-notice>`, `<authfly-consent>`, `<authfly-account>`). `@authfly/webcomponent` 0.4.0.
 
 ::preview sign-in
 

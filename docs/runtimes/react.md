@@ -1,6 +1,6 @@
 # React
 
-The React widgets live in `packages/ui/react`: UI8Kit 3 primitives installed by `npx ui8kit@3` (CLI 3.2.1, registry 3.2.0; CLI-owned, never edited), the Authfly skin and middle layer, and the six widgets. `@authfly/react` 0.4.0. Imports resolve React, `clsx` and `tailwind-merge` from your app (with Vite, list them in `resolve.dedupe`).
+The React widgets live in `packages/ui/react`: UI8Kit 3 primitives installed by `npx ui8kit@3` (CLI 3.2.1, registry 3.2.2; CLI-owned, never edited), the Authfly skin and middle layer, and the six widgets. `@authfly/react` 0.4.0. Imports resolve React, `clsx` and `tailwind-merge` from your app (with Vite, list them in `resolve.dedupe`).
 
 ::preview sign-in
 

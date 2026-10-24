@@ -62,7 +62,7 @@
 {%- set err_id = f.for ~ '-error' if f.error else none -%}
 {%- set inp = f.input or {} -%}
 {%- set attrs = dict(inp.attrs or {}) -%}{%- set _ = attrs.update({'data-testid': 'field'}) -%}
-{%- set ctl -%}{{ prim('ui/input/input.html.j2', {'Type': inp.type, 'Name': inp.name, 'Required': inp.required or false, 'ID': f.for, 'Class': af_skin('input'), 'AriaDescribedBy': af_describe(f.describe, hint_id, err_id, f.formError), 'AriaInvalid': 'true' if (f.error or f.formError) else '', 'Attrs': af_attrs(attrs)}) }}{%- endset -%}
+{%- set ctl -%}{{ prim('ui/input/input.html.j2', {'Type': inp.type, 'Name': inp.name, 'Required': inp.required or false, 'ID': f.for, 'Class': af_skin('input'), 'AriaDescribedBy': af_describe(f.describe, hint_id, err_id, f.formError), 'AriaInvalid': 'true' if (f.error or f.formError) else none, 'Attrs': af_attrs(attrs)}) }}{%- endset -%}
 {%- if f.suffix -%}{%- set ctl = group('2', '', '', '', {}, ctl ~ f.suffix) -%}{%- endif -%}
 {%- set c -%}
 {{ prim('ui/label/label.html.j2', {'For': f.for, 'Class': af_skin('label')}, af_esc(f.label)) }}{{ ctl }}

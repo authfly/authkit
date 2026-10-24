@@ -36,8 +36,8 @@ def _attrs(a: Any) -> dict:
     return {k: v for k, v in dict(a or {}).items() if _p(v) is not None and v != ""}
 
 
-def _describe(*ids: Any) -> str:
-    return " ".join(str(i) for i in ids if _p(i))
+def _describe(*ids: Any) -> str | None:
+    return " ".join(str(i) for i in ids if _p(i)) or None
 
 
 def environment(root: str | None = None, **options: Any) -> Environment:

@@ -7,7 +7,7 @@ import { resolveTag, TagGroup } from "../../utils/tags";
 
 /** Text renders the requested text element (default p). */
 export type TextElementProps = {
-  tag?: "p" | "span" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote" | "figcaption" | "pre" | "code" | "small" | "strong" | "em" | "time" | "legend";
+  tag?: "p" | "span" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote" | "figcaption" | "pre" | "code" | "small" | "strong" | "em" | "time" | "legend" | "del" | "ins";
   class?: string;
   [attr: string]: unknown;
 };

@@ -1,9 +1,9 @@
 # Authfly widgets — templ (UI8Kit 3)
 
-Go module `github.com/authfly/authkit/packages/ui/templ`. Primitives installed by `npx ui8kit@3` (CLI 3.2.1, registry 3.2.0):
+Go module `github.com/authfly/authkit/packages/ui/templ`. Primitives installed by `npx ui8kit@3` (CLI 3.2.1, registry 3.2.2):
 
-    npx ui8kit@3 init --yes --framework templ --runtime templ --dir . --registry-version 3.2.0
-    npx ui8kit@3 add --all --runtime templ --registry-version 3.2.0
+    npx ui8kit@3 init --yes --framework templ --runtime templ --dir . --registry-version 3.2.2
+    npx ui8kit@3 add --all --runtime templ --registry-version 3.2.2
     go get github.com/a-h/templ@v0.3.1070
 
 `ui/` and `utils/` are CLI-owned (never edit; `npx ui8kit@3 check`). The Authfly layer is in `authfly/`:

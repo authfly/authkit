@@ -1,6 +1,6 @@
 # Jinja2
 
-The Jinja2 widgets live in `packages/ui/jinja2`: UI8Kit 3 primitives installed by `npx ui8kit@3` (CLI 3.2.1, registry 3.2.0; CLI-owned, never edited), the Authfly skin and middle layer, and the six widgets. Python package `authfly-jinja2` (`Jinja2>=3.1,<4`); templates take their props as `p`.
+The Jinja2 widgets live in `packages/ui/jinja2`: UI8Kit 3 primitives installed by `npx ui8kit@3` (CLI 3.2.1, registry 3.2.2; CLI-owned, never edited), the Authfly skin and middle layer, and the six widgets. Python package `authfly-jinja2` (`Jinja2>=3.1,<4`); templates take their props as `p`.
 
 ::preview sign-in
 

@@ -3,7 +3,7 @@
 
 import { append, applyRest, defineLight, setAttr, str, type Children, type PropMeta } from "../../utils/wc";
 import { buttonClasses, type ButtonBaseProps } from "./button.shared";
-import { isSetStr, oneOfOr } from "../../utils/expr";
+import { isSetStr, oneOfOr, safeUrl } from "../../utils/expr";
 
 /** Button renders a button element, or an anchor when Href is set. */
 export type ButtonElementProps = {
@@ -26,7 +26,7 @@ export function renderButton(props: ButtonElementProps = {}, children: Children 
   const out: Element[] = [];
   if (isSetStr(href)) {
     const el0 = document.createElement("a");
-    { const s = str(href); if (s.trim() !== "") setAttr(el0, "href", s); }
+    { const s = str(safeUrl(href)); if (s.trim() !== "") setAttr(el0, "href", s); }
     if (cls !== "") setAttr(el0, "class", cls);
     if (disabled) setAttr(el0, "aria-disabled", str("true"));
     if (disabled) setAttr(el0, "tabindex", str(-1));

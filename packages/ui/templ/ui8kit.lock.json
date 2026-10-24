@@ -5,71 +5,71 @@
     "npm:@ui8kit/registry|templ|box": {
       "name": "box",
       "type": "registry:ui",
-      "source": "https://unpkg.com/@ui8kit/registry@3.2.0/r/templ",
-      "version": "3.2.0",
+      "source": "https://unpkg.com/@ui8kit/registry@3.2.2/r/templ",
+      "version": "3.2.2",
       "runtime": "templ",
       "files": {
-        "ui/box/box.templ": "6ee5ea37a963ec7dee0a1b7a394120486e424056deec567569e189dc8375b22e"
+        "ui/box/box.templ": "7e9998b7455cd4a86c435c86367e9881fb81d214cf087119955c399a9a2207b4"
       }
     },
     "npm:@ui8kit/registry|templ|button": {
       "name": "button",
       "type": "registry:ui",
-      "source": "https://unpkg.com/@ui8kit/registry@3.2.0/r/templ",
-      "version": "3.2.0",
+      "source": "https://unpkg.com/@ui8kit/registry@3.2.2/r/templ",
+      "version": "3.2.2",
       "runtime": "templ",
       "files": {
-        "ui/button/button.templ": "2235d53d69b2df267061e3ec9b0e93f062c57af052f80e318b2a06eddc5ff040"
+        "ui/button/button.templ": "6c79759454dab17d4ee605fd3e02d36b8ed9c7bc219781b082aadc7418562174"
       }
     },
     "npm:@ui8kit/registry|templ|checkbox": {
       "name": "checkbox",
       "type": "registry:ui",
-      "source": "https://unpkg.com/@ui8kit/registry@3.2.0/r/templ",
-      "version": "3.2.0",
+      "source": "https://unpkg.com/@ui8kit/registry@3.2.2/r/templ",
+      "version": "3.2.2",
       "runtime": "templ",
       "files": {
-        "ui/checkbox/checkbox.templ": "5f6ff83d572b82abbf128731a868104ba40a0a6aad144f5fb0c79a8f75db30f8"
+        "ui/checkbox/checkbox.templ": "6709194bd7e6ac1b9b311db1158326b321186a47c0f97e917f63d9f8f3c58531"
       }
     },
     "npm:@ui8kit/registry|templ|dialog": {
       "name": "dialog",
       "type": "registry:ui",
-      "source": "https://unpkg.com/@ui8kit/registry@3.2.0/r/templ",
-      "version": "3.2.0",
+      "source": "https://unpkg.com/@ui8kit/registry@3.2.2/r/templ",
+      "version": "3.2.2",
       "runtime": "templ",
       "files": {
-        "ui/dialog/dialog.templ": "9eccb79bb9228ad57ebff55b0468dbb865618c9760d06c20257b646d4830ef0f"
+        "ui/dialog/dialog.templ": "0950fd5eca7ebb0006279e20ce099ad8a28a92e5f43fdc25e88030717bd823eb"
       }
     },
     "npm:@ui8kit/registry|templ|disclosure": {
       "name": "disclosure",
       "type": "registry:ui",
-      "source": "https://unpkg.com/@ui8kit/registry@3.2.0/r/templ",
-      "version": "3.2.0",
+      "source": "https://unpkg.com/@ui8kit/registry@3.2.2/r/templ",
+      "version": "3.2.2",
       "runtime": "templ",
       "files": {
-        "ui/disclosure/disclosure.templ": "8225932ccdd430e809079a20e5000e436d1ae34f7ceacd72476abadb863f056e"
+        "ui/disclosure/disclosure.templ": "ff810ebc57efe0a01f205904b1956eac27fc49c76b9e34f1a64ff92a994e8787"
       }
     },
     "npm:@ui8kit/registry|templ|form": {
       "name": "form",
       "type": "registry:ui",
-      "source": "https://unpkg.com/@ui8kit/registry@3.2.0/r/templ",
-      "version": "3.2.0",
+      "source": "https://unpkg.com/@ui8kit/registry@3.2.2/r/templ",
+      "version": "3.2.2",
       "runtime": "templ",
       "files": {
-        "ui/form/form.templ": "c39052283415998110b3f5b1445445702eaa40ed50a4d3a67a6d13460c9fe1cd"
+        "ui/form/form.templ": "b7d3a440653f6c868e3d22b9470ffb7e783985763edd9a92f19444f31617b283"
       }
     },
     "npm:@ui8kit/registry|templ|icon": {
       "name": "icon",
       "type": "registry:ui",
-      "source": "https://unpkg.com/@ui8kit/registry@3.2.0/r/templ",
-      "version": "3.2.0",
+      "source": "https://unpkg.com/@ui8kit/registry@3.2.2/r/templ",
+      "version": "3.2.2",
       "runtime": "templ",
       "files": {
-        "ui/icon/icon.templ": "972246c1663ce839d2c1a81c05a5b2e4d91d6976ad97cbcb507368cfb9382da7",
+        "ui/icon/icon.templ": "46dfdb2dac4e98fd5c5ea38bb29cfec2deeef0aa3be09e01785c5a3492bf765a",
         "ui/icon/icon.variants.json": "3411086ff914c3d68ed81fa575f1ae22b6b5202198d505de4c1abf1509d8904a",
         "ui/icon/icon_gen.go": "ce55760f60baaa82a40dc14beda91d40be352408fb334bdd9d3adfbbc0afc4bf"
       }
@@ -77,144 +77,144 @@
     "npm:@ui8kit/registry|templ|image": {
       "name": "image",
       "type": "registry:ui",
-      "source": "https://unpkg.com/@ui8kit/registry@3.2.0/r/templ",
-      "version": "3.2.0",
+      "source": "https://unpkg.com/@ui8kit/registry@3.2.2/r/templ",
+      "version": "3.2.2",
       "runtime": "templ",
       "files": {
-        "ui/image/image.templ": "c30f150c4a95b4b2518cf21a18c89513b5e223802a0004c897608f8f06e94600"
+        "ui/image/image.templ": "7b589f112737188fe0a442d23bbc91bb9f9d8963e32957ed80f532b5987491a5"
       }
     },
     "npm:@ui8kit/registry|templ|input": {
       "name": "input",
       "type": "registry:ui",
-      "source": "https://unpkg.com/@ui8kit/registry@3.2.0/r/templ",
-      "version": "3.2.0",
+      "source": "https://unpkg.com/@ui8kit/registry@3.2.2/r/templ",
+      "version": "3.2.2",
       "runtime": "templ",
       "files": {
-        "ui/input/input.templ": "8d9d054d0eab2c2bf2071bfab9dcde2ad79e7ed4ea6a8d18a2603dc905d88961"
+        "ui/input/input.templ": "791434a3bff23c6b36056b28581a4336c7d2bb89f639bb9fd9dc91507e39d458"
       }
     },
     "npm:@ui8kit/registry|templ|label": {
       "name": "label",
       "type": "registry:ui",
-      "source": "https://unpkg.com/@ui8kit/registry@3.2.0/r/templ",
-      "version": "3.2.0",
+      "source": "https://unpkg.com/@ui8kit/registry@3.2.2/r/templ",
+      "version": "3.2.2",
       "runtime": "templ",
       "files": {
-        "ui/label/label.templ": "b1a0951067b47c146a11b04f8dd37971fe1a9b244d8435ebf74e5d47d9362e0f"
+        "ui/label/label.templ": "714b7a3fbee5563f4397e001833f8b56da735dad47547bd409e107f93b4577c5"
       }
     },
     "npm:@ui8kit/registry|templ|link": {
       "name": "link",
       "type": "registry:ui",
-      "source": "https://unpkg.com/@ui8kit/registry@3.2.0/r/templ",
-      "version": "3.2.0",
+      "source": "https://unpkg.com/@ui8kit/registry@3.2.2/r/templ",
+      "version": "3.2.2",
       "runtime": "templ",
       "files": {
-        "ui/link/link.templ": "84eb141df10b5c07ad72551b9229144b273459f9cc3137ea92583919ead8b553"
+        "ui/link/link.templ": "25ca2977378c43255807d719405c8d0fcbb450757b75e3aa10005ffd8aa9fbfb"
       }
     },
     "npm:@ui8kit/registry|templ|meter": {
       "name": "meter",
       "type": "registry:ui",
-      "source": "https://unpkg.com/@ui8kit/registry@3.2.0/r/templ",
-      "version": "3.2.0",
+      "source": "https://unpkg.com/@ui8kit/registry@3.2.2/r/templ",
+      "version": "3.2.2",
       "runtime": "templ",
       "files": {
-        "ui/meter/meter.templ": "cd1ed5e320c17d8bd9307b67be56a723e53fad6630af5472a6c5aba1c91b03f0"
+        "ui/meter/meter.templ": "e3450ed0b44ba98911a464ebb407ba81cf73146eb6f35a54aa0ab5efedfc2066"
       }
     },
     "npm:@ui8kit/registry|templ|progress": {
       "name": "progress",
       "type": "registry:ui",
-      "source": "https://unpkg.com/@ui8kit/registry@3.2.0/r/templ",
-      "version": "3.2.0",
+      "source": "https://unpkg.com/@ui8kit/registry@3.2.2/r/templ",
+      "version": "3.2.2",
       "runtime": "templ",
       "files": {
-        "ui/progress/progress.templ": "4743859a6d583cbba7cbb4a6203e662d1cf599e2f5003f94a1f7802cf8cfc856"
+        "ui/progress/progress.templ": "769011ceeee9c8a64fa83d4742fc7593d578680b8ef7a9502e04ddf3c76b7a56"
       }
     },
     "npm:@ui8kit/registry|templ|radio": {
       "name": "radio",
       "type": "registry:ui",
-      "source": "https://unpkg.com/@ui8kit/registry@3.2.0/r/templ",
-      "version": "3.2.0",
+      "source": "https://unpkg.com/@ui8kit/registry@3.2.2/r/templ",
+      "version": "3.2.2",
       "runtime": "templ",
       "files": {
-        "ui/radio/radio.templ": "3b5fc1c63f988ef98f8651a9b38341432fd387fb0bcd23461eba118e970077ef"
+        "ui/radio/radio.templ": "87c0a3ba4bfbd7d4d2eef0548b74795bbae97dad676e269a5b2271c562869ac9"
       }
     },
     "npm:@ui8kit/registry|templ|rules": {
       "name": "rules",
       "type": "registry:rules",
-      "source": "https://unpkg.com/@ui8kit/registry@3.2.0/r/templ",
-      "version": "3.2.0",
+      "source": "https://unpkg.com/@ui8kit/registry@3.2.2/r/templ",
+      "version": "3.2.2",
       "runtime": "templ",
       "files": {
-        ".cursor/rules/ui8kit-primitives.mdc": "53e4d1e5c16127893736834f5f37880e0b7173423065437b450f8a02384659dc"
+        ".cursor/rules/ui8kit-primitives.mdc": "b74c6ba232ec45a64c26ea09dafbbc49797404cd184f18b3976f407a79a6d5b3"
       }
     },
     "npm:@ui8kit/registry|templ|select": {
       "name": "select",
       "type": "registry:ui",
-      "source": "https://unpkg.com/@ui8kit/registry@3.2.0/r/templ",
-      "version": "3.2.0",
+      "source": "https://unpkg.com/@ui8kit/registry@3.2.2/r/templ",
+      "version": "3.2.2",
       "runtime": "templ",
       "files": {
-        "ui/select/select.templ": "59e4f237dff6d6956694934007a5be7be7d0d157491ec8bebb733510351ef77b"
+        "ui/select/select.templ": "5208d8e4f11036c89fb7d0a6e75439bd33b49e974527f00536741fc8522ec691"
       }
     },
     "npm:@ui8kit/registry|templ|separator": {
       "name": "separator",
       "type": "registry:ui",
-      "source": "https://unpkg.com/@ui8kit/registry@3.2.0/r/templ",
-      "version": "3.2.0",
+      "source": "https://unpkg.com/@ui8kit/registry@3.2.2/r/templ",
+      "version": "3.2.2",
       "runtime": "templ",
       "files": {
-        "ui/separator/separator.templ": "523905e548d50df67c74e98744354b8ca9c97a9cedcc8e441c7093b6ce43056c"
+        "ui/separator/separator.templ": "9d80702a8fdfc1d6c7e107b3b33064c1a4fc296b2f295c7a6fae08d27ad778e3"
       }
     },
     "npm:@ui8kit/registry|templ|switch": {
       "name": "switch",
       "type": "registry:ui",
-      "source": "https://unpkg.com/@ui8kit/registry@3.2.0/r/templ",
-      "version": "3.2.0",
+      "source": "https://unpkg.com/@ui8kit/registry@3.2.2/r/templ",
+      "version": "3.2.2",
       "runtime": "templ",
       "files": {
-        "ui/switch/switch.templ": "0644de1768974a2af6039a64c97d7a3b9e8f65babb9ba7483871269b21a0e2fa"
+        "ui/switch/switch.templ": "d76a17787dd54a5c6647e51e555bd2dca048b31c5046a4b1b8959235362a0019"
       }
     },
     "npm:@ui8kit/registry|templ|text": {
       "name": "text",
       "type": "registry:ui",
-      "source": "https://unpkg.com/@ui8kit/registry@3.2.0/r/templ",
-      "version": "3.2.0",
+      "source": "https://unpkg.com/@ui8kit/registry@3.2.2/r/templ",
+      "version": "3.2.2",
       "runtime": "templ",
       "files": {
-        "ui/text/text.templ": "33222b2596bbd1b2388ec6201e0471171216442112f9ce4df586287c299c6aa3"
+        "ui/text/text.templ": "c661a64bf87d867d660ac39cd7797b04fe165a1d8d200319da5ed1dd58656f05"
       }
     },
     "npm:@ui8kit/registry|templ|textarea": {
       "name": "textarea",
       "type": "registry:ui",
-      "source": "https://unpkg.com/@ui8kit/registry@3.2.0/r/templ",
-      "version": "3.2.0",
+      "source": "https://unpkg.com/@ui8kit/registry@3.2.2/r/templ",
+      "version": "3.2.2",
       "runtime": "templ",
       "files": {
-        "ui/textarea/textarea.templ": "a661c0362a03078ce2073cf0cd3db0dabb354f628cac1c7488398395624927c8"
+        "ui/textarea/textarea.templ": "b795ea5e432a9429cb63570cc2683d32f4ba0707d94f687696eb0b19a2f783ab"
       }
     },
     "npm:@ui8kit/registry|templ|utils": {
       "name": "utils",
       "type": "registry:utils",
-      "source": "https://unpkg.com/@ui8kit/registry@3.2.0/r/templ",
-      "version": "3.2.0",
+      "source": "https://unpkg.com/@ui8kit/registry@3.2.2/r/templ",
+      "version": "3.2.2",
       "runtime": "templ",
       "files": {
-        "utils/cn_merge.go": "a50d3b4eecba63f50ae91ccb380b49a669dec666712a3127dbf7b75a42e976e5",
+        "utils/cn_merge.go": "2761e3565f991314e133f670776bfd342eecf1da2c4b52f72f880e05d3e957b7",
         "utils/expr.go": "4362abd14df130e43da4d38a370eea54aaf637d9b43245e4a6da42a22b1a250e",
-        "utils/tags.go": "58d014342d5f6cdf2e0b7d79495f6b904cd8c3cc85cec2967c9d60ffa5a4534f",
-        "utils/utils.go": "6c2daf0f55952802dbeed4a104d705aafea63665b4277361a673cf3dc77520f5",
+        "utils/tags.go": "6008315e81150bb75b3b907ac412f048b38d2e4e548d240733a06b83369bf66a",
+        "utils/utils.go": "7c83b1ae6567068218090bbd127782f71189e72d49892899871d6d80f0ae46c3",
         "utils/variants_json.go": "0d0d1343368b25ff1a901b99c81e06908ade9babcf61fe17b6c685abfab251cd"
       }
     }

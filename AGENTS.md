@@ -6,7 +6,7 @@ Authfly widgets on **UI8Kit 3** primitives. Read this before changing anything u
 
 - CLI-owned — never edit by hand, never edit `ui8kit.lock.json`: `ui/` (or `src/ui/`), the utils/runtime folder
   (`src/utils`, `utils/`, `runtime/`, `ui8kit_jinja/`), `ui8kit.config.json`, `ui8kit.lock.json`,
-  `.cursor/rules/ui8kit-primitives.mdc`. Change them only with `npx ui8kit@3 init/add --registry-version 3.2.0`.
+  `.cursor/rules/ui8kit-primitives.mdc`. Change them only with `npx ui8kit@3 init/add --registry-version 3.2.2`.
   `npx ui8kit@3 check` must pass before every commit.
 - Authfly-owned: skin (class recipes, tokens only), the middle layer (Card, Stack, Group, Form, Title, Alert, Badge,
   IconBadge, Field, LucideIcon), the six widgets (`AuthflySignIn`, `AuthflySignUp`, `AuthflyRequest`, `AuthflyNotice`,
