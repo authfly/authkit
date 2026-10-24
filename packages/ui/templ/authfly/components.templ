@@ -48,14 +48,9 @@ templ Form(action, class string, attrs templ.Attributes) {
 	}
 }
 
-// Hidden: value is always emitted (InputProps.Value "" means "unset" in the primitive, so an empty csrf/token
-// goes through Attrs to keep value="" like the react output).
+// Hidden: value is always emitted, an empty csrf/token included (InputProps.Value is *string: nil = no attribute).
 templ Hidden(name, value string) {
-	if value == "" {
-		@input.Input(input.InputProps{Type: "hidden", Name: name, Attrs: templ.Attributes{"value": ""}})
-	} else {
-		@input.Input(input.InputProps{Type: "hidden", Name: name, Value: &value})
-	}
+	@input.Input(input.InputProps{Type: "hidden", Name: name, Value: &value})
 }
 
 // Title: h1 (title size) or h2/h3 (subtitle size) via the Text primitive.

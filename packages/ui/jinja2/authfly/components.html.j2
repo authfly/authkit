@@ -31,10 +31,9 @@
 {{ prim('ui/form/form.html.j2', {'Action': action, 'Method': 'post', 'Class': af_cn('grid gap-4', cls), 'Attrs': af_attrs(attrs)}, children) }}
 {%- endmacro -%}
 
-{#- hidden: value always emitted (an empty value goes through Attrs; the primitive drops value=""). -#}
+{#- hidden: value always emitted, an empty one included (the primitive omits only None). -#}
 {%- macro hidden(name, value='') -%}
-{%- if value is none or value == '' -%}{{ prim('ui/input/input.html.j2', {'Type': 'hidden', 'Name': name, 'Attrs': {'value': ''}}) }}
-{%- else -%}{{ prim('ui/input/input.html.j2', {'Type': 'hidden', 'Name': name, 'Value': value}) }}{%- endif -%}
+{{ prim('ui/input/input.html.j2', {'Type': 'hidden', 'Name': name, 'Value': '' if value is none else value}) }}
 {%- endmacro -%}
 
 {%- macro title(level, id, role, title) -%}

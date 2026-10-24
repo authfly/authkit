@@ -31,13 +31,9 @@
 {include '../ui/form/Form.latte', action: $action, method: 'post', class: afCn('grid gap-4', $class), attrs: afAttrs($attrs), children: (string) $children}
 {/define}
 
-{* hidden: value always emitted (an empty value goes through attrs; the primitive drops value=""). *}
+{* hidden: value always emitted, an empty one included (the primitive omits only null). *}
 {define hidden, string $name, $value = ''}
-{if $value === '' || $value === null}
-{include '../ui/input/Input.latte', type: 'hidden', name: $name, attrs: ['value' => '']}
-{else}
 {include '../ui/input/Input.latte', type: 'hidden', name: $name, value: (string) $value}
-{/if}
 {/define}
 
 {define title, int $level, string $id, $role, $title}

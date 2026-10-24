@@ -5,7 +5,7 @@ Authfly widgets for Solid on **UI8Kit 3** primitives (registry 3.2.2, CLI 3.2.1)
 `src/skin/skin.ts` (shared with react), `src/components/*.tsx` (Card, Stack, Group, Form + error context, Title, Alert,
 Badge, IconBadge, Field, LucideIcon), `src/blocks/*.tsx` (six widgets, props in `blocks/props.ts`) are Authfly's.
 
-Field takes a render function `{(f) => <Input aria-describedby={f.describe()} aria-invalid={f.invalid} />}`; Form shares `errorId` via context. Known primitive quirk: classless Input renders `class=""` in SSR.
+Field takes a render function `{(f) => <Input aria-describedby={f.describe()} aria-invalid={f.invalid} />}`; Form shares `errorId` via context.
 
 ```bash
 npx ui8kit@3 init --yes --framework solid --runtime solid --dir src --registry-version 3.2.2

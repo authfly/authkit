@@ -10,7 +10,7 @@ badge, iconBadge, field with `{ describe, invalid }`, lucideIcon), `src/blocks/w
 <authfly-sign-in props='{"id":"s","title":"Sign in","text":"…","action":"/auth/sign-in","labels":{…},"providers":[]}'></authfly-sign-in>
 ```
 
-Or set `el.props = {...}`. The bundle must be loaded as a module (`utils/env.ts` reads `import.meta`).
+Or set `el.props = {...}`. The bundle is ESM (it exports `defineAuthflyElements`), so load it as a module.
 All text (titles, errors) goes through `createTextNode`; nothing is parsed as HTML.
 
 ```bash

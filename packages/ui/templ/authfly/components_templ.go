@@ -270,8 +270,7 @@ func Form(action, class string, attrs templ.Attributes) templ.Component {
 	})
 }
 
-// Hidden: value is always emitted (InputProps.Value "" means "unset" in the primitive, so an empty csrf/token
-// goes through Attrs to keep value="" like the react output).
+// Hidden: value is always emitted, an empty csrf/token included (InputProps.Value is *string: nil = no attribute).
 func Hidden(name, value string) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
@@ -293,16 +292,9 @@ func Hidden(name, value string) templ.Component {
 			templ_7745c5c3_Var11 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		if value == "" {
-			templ_7745c5c3_Err = input.Input(input.InputProps{Type: "hidden", Name: name, Attrs: templ.Attributes{"value": ""}}).Render(ctx, templ_7745c5c3_Buffer)
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-		} else {
-			templ_7745c5c3_Err = input.Input(input.InputProps{Type: "hidden", Name: name, Value: &value}).Render(ctx, templ_7745c5c3_Buffer)
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
+		templ_7745c5c3_Err = input.Input(input.InputProps{Type: "hidden", Name: name, Value: &value}).Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
 		}
 		return nil
 	})
@@ -346,7 +338,7 @@ func Title(level int, id, role, title string) templ.Component {
 				var templ_7745c5c3_Var14 string
 				templ_7745c5c3_Var14, templ_7745c5c3_Err = templ.JoinStringErrs(title)
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `authfly/components.templ`, Line: 65, Col: 10}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `authfly/components.templ`, Line: 60, Col: 10}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var14))
 				if templ_7745c5c3_Err != nil {
@@ -374,7 +366,7 @@ func Title(level int, id, role, title string) templ.Component {
 				var templ_7745c5c3_Var16 string
 				templ_7745c5c3_Var16, templ_7745c5c3_Err = templ.JoinStringErrs(title)
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `authfly/components.templ`, Line: 69, Col: 10}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `authfly/components.templ`, Line: 64, Col: 10}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var16))
 				if templ_7745c5c3_Err != nil {
@@ -438,7 +430,7 @@ func Alert(tone, iconName, id, testid, message string) templ.Component {
 			var templ_7745c5c3_Var19 string
 			templ_7745c5c3_Var19, templ_7745c5c3_Err = templ.JoinStringErrs(message)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `authfly/components.templ`, Line: 80, Col: 11}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `authfly/components.templ`, Line: 75, Col: 11}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var19))
 			if templ_7745c5c3_Err != nil {
@@ -490,7 +482,7 @@ func Badge(variant, testid, label string) templ.Component {
 			var templ_7745c5c3_Var22 string
 			templ_7745c5c3_Var22, templ_7745c5c3_Err = templ.JoinStringErrs(label)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `authfly/components.templ`, Line: 86, Col: 9}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `authfly/components.templ`, Line: 81, Col: 9}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var22))
 			if templ_7745c5c3_Err != nil {
@@ -631,7 +623,7 @@ func Field(p FieldProps, control func(FieldControl) templ.Component) templ.Compo
 				var templ_7745c5c3_Var28 string
 				templ_7745c5c3_Var28, templ_7745c5c3_Err = templ.JoinStringErrs(p.Label)
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `authfly/components.templ`, Line: 126, Col: 12}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `authfly/components.templ`, Line: 121, Col: 12}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var28))
 				if templ_7745c5c3_Err != nil {
@@ -663,7 +655,7 @@ func Field(p FieldProps, control func(FieldControl) templ.Component) templ.Compo
 					var templ_7745c5c3_Var30 string
 					templ_7745c5c3_Var30, templ_7745c5c3_Err = templ.JoinStringErrs(p.Hint)
 					if templ_7745c5c3_Err != nil {
-						return templ.Error{Err: templ_7745c5c3_Err, FileName: `authfly/components.templ`, Line: 131, Col: 12}
+						return templ.Error{Err: templ_7745c5c3_Err, FileName: `authfly/components.templ`, Line: 126, Col: 12}
 					}
 					_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var30))
 					if templ_7745c5c3_Err != nil {
@@ -696,7 +688,7 @@ func Field(p FieldProps, control func(FieldControl) templ.Component) templ.Compo
 					var templ_7745c5c3_Var32 string
 					templ_7745c5c3_Var32, templ_7745c5c3_Err = templ.JoinStringErrs(p.Error)
 					if templ_7745c5c3_Err != nil {
-						return templ.Error{Err: templ_7745c5c3_Err, FileName: `authfly/components.templ`, Line: 136, Col: 13}
+						return templ.Error{Err: templ_7745c5c3_Err, FileName: `authfly/components.templ`, Line: 131, Col: 13}
 					}
 					_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var32))
 					if templ_7745c5c3_Err != nil {
@@ -778,7 +770,7 @@ func WidgetHead(id, title, lead, align, role string) templ.Component {
 				var templ_7745c5c3_Var36 string
 				templ_7745c5c3_Var36, templ_7745c5c3_Err = templ.JoinStringErrs(lead)
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `authfly/components.templ`, Line: 153, Col: 9}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `authfly/components.templ`, Line: 148, Col: 9}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var36))
 				if templ_7745c5c3_Err != nil {
