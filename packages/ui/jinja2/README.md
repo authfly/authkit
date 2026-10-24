@@ -6,6 +6,9 @@ Primitives from `npx ui8kit@3` (CLI 3.2.1, registry 3.2.0):
     npx ui8kit@3 add --all --runtime jinja2 --registry-version 3.2.0
     pip install "Jinja2>=3.1,<4"
 
+Installed from PyPI (`pip install authfly-jinja2`), the templates ship inside the wheel as `authfly_jinja2_templates`
+and `environment()` finds them; in a checkout it uses this folder. Build: `python -m build && twine check dist/*`.
+
 `ui/` (templates) and `ui8kit_jinja/` (runtime) are CLI-owned — never edit; `npx ui8kit@3 check`.
 Authfly layer: `authfly_jinja/` (`environment()`, `skin.py`, `lucide_icons.py`), `authfly/components.html.j2`
 (macros: card, stack, group, form, hidden, title, alert, badge, icon_badge, field, icon, head, messages),

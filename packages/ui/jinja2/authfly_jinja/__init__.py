@@ -20,6 +20,12 @@ from . import skin
 from .lucide_icons import LUCIDE
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if not os.path.isdir(os.path.join(ROOT, "blocks")):  # installed wheel: templates live in authfly_jinja2_templates
+    import importlib.util
+
+    _spec = importlib.util.find_spec("authfly_jinja2_templates")
+    if _spec and _spec.submodule_search_locations:
+        ROOT = list(_spec.submodule_search_locations)[0]
 
 
 def _p(v: Any) -> Any:

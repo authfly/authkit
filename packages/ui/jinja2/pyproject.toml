@@ -2,6 +2,8 @@
 name = "authfly-jinja2"
 version = "0.4.0"
 description = "Authfly widgets for Jinja2 on UI8Kit 3 primitives (CLI 3.2.1, registry 3.2.0)"
+readme = "README.md"
+license = "MIT"
 requires-python = ">=3.10"
 dependencies = ["Jinja2>=3.1,<4"]
 
@@ -9,8 +11,17 @@ dependencies = ["Jinja2>=3.1,<4"]
 Repository = "https://github.com/authfly/authkit"
 
 [build-system]
-requires = ["setuptools>=68"]
+requires = ["setuptools>=77"]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools]
-packages = ["authfly_jinja", "ui8kit_jinja"]
+# The templates (ui/, blocks/, authfly/) stay where ui8kit@3 and the repo layout put them; in the wheel they are the
+# data package authfly_jinja2_templates, which authfly_jinja.environment() falls back to when installed.
+packages = ["authfly_jinja", "ui8kit_jinja", "authfly_jinja2_templates"]
+include-package-data = false
+
+[tool.setuptools.package-dir]
+authfly_jinja2_templates = "."
+
+[tool.setuptools.package-data]
+authfly_jinja2_templates = ["ui/**/*.j2", "ui/**/*.json", "blocks/*.j2", "authfly/*.j2"]
