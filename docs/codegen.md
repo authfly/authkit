@@ -36,4 +36,4 @@ Box/Text tag allowlist) and html-validate + axe-core over the 20 states rendered
 
 ## Lint
 
-`npx ui8px@latest lint` runs on the rendered HTML (policy in `.ui8px/`, unchanged).
+`bun run lint:px` (`npx ui8px@0.2.5 lint`, policy in `.ui8px/`).

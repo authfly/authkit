@@ -27,7 +27,7 @@ for its hosted pages.
 bun install
 cd packages/ui/<runtime> && npx ui8kit@3 check     # CLI-owned files untouched (run before every commit)
 # per runtime: see packages/ui/<runtime>/README.md (typecheck, tests, parity render)
-npx ui8px@latest lint                               # on rendered HTML (policy in .ui8px/, unchanged)
+npx ui8px@0.2.5 lint                               # = bun run lint:px (policy in .ui8px/)
 bun run gates                                       # HTML/ARIA gates (source + rendered HTML, 9 runtimes)
 bun run site                                        # docs + live templ previews -> site/dist
 ```

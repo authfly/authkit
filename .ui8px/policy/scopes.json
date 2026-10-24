@@ -12,6 +12,15 @@
       "spacing": "control"
     },
     {
+      "name": "controls-templ",
+      "files": [
+        "packages/ui/templ/ui/**",
+        "packages/ui/templ/utils/**",
+        "packages/ui/templ/authfly/skin.go"
+      ],
+      "spacing": "control"
+    },
+    {
       "name": "layout",
       "files": [
         "src/views/**",

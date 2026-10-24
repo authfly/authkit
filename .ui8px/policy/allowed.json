@@ -169,6 +169,26 @@
     "underline-offset-4",
     "auto-rows-min",
     "size-4",
-    "size-5"
+    "size-5",
+    "inset-ring",
+    "inset-ring-border",
+    "inset-ring-input",
+    "inset-ring-ring",
+    "inset-ring-primary",
+    "inset-ring-transparent",
+    "inset-ring-success",
+    "inset-ring-warning",
+    "inset-ring-destructive",
+    "list-none",
+    "transition-colors",
+    "outline-none",
+    "cursor-not-allowed",
+    "pointer-events-none",
+    "accent-primary",
+    "border-b",
+    "border-t",
+    "uppercase",
+    "leading-7",
+    "size-12"
   ]
 }

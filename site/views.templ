@@ -141,7 +141,7 @@ templ spans(xs []Inline) {
 	for _, x := range xs {
 		switch x.Kind {
 			case "code":
-				@text.Text(text.TextProps{Tag: "code", Class: "rounded bg-muted px-1 text-sm text-foreground"}) {
+				@text.Text(text.TextProps{Tag: "code", Class: "rounded bg-muted px-2 text-sm text-foreground"}) {
 					{ x.Text }
 				}
 			case "strong":
