@@ -12,6 +12,7 @@ widgets/blocks and the site stay in layout scope. Spacing scales unchanged.
 Non-spacing utilities used by the Authfly skin, widgets and docs site (no spacing values, no arbitrary values):
 `list-none`, `transition-colors`, `outline-none`, `cursor-not-allowed`, `pointer-events-none`, `accent-primary`,
 `border-b`, `border-t`, `uppercase`, `leading-7`, `size-12` (48 px).
-Accepted violation (owner, 2026-10-24): ui8px 0.2.5 has no policy-level exceptions and a hard-coded modifier list
-without `placeholder:`, so `placeholder:text-muted-foreground` in `InputSkin` (`skin.go`) is the one UI8PX002 that
-`bun run lint:px` reports; the class stays as is.
+Variants are only the ui8px list (`hover`, `focus`, `focus-visible`, `active`, `disabled`, `visited`, `dark`, `sm`–`2xl`,
+`group-hover`); what a utility cannot express goes to `@layer base` of the theme on `var(--token)` (e.g. `::placeholder`
+in `packages/ui/*/src/styles/theme.css`), never into policy exceptions or a ui8px CLI change. Rule:
+`.cursor/rules/tailwind-tokens-ui8px.mdc`.

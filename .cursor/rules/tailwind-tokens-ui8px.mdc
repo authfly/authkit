@@ -1,0 +1,18 @@
+---
+description: Разметка только на Tailwind utilities и shadcn design tokens, variants из списка ui8px, сетка 8+4
+globs:
+alwaysApply: true
+---
+- В разметке (skins, widgets, middle layer, site) только Tailwind utilities и shadcn design tokens
+  (`bg-muted`, `text-muted-foreground`, `inset-ring-input` …). Цвета только токенами, без palette и raw values.
+- Variants только из списка ui8px 0.2.5 (`ALLOWED_MODIFIERS`): `hover`, `focus`, `focus-visible`, `active`,
+  `disabled`, `visited`, `dark`, `sm`, `md`, `lg`, `xl`, `2xl`, `group-hover`. Нельзя: `placeholder:`, `aria-*:`,
+  `data-*:`, `peer-*`, прочие `group-*`, `first:`/`last:`, `has-*`, `[&…]:` и т.п.
+- Без arbitrary values (`w-[…]`, `[--x:…]`, `text-[#…]`).
+- Сетка 8+4: в layout шаг 8 px; 4 px (`1`, `3`, `5`, `7`) только внутри controls (buttons, fields, badges, tabs);
+  half-step и произвольные px запрещены.
+- Что utility не выражает — в `@layer base` темы на `var(--token)`, одинаково во всех runtimes
+  (`packages/ui/*/src/styles/theme.css`), например
+  `input::placeholder, textarea::placeholder { color: var(--muted-foreground); }`.
+- Политику `.ui8px/` не ослаблять, CLI ui8px ради класса не менять. Разметка во всех 9 runtimes одинаковая.
+- Проверка: `bun run lint:px` (`npx ui8px@0.2.5 lint`) = 0. Политика и её история: `.ui8px/README.md`.

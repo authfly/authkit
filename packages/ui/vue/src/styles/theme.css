@@ -137,4 +137,9 @@
   body {
     @apply bg-background text-foreground;
   }
+  /* Field placeholders on the muted token (not expressible with the ui8px variant list; light/dark follow the token). */
+  input::placeholder,
+  textarea::placeholder {
+    color: var(--muted-foreground);
+  }
 }
