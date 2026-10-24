@@ -5,3 +5,4 @@ dist/
 *.log
 __pycache__/
 *_templ.go
+!/packages/ui/templ/**/*_templ.go

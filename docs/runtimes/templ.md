@@ -1,6 +1,6 @@
 # templ
 
-The templ widgets live in `packages/ui/templ`: UI8Kit 3 primitives installed by `npx ui8kit@3` (CLI 3.2.1, registry 3.2.0; CLI-owned, never edited), the Authfly skin and middle layer, and the six widgets. Go module `github.com/authfly/authkit/widgets/templ`; point it at your checkout with a `replace` directive and run `templ generate` there (`*_templ.go` is not committed).
+The templ widgets live in `packages/ui/templ`: UI8Kit 3 primitives installed by `npx ui8kit@3` (CLI 3.2.1, registry 3.2.0; CLI-owned, never edited), the Authfly skin and middle layer, and the six widgets. Go module `github.com/authfly/authkit/packages/ui/templ`; point it at your checkout with a `replace` directive and run `templ generate` there (`*_templ.go` is not committed).
 
 ::preview sign-in
 
@@ -9,14 +9,14 @@ The preview is rendered by the templ set; the templ set renders the same DOM (pa
 ## Module
 
 ```text
-require github.com/authfly/authkit/widgets/templ v0.0.0
-replace github.com/authfly/authkit/widgets/templ => ./packages/ui/templ
+require github.com/authfly/authkit/packages/ui/templ v0.0.0
+replace github.com/authfly/authkit/packages/ui/templ => ./packages/ui/templ
 ```
 
 ## Render a widget
 
 ```go
-import af "github.com/authfly/authkit/widgets/templ/authfly"
+import af "github.com/authfly/authkit/packages/ui/templ/authfly"
 
 c := af.AuthflySignIn(af.AuthflySignInProps{
 	Id: "signin", Title: "Sign in", Text: "Welcome back.", Action: "/auth/sign-in", Csrf: csrf,

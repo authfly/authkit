@@ -4,7 +4,7 @@ import (
 	"github.com/a-h/templ"
 	_ "embed"
 	"encoding/json"
-	blocks "github.com/authfly/authkit/widgets/templ/authfly"
+	blocks "github.com/authfly/authkit/packages/ui/templ/authfly"
 )
 
 // Preview is one widget state rendered with the English labels (site/labels.json) for the live previews.

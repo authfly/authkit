@@ -10,7 +10,7 @@ Sign-in, sign-up, magic link, password reset, account and consent widgets for ni
 | Svelte 5 | `@authfly/svelte` (`packages/ui/svelte`) |
 | Solid | `@authfly/solid` (`packages/ui/solid`) |
 | Web components | `@authfly/webcomponent` (`packages/ui/webcomponent`, `<authfly-*>` light-DOM elements) |
-| templ (Go) | module `github.com/authfly/authkit/widgets/templ` (`packages/ui/templ`) |
+| templ (Go) | module `github.com/authfly/authkit/packages/ui/templ` (`packages/ui/templ`) |
 | Twig, Latte (PHP) | composer `authfly/twig`, `authfly/latte` (`packages/ui/twig`, `packages/ui/latte`) |
 | Jinja2 (Python) | `authfly-jinja2` (`packages/ui/jinja2`) |
 

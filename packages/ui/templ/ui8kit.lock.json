@@ -9,7 +9,7 @@
       "version": "3.2.0",
       "runtime": "templ",
       "files": {
-        "ui/box/box.templ": "ef727b9a5318ea1940d13ac4a112ef31e465e5ac12a74aa1a25967eff9c15fb4"
+        "ui/box/box.templ": "6ee5ea37a963ec7dee0a1b7a394120486e424056deec567569e189dc8375b22e"
       }
     },
     "npm:@ui8kit/registry|templ|button": {
@@ -19,7 +19,7 @@
       "version": "3.2.0",
       "runtime": "templ",
       "files": {
-        "ui/button/button.templ": "e98145051d760112a671f66a00923a82643daf3115ed261aea58010181049af1"
+        "ui/button/button.templ": "2235d53d69b2df267061e3ec9b0e93f062c57af052f80e318b2a06eddc5ff040"
       }
     },
     "npm:@ui8kit/registry|templ|checkbox": {
@@ -29,7 +29,7 @@
       "version": "3.2.0",
       "runtime": "templ",
       "files": {
-        "ui/checkbox/checkbox.templ": "da06adc7a903fe415df096da6cbae942066d0e44b2432a6851803e698a9a2c06"
+        "ui/checkbox/checkbox.templ": "5f6ff83d572b82abbf128731a868104ba40a0a6aad144f5fb0c79a8f75db30f8"
       }
     },
     "npm:@ui8kit/registry|templ|dialog": {
@@ -39,7 +39,7 @@
       "version": "3.2.0",
       "runtime": "templ",
       "files": {
-        "ui/dialog/dialog.templ": "268c426b3ba9491e8fea8acbdd29051fefcd85b916be745ad063b0f03844cf5e"
+        "ui/dialog/dialog.templ": "9eccb79bb9228ad57ebff55b0468dbb865618c9760d06c20257b646d4830ef0f"
       }
     },
     "npm:@ui8kit/registry|templ|disclosure": {
@@ -49,7 +49,7 @@
       "version": "3.2.0",
       "runtime": "templ",
       "files": {
-        "ui/disclosure/disclosure.templ": "53d4bb98a48e4ec274a08e09650d615fab7c764aca1ad3db87eccc324eb2da23"
+        "ui/disclosure/disclosure.templ": "8225932ccdd430e809079a20e5000e436d1ae34f7ceacd72476abadb863f056e"
       }
     },
     "npm:@ui8kit/registry|templ|form": {
@@ -59,7 +59,7 @@
       "version": "3.2.0",
       "runtime": "templ",
       "files": {
-        "ui/form/form.templ": "4040a51c34b7867941bf735cd2a508832728ed7f2648c61c434ecc429ad29591"
+        "ui/form/form.templ": "c39052283415998110b3f5b1445445702eaa40ed50a4d3a67a6d13460c9fe1cd"
       }
     },
     "npm:@ui8kit/registry|templ|icon": {
@@ -69,9 +69,9 @@
       "version": "3.2.0",
       "runtime": "templ",
       "files": {
-        "ui/icon/icon.templ": "9018ef3d8f49783f7bb8361e3ce854a5c90ef3e22a6145e237d92df8690de320",
+        "ui/icon/icon.templ": "972246c1663ce839d2c1a81c05a5b2e4d91d6976ad97cbcb507368cfb9382da7",
         "ui/icon/icon.variants.json": "3411086ff914c3d68ed81fa575f1ae22b6b5202198d505de4c1abf1509d8904a",
-        "ui/icon/icon_gen.go": "1605b05a34ba7551c9e473f0bcd03673a2b77f1fd5a04047e6f79e24856a8afd"
+        "ui/icon/icon_gen.go": "ce55760f60baaa82a40dc14beda91d40be352408fb334bdd9d3adfbbc0afc4bf"
       }
     },
     "npm:@ui8kit/registry|templ|image": {
@@ -81,7 +81,7 @@
       "version": "3.2.0",
       "runtime": "templ",
       "files": {
-        "ui/image/image.templ": "06d2b26489c51f2a9e7d8b27d86cade409ef10582d62f8b71afcbe3d7d2ba042"
+        "ui/image/image.templ": "c30f150c4a95b4b2518cf21a18c89513b5e223802a0004c897608f8f06e94600"
       }
     },
     "npm:@ui8kit/registry|templ|input": {
@@ -91,7 +91,7 @@
       "version": "3.2.0",
       "runtime": "templ",
       "files": {
-        "ui/input/input.templ": "49e3f4ce61650b1e8cd02cca23285a339f070e756c7141a0cbf0e360821eccb2"
+        "ui/input/input.templ": "8d9d054d0eab2c2bf2071bfab9dcde2ad79e7ed4ea6a8d18a2603dc905d88961"
       }
     },
     "npm:@ui8kit/registry|templ|label": {
@@ -101,7 +101,7 @@
       "version": "3.2.0",
       "runtime": "templ",
       "files": {
-        "ui/label/label.templ": "82406eae1ddb5e67dc49d02ab3c267bd66f17ba5e24a0d04e322f7e6fe796cb4"
+        "ui/label/label.templ": "b1a0951067b47c146a11b04f8dd37971fe1a9b244d8435ebf74e5d47d9362e0f"
       }
     },
     "npm:@ui8kit/registry|templ|link": {
@@ -111,7 +111,7 @@
       "version": "3.2.0",
       "runtime": "templ",
       "files": {
-        "ui/link/link.templ": "5aa286a9f2902ae6287ba8590427bd3bbe700f2a7cadf2781fb66ef304896834"
+        "ui/link/link.templ": "84eb141df10b5c07ad72551b9229144b273459f9cc3137ea92583919ead8b553"
       }
     },
     "npm:@ui8kit/registry|templ|meter": {
@@ -121,7 +121,7 @@
       "version": "3.2.0",
       "runtime": "templ",
       "files": {
-        "ui/meter/meter.templ": "0ae9c908d3922129ae8c4770d19baa7f15f73ddc2eaa4c300c6fedf30638e030"
+        "ui/meter/meter.templ": "cd1ed5e320c17d8bd9307b67be56a723e53fad6630af5472a6c5aba1c91b03f0"
       }
     },
     "npm:@ui8kit/registry|templ|progress": {
@@ -131,7 +131,7 @@
       "version": "3.2.0",
       "runtime": "templ",
       "files": {
-        "ui/progress/progress.templ": "ff42f0dd76a1a4455c275e2f92804a8700819b8f83c80fac6143f3a27a589db0"
+        "ui/progress/progress.templ": "4743859a6d583cbba7cbb4a6203e662d1cf599e2f5003f94a1f7802cf8cfc856"
       }
     },
     "npm:@ui8kit/registry|templ|radio": {
@@ -141,7 +141,7 @@
       "version": "3.2.0",
       "runtime": "templ",
       "files": {
-        "ui/radio/radio.templ": "b72440e1253d5a6836b01239817ce760ca887ce785732415ef71772f2cd0164a"
+        "ui/radio/radio.templ": "3b5fc1c63f988ef98f8651a9b38341432fd387fb0bcd23461eba118e970077ef"
       }
     },
     "npm:@ui8kit/registry|templ|rules": {
@@ -161,7 +161,7 @@
       "version": "3.2.0",
       "runtime": "templ",
       "files": {
-        "ui/select/select.templ": "a737bafea2f6ffc71cab0714e98613ef92616447e0183147daee765919ff0ad0"
+        "ui/select/select.templ": "59e4f237dff6d6956694934007a5be7be7d0d157491ec8bebb733510351ef77b"
       }
     },
     "npm:@ui8kit/registry|templ|separator": {
@@ -171,7 +171,7 @@
       "version": "3.2.0",
       "runtime": "templ",
       "files": {
-        "ui/separator/separator.templ": "ef19efa0376dd67e0dbf59b147faa2ad53a18ccdad48905e0de37a2560f45861"
+        "ui/separator/separator.templ": "523905e548d50df67c74e98744354b8ca9c97a9cedcc8e441c7093b6ce43056c"
       }
     },
     "npm:@ui8kit/registry|templ|switch": {
@@ -181,7 +181,7 @@
       "version": "3.2.0",
       "runtime": "templ",
       "files": {
-        "ui/switch/switch.templ": "243d99a1d104619410042e59bedc7ee80db390ac99df2e3dee2d68fca2af1be0"
+        "ui/switch/switch.templ": "0644de1768974a2af6039a64c97d7a3b9e8f65babb9ba7483871269b21a0e2fa"
       }
     },
     "npm:@ui8kit/registry|templ|text": {
@@ -191,7 +191,7 @@
       "version": "3.2.0",
       "runtime": "templ",
       "files": {
-        "ui/text/text.templ": "a610f4ddc560f96845ae1b72d766861f8c5cd93aa75ead25a80c1c2332fd6072"
+        "ui/text/text.templ": "33222b2596bbd1b2388ec6201e0471171216442112f9ce4df586287c299c6aa3"
       }
     },
     "npm:@ui8kit/registry|templ|textarea": {
@@ -201,7 +201,7 @@
       "version": "3.2.0",
       "runtime": "templ",
       "files": {
-        "ui/textarea/textarea.templ": "fdfe12df3f0d565286c966aedaf70b6c0f386d2316698e3daf6cb88e73dee965"
+        "ui/textarea/textarea.templ": "a661c0362a03078ce2073cf0cd3db0dabb354f628cac1c7488398395624927c8"
       }
     },
     "npm:@ui8kit/registry|templ|utils": {

@@ -2,7 +2,7 @@
 // 4px only inside controls), composed with the CLI-installed utils.Cn.
 package authfly
 
-import uiutils "github.com/authfly/authkit/widgets/templ/utils"
+import uiutils "github.com/authfly/authkit/packages/ui/templ/utils"
 
 func cn(parts ...string) string { return uiutils.Cn(parts...) }
 

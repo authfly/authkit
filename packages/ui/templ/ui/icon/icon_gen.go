@@ -5,7 +5,7 @@ package icon
 import (
 	_ "embed"
 
-	uiutils "github.com/authfly/authkit/widgets/templ/utils"
+	uiutils "github.com/authfly/authkit/packages/ui/templ/utils"
 )
 
 //go:embed icon.variants.json

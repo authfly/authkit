@@ -1,4 +1,4 @@
-module github.com/authfly/authkit/widgets/templ
+module github.com/authfly/authkit/packages/ui/templ
 
 go 1.26.0
 

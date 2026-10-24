@@ -8,7 +8,7 @@ import (
 	"path/filepath"
 
 	"github.com/a-h/templ"
-	af "github.com/authfly/authkit/widgets/templ/authfly"
+	af "github.com/authfly/authkit/packages/ui/templ/authfly"
 )
 
 func dec[T any](raw json.RawMessage) T {
