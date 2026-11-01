@@ -1,7 +1,7 @@
 # Authfly brand registry (9 runtimes)
 
 The Authfly layer (skin, middle layer, 6 widgets) as UI8Kit registry items, so an app gets it with
-`ui8kit add` instead of copying `packages/ui/<rt>`. **Not hosted anywhere yet** (see "Hosting" below).
+`ui8kit add` instead of copying `packages/ui/<rt>`. Hosted at `https://registry.buildy.tw/authfly/<rt>/` (see "Hosting").
 
 | path | what | in git |
 | --- | --- | --- |
@@ -50,5 +50,8 @@ the installed copy → `tools/parity.py`: 8 × 20/20 with react.
 
 ## Hosting
 
-Not published. `registry.buildy.tw` is built from `ui8kit/site` and has no brand namespace yet; requests are in
-https://github.com/alexy-os/chaosbun/issues/117. Until then an app can point `--registry-url` at a self-served `r/<rt>`.
+Owner decision: hosted in [ui8kit/site](https://github.com/ui8kit/site) at `r/authfly/<rt>/`; a push to site `main`
+deploys `r/` as https://registry.buildy.tw/, so an app installs with
+`npx ui8kit@3 add authfly-sign-in --registry-url https://registry.buildy.tw/authfly/<rt>`.
+Update: `tools/publish-registry.sh <site-checkout>` (build + copy into `r/authfly/` only), run the site checks, commit
+only `r/authfly/**`. Brand/upload process discussion: https://github.com/alexy-os/chaosbun/issues/117.
