@@ -2,6 +2,8 @@
 
 > **Read-only mirror:** [authfly/latte](https://github.com/authfly/latte) is a read-only mirror of `packages/ui/latte`; develop in [authfly/authkit](https://github.com/authfly/authkit) (`tools/split.sh`).
 
+> **Do not edit in the mirror.** Source: https://github.com/authfly/authkit/tree/main/packages/ui/latte — changes are synced to the mirror automatically.
+
 Composer package `authfly/latte`. Primitives from `npx ui8kit@3` (CLI 3.2.1, registry 3.3.0):
 
     npx ui8kit@3 init --yes --framework latte --runtime latte --dir . --registry-version 3.3.0
