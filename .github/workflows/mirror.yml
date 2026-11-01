@@ -1,0 +1,32 @@
+name: mirror
+# Read-only Composer mirrors: packages/ui/twig -> authfly/twig, packages/ui/latte -> authfly/latte (same as tools/split.sh).
+# Needs repo secrets MIRROR_TWIG_KEY / MIRROR_LATTE_KEY: private halves of write deploy keys on the mirror repos.
+on:
+  push:
+    branches: [main]
+    paths: ['packages/ui/twig/**', 'packages/ui/latte/**', '.github/workflows/mirror.yml']
+  workflow_dispatch:
+permissions: { contents: read }
+concurrency: { group: mirror, cancel-in-progress: false }
+jobs:
+  split:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - { name: twig, secret: MIRROR_TWIG_KEY }
+          - { name: latte, secret: MIRROR_LATTE_KEY }
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - name: split and push (fast-forward only)
+        env:
+          KEY: ${{ secrets[matrix.secret] }}
+          N: ${{ matrix.name }}
+        run: |
+          if [ -z "$KEY" ]; then echo "::warning::${{ matrix.secret }} is not set; mirror $N not synced"; exit 0; fi
+          install -m 600 /dev/null ~/key && printf '%s\n' "$KEY" > ~/key
+          export GIT_SSH_COMMAND="ssh -i ~/key -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new"
+          git subtree split --prefix=packages/ui/$N -b split-$N
+          git push "git@github.com:authfly/$N.git" "split-$N:main"
+          rm -f ~/key

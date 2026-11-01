@@ -1,0 +1,44 @@
+name: ci
+on:
+  push: { branches: [main] }
+  pull_request:
+  workflow_dispatch:
+permissions: { contents: read }
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - uses: actions/setup-go@v5
+        with: { go-version-file: go.mod }
+      - uses: shivammathur/setup-php@v2
+        with: { php-version: '8.3', tools: composer }
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - name: install runtimes
+        run: |
+          for r in react vue svelte solid webcomponent; do (cd packages/ui/$r && bun install --frozen-lockfile); done
+          for r in twig latte; do (cd packages/ui/$r && composer install --no-interaction --no-progress); done
+          pip install -e packages/ui/jinja2
+          go run github.com/a-h/templ/cmd/templ@v0.3.1070 generate -path packages/ui/templ
+      - name: ui8px lint
+        run: npx --yes ui8px@0.2.5 lint --ignore 'packages/ui/*/tests/out'
+      - name: html/aria gates (9 runtimes)
+        run: bash tools/gates.sh
+  mirror-drift:
+    # Informational (not a required check): the mirrors' trees must equal packages/ui/<name> on main.
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          rc=0
+          for n in twig latte; do
+            git fetch -q --depth=1 https://github.com/authfly/$n.git main
+            a=$(git rev-parse HEAD:packages/ui/$n); b=$(git rev-parse 'FETCH_HEAD^{tree}')
+            if [ "$a" = "$b" ]; then echo "$n: in sync ($a)"; else echo "::warning::$n mirror differs: source $a, mirror $b"; rc=1; fi
+          done
+          exit $rc
