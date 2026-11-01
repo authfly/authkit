@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Authfly brand registry (packages/registry): build + install smoke. Nothing is published anywhere.
-#   bash tools/registry.sh build   manifests (tools/gen-registry.ts) -> `ui8kit build` -> packages/registry/r/<rt>/ (gitignored)
+#   bash tools/registry.sh build   manifests (tools/codegen.sh registry) -> `ui8kit build` -> packages/registry/r/<rt>/ (gitignored)
 #   bash tools/registry.sh smoke   build, serve r/ on 127.0.0.1, then per runtime in a clean dir:
 #                                  ui8kit init (primitives @ui8kit/registry@3.3.0 from unpkg) + ui8kit add <every Authfly item>
 #                                  from the local server; ui8kit check; installed tree == packages/ui/<rt> (byte-identical);
@@ -12,7 +12,7 @@ CLI=(npx --yes ui8kit@3.4.0)
 export UI8KIT_EXPERIMENTAL=webcomponent
 P=3.3.0; R=packages/registry; U=packages/ui
 build() {
-  bun tools/gen-registry.ts
+  bash tools/codegen.sh registry
   for r in "${RT[@]}"; do rm -rf "$R/r/$r"; (cd "$U/$r" && "${CLI[@]}" build "../../registry/src/$r/registry.json" -o "../../registry/r/$r" >/dev/null); done
   echo "built $R/r/{${RT[*]}}"
 }

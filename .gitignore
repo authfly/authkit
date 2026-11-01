@@ -7,3 +7,4 @@ __pycache__/
 *_templ.go
 !/packages/ui/templ/**/*_templ.go
 /packages/registry/r/
+.deps/

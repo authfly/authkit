@@ -1,4 +1,4 @@
-// Regenerates packages/shared/src/components/lucide-icons.ts (then run bun tools/gen-shared.ts) from the `lucide` npm package (ISC). Usage:
+// Regenerates packages/shared/src/components/lucide-icons.ts (then run tools/codegen.sh shared) from the `lucide` npm package (ISC). Usage:
 //   bun tools/gen-icons.ts <path-to-node_modules/lucide> [names-file]
 // The name list defaults to tools/icon-names.txt (the set the xgen widgets shipped with, so icon props keep working).
 import { readFileSync, writeFileSync, existsSync } from "fs";

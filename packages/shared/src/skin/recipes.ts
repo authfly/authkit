@@ -1,7 +1,7 @@
 // Authfly skin recipes: THE single source of the widget classes for all 9 runtimes.
 // Rules: design tokens only (bg-*, text-*, inset-ring-* from styles/theme.css), layout on the 8px step
 // (gap-2/4/6/8, p-4/6/8), 4px steps only inside controls (px-3, h-6 badges). No arbitrary values, no half steps.
-// tools/gen-shared.ts copies this file into the 5 JS runtimes and generates the Go / PHP / Python tables from it.
+// authfly/codegen (shared) copies this file into the 5 JS runtimes and generates the Go / PHP / Python tables from it.
 
 /** base: class groups in order; variants: one group per variant; fallback: variant used for an unknown one. */
 export type Recipe = { base: readonly string[]; variants?: Readonly<Record<string, string>>; fallback?: string };

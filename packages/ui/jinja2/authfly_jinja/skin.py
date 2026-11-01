@@ -1,5 +1,5 @@
 """Authfly skin: the class recipes of packages/shared/src/skin/recipes.ts (tables generated into skin_recipes.py by
-tools/gen-shared.ts), merged with the CLI runtime cn."""
+authfly/codegen shared), merged with the CLI runtime cn."""
 
 from __future__ import annotations
 

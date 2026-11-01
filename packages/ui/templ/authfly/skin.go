@@ -1,5 +1,5 @@
 // Authfly skin for templ: the class recipes of packages/shared/src/skin/recipes.ts (tables generated into
-// skin_recipes_gen.go by tools/gen-shared.ts), composed with the CLI-installed utils.Cn.
+// skin_recipes_gen.go by authfly/codegen shared), composed with the CLI-installed utils.Cn.
 package authfly
 
 import uiutils "github.com/authfly/authkit/packages/ui/templ/utils"

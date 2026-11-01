@@ -17,10 +17,14 @@ The CLI owns `ui/`, the utils/runtime folder, `ui8kit.config.json` and `ui8kit.l
 
 `packages/shared/src` is the only place to edit the skin recipes (`skin/recipes.ts`, `skin/skin.ts`), the widget prop
 types (`blocks/*.types.ts`), the Lucide glyphs (`components/lucide-icons.ts`) and the tokens (`styles/theme.css`).
-`bun tools/gen-shared.ts` copies them into the 5 JS runtimes and generates the skin tables and glyphs for templ
+The generators live in [authfly/codegen](https://github.com/authfly/codegen) (pinned in `deps.lock`, run by
+`tools/codegen.sh`). `tools/codegen.sh shared` copies them into the 5 JS runtimes and generates the skin tables and glyphs for templ
 (`skin_recipes_gen.go`, `lucide_icons.go`), Twig / Latte (`src/SkinRecipes.php`, `src/lucide-icons.php`) and Jinja2
-(`skin_recipes.py`, `lucide_icons.py`); `--check` runs in CI and fails on any hand edit of a generated file.
-Middle layer and widgets are still written per runtime; they are packaged as a brand registry (`authfly-lib`, `authfly-components`, widget blocks) with primitives as pinned `@ui8kit/registry@3.3.0` URLs: see [packages/registry](../packages/registry/README.md) (`bun tools/gen-registry.ts`, `bash tools/registry.sh smoke`).
+(`skin_recipes.py`, `lucide_icons.py`); `tools/codegen.sh all --check` runs in CI and fails on any hand edit of a generated file.
+**Widgets from one spec**: `tools/codegen.sh widgets` prints `specs/widgets/*.def.ts` of authfly/codegen into the 9
+targets; sign-in is generated (`authfly-sign-in.*`, templ `authfly_sign_in.templ`, Web Components
+`blocks/authfly-sign-in.ts`), the other five widgets and the middle layer are still written per runtime.
+All of it they are packaged as a brand registry (`authfly-lib`, `authfly-components`, widget blocks) with primitives as pinned `@ui8kit/registry@3.3.0` URLs: see [packages/registry](../packages/registry/README.md) (`tools/codegen.sh registry`, `bash tools/registry.sh smoke`, `tools/codegen.sh publish <site>`).
 
 ## Layers
 
