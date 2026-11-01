@@ -1,4 +1,4 @@
-// The six Authfly widgets as render functions (props identical to packages/ui/react) for light-DOM custom elements.
+// The six Authfly widgets as render functions (sign-in: generated, ./authfly-sign-in.ts) (props identical to packages/ui/react) for light-DOM custom elements.
 import { renderBox as box } from "../ui/box/box.wc";
 import { renderText as text } from "../ui/text/text.wc";
 import { renderButton as button } from "../ui/button/button.wc";
@@ -11,40 +11,8 @@ import { alert, badge, card, field, form, group, iconBadge, lucideIcon, stack, t
 import { buttonSkin, checkboxSkin, inputSkin, labelSkin, linkSkin, textSkin, widgetCardSkin } from "../skin/skin";
 import type { AuthflyAccountProps, AuthflyConsentProps, AuthflyNoticeProps, AuthflyRequestProps, AuthflySignInProps, AuthflySignUpProps } from "./props";
 
-const lm = (id: string, landmarkLabel?: string) => ({ "aria-labelledby": landmarkLabel ? undefined : `${id}-title`, "aria-label": landmarkLabel });
-const head = (id: string, t: string, x: string, align: "start" | "center" = "start", role?: "alert" | "status", extra: (Element | null)[] = []) =>
-  stack({ gap: "2", align, role }, [title(1, { id: `${id}-title` }, [t]), text({ class: textSkin.muted }, [x]), ...extra]);
-const messages = (id: string, error?: string, info?: string) => [
-  error ? alert({ id: `${id}-error`, tone: "destructive", icon: "circle-alert", "data-testid": "authfly-error" }, [error]) : null,
-  info ? alert({ tone: "default", icon: "info", "data-testid": "authfly-info" }, [info]) : null,
-];
-const hidden = (name: string, value: string) => input({ type: "hidden", name, value });
-const errOf = (id: string, error?: string) => (error ? `${id}-error` : undefined);
-const ctl = (props: Record<string, unknown>) => (f: { describe: (o?: string) => string | undefined; invalid?: string }) =>
-  input({ ...props, class: inputSkin(), "data-testid": "field", "aria-describedby": f.describe(), "aria-invalid": f.invalid } as never);
-const submit = (label: string, variant: "default" | "outline" = "default", testid?: string, kids: (Element | string)[] = []) =>
-  button({ type: "submit", class: buttonSkin(variant, "w-full"), "data-testid": testid }, [...kids, label]);
-
-export function renderAuthflySignIn(p: AuthflySignInProps): Element {
-  const { id, csrf = "", error = "", labels: L, method = "password", identifier = "any", social = "none" } = p;
-  const fe = errOf(id, error); const email = identifier === "email";
-  return card({ class: widgetCardSkin(), "data-testid": "authfly-sign-in", ...lm(id, p.landmarkLabel) }, [
-    head(id, p.title, p.text), ...messages(id, error),
-    social === "show" ? stack({ gap: "2", role: "group", "aria-label": L.providers, "data-testid": "authfly-providers" },
-      (p.providers ?? []).map((pr) => button({ href: `${L.socialUrl ?? ""}/${pr.id}`, class: buttonSkin("outline", "w-full"), "data-provider": pr.id }, [lucideIcon(pr.icon), pr.title]))) : null,
-    form({ action: p.action, "data-testid": "authfly-form" }, [
-      hidden("csrf", csrf),
-      field({ label: L.identifier, htmlFor: `${id}-identifier`, formError: fe }, ctl({ type: email ? "email" : "text", name: "identifier", autocomplete: email ? "email" : "username", required: true, id: `${id}-identifier` })),
-      ...(method === "password" ? [
-        field({ label: L.password, htmlFor: `${id}-password`, formError: fe }, ctl({ type: "password", name: "password", autocomplete: "current-password", required: true, id: `${id}-password` })),
-        L.forgot ? link({ href: L.forgotHref, class: linkSkin("w-fit text-sm"), "data-testid": "forgot" }, [L.forgot]) : null,
-      ] : []),
-      submit(L.submit, "default", "submit"),
-    ]),
-    L.magic ? button({ href: L.magicHref, class: buttonSkin("outline", "w-full"), "data-testid": "switch-method" }, [L.magic]) : null,
-    L.signupLink ? text({ class: textSkin.muted }, [L.signupText ?? "", " ", link({ href: L.signupHref, class: linkSkin(), "data-testid": "signup-link" }, [L.signupLink])]) : null,
-  ]);
-}
+import { lm, head, messages, hidden, errOf, ctl, submit } from "./_parts";
+export { renderAuthflySignIn } from "./authfly-sign-in";
 
 export function renderAuthflySignUp(p: AuthflySignUpProps): Element {
   const { id, csrf = "", error = "", info = "", labels: L, terms = "show" } = p; const fe = errOf(id, error);

@@ -10,7 +10,7 @@
       "url": "https://unpkg.com/@ui8kit/registry@3.3.0/r/webcomponent"
     },
     "source": "packages/ui/webcomponent",
-    "generatedBy": "tools/gen-registry.ts"
+    "generatedBy": "authfly/codegen (registry)"
   },
   "items": [
     {
@@ -60,8 +60,10 @@
       "registryDependencies": [
         "authfly-lib",
         "https://unpkg.com/@ui8kit/registry@3.3.0/r/webcomponent/components/ui/box.json",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/webcomponent/components/ui/button.json",
         "https://unpkg.com/@ui8kit/registry@3.3.0/r/webcomponent/components/ui/form.json",
         "https://unpkg.com/@ui8kit/registry@3.3.0/r/webcomponent/components/ui/icon.json",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/webcomponent/components/ui/input.json",
         "https://unpkg.com/@ui8kit/registry@3.3.0/r/webcomponent/components/ui/label.json",
         "https://unpkg.com/@ui8kit/registry@3.3.0/r/webcomponent/components/ui/text.json",
         "https://unpkg.com/@ui8kit/registry@3.3.0/r/webcomponent/utils/utils.json"
@@ -70,6 +72,10 @@
         {
           "path": "src/components/index.ts",
           "target": "components/index.ts"
+        },
+        {
+          "path": "src/blocks/_parts.ts",
+          "target": "blocks/_parts.ts"
         }
       ]
     },
@@ -95,6 +101,10 @@
         {
           "path": "src/blocks/widgets.ts",
           "target": "blocks/widgets.ts"
+        },
+        {
+          "path": "src/blocks/authfly-sign-in.ts",
+          "target": "blocks/authfly-sign-in.ts"
         },
         {
           "path": "src/blocks/authfly-sign-in.types.ts",

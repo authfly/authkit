@@ -1,4 +1,4 @@
-// The six Authfly widgets on UI8Kit 3 primitives for templ. Props keep the xgen templ API (see props.go);
+// The Authfly widgets on UI8Kit 3 primitives for templ (sign-in: generated, authfly_sign_in.templ). Props keep the xgen templ API (see props.go);
 // markup mirrors packages/ui/react/src/blocks one to one.
 package authfly
 
@@ -36,47 +36,6 @@ templ footLine(lead, href, testid, label string) {
 	@text.Text(text.TextProps{Class: TextMuted}) {
 		{ lead }{ " " }
 		@authLink(href, LinkSkin(), testid, label)
-	}
-}
-
-templ AuthflySignIn(p AuthflySignInProps) {
-	{{ id, labels, errs := Str(p.Id), p.Labels, Str(p.Error) }}
-	{{ email := Str(p.Identifier) == "email" }}
-	{{ formErr := errorID(id, errs) }}
-	@Card(WidgetCardSkin(), landmark(id, Str(p.LandmarkLabel), "data-testid", "authfly-sign-in")) {
-		@WidgetHead(id, Str(p.Title), Str(p.Text), "", "")
-		@Messages(id, errs, "")
-		if Str(p.Social) == "show" {
-			@Stack("2", "", "", "", A("role", "group", "aria-label", Lab(labels, "providers"), "data-testid", "authfly-providers")) {
-				for _, pr := range Items(p.Providers) {
-					@button.Button(button.ButtonProps{Href: Lab(labels, "socialUrl") + "/" + pr.ID, Class: ButtonSkin("outline", "w-full"), Attrs: A("data-provider", pr.ID)}) {
-						@LucideIcon(pr.Icon, "")
-						{ pr.Title }
-					}
-				}
-			}
-		}
-		@Form(Str(p.Action), "", A("data-testid", "authfly-form")) {
-			@Hidden("csrf", Str(p.Csrf))
-			@Field(FieldProps{Label: Lab(labels, "identifier"), HtmlFor: id + "-identifier", FormError: formErr}, field(func(f FieldControl) templ.Component {
-				return TextInput(f, map[bool]string{true: "email", false: "text"}[email], "identifier", map[bool]string{true: "email", false: "username"}[email], id+"-identifier", true, "")
-			}))
-			if or(Str(p.Method), "password") == "password" {
-				@Field(FieldProps{Label: Lab(labels, "password"), HtmlFor: id + "-password", FormError: formErr}, field(func(f FieldControl) templ.Component {
-					return TextInput(f, "password", "password", "current-password", id+"-password", true, "")
-				}))
-				if Lab(labels, "forgot") != "" {
-					@authLink(Lab(labels, "forgotHref"), LinkSkin("w-fit text-sm"), "forgot", Lab(labels, "forgot"))
-				}
-			}
-			@submit(ButtonSkin("default", "w-full"), "submit", Lab(labels, "submit"))
-		}
-		if Lab(labels, "magic") != "" {
-			@buttonLink(Lab(labels, "magicHref"), ButtonSkin("outline", "w-full"), "switch-method", Lab(labels, "magic"))
-		}
-		if Lab(labels, "signupLink") != "" {
-			@footLine(Lab(labels, "signupText"), Lab(labels, "signupHref"), "signup-link", Lab(labels, "signupLink"))
-		}
 	}
 }
 
