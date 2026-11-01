@@ -3,7 +3,7 @@ name = "authfly-jinja2"
 version = "0.4.0"
 description = "Authfly widgets for Jinja2 on UI8Kit 3 primitives (CLI 3.2.1, registry 3.3.0)"
 readme = "README.md"
-license = "MIT"
+license = "Apache-2.0"
 requires-python = ">=3.10"
 dependencies = ["Jinja2>=3.1,<4"]
 

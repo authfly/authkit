@@ -35,7 +35,7 @@ bun run site                                        # docs + live templ previews
 Parity: every runtime renders the 20 states of `packages/ui/react/tests/states.json`; the HTML (DOM, classes, ARIA) is
 compared with the React output. See [docs/codegen.md](docs/codegen.md) and [AGENTS.md](AGENTS.md).
 
-Shadcn tokens (light/dark), Lucide icons, mobile first, 8+4 spacing. MIT, © Auth Fly.
+Shadcn tokens (light/dark), Lucide icons, mobile first, 8+4 spacing. Apache-2.0, © Authfly.
 
 ## Gates
 

@@ -12,7 +12,7 @@
     "url": "git+https://github.com/authfly/authkit.git",
     "directory": "packages/ui/solid"
   },
-  "license": "MIT",
+  "license": "Apache-2.0",
   "exports": {
     ".": {
       "solid": "./src/authfly.ts",
