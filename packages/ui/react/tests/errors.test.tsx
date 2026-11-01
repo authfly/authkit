@@ -28,6 +28,17 @@ describe("server error is exposed on every field", () => {
     expect(attr(user, "aria-describedby")).toBe("u-domain u-error");
     expect(attr(pass, "aria-describedby")).toBe("u-password-hint u-error");
   });
+  test("sign-up terms checkbox: linked to the form error, still required; clean without an error", () => {
+    const box = (h: string) => h.match(/<input[^>]*type="checkbox"[^>]*>/)?.[0] ?? "";
+    const bad = box(r(<AuthflySignUp id="u" title="t" text="x" action="#" error="Taken" labels={L} />));
+    expect(attr(bad, "aria-describedby")).toBe("u-error");
+    expect(attr(bad, "aria-invalid")).toBe("true");
+    expect(bad).toContain("required");
+    const ok = box(r(<AuthflySignUp id="u" title="t" text="x" action="#" labels={L} />));
+    expect(ok).not.toContain("aria-describedby");
+    expect(ok).not.toContain("aria-invalid");
+    expect(ok).toContain("required");
+  });
   for (const kind of ["email", "password", "code"] as const)
     test(`request ${kind}`, () => expectWired(r(<AuthflyRequest id="q" title="t" text="x" action="#" error="Bad" kind={kind} labels={L} />), "q-error"));
 });

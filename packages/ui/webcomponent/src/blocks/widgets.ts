@@ -59,7 +59,7 @@ export function renderAuthflySignUp(p: AuthflySignUpProps): Element {
       ])),
       field({ label: L.password, htmlFor: `${id}-password`, hint: L.hint, formError: fe }, ctl({ type: "password", name: "password", autocomplete: "new-password", required: true, id: `${id}-password` })),
       terms === "show" ? group({ gap: "2", class: "w-fit" }, [
-        checkbox({ name: "terms", required: true, id: `${id}-terms`, class: checkboxSkin() }),
+        checkbox({ name: "terms", required: true, id: `${id}-terms`, "aria-describedby": fe, "aria-invalid": fe ? "true" : undefined, class: checkboxSkin() }),
         label({ for: `${id}-terms`, class: labelSkin("font-normal") }, [L.terms]),
       ]) : null,
       submit(L.submit, "default", "submit"),

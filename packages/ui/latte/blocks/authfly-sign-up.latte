@@ -12,7 +12,7 @@
 {include field, ['label' => $l['username'] ?? '', 'for' => $id . '-username', 'formError' => $formError, 'describe' => $domain ? $id . '-domain' : null, 'suffix' => (string) $suffix, 'input' => ['type' => 'text', 'name' => 'username', 'required' => true, 'attrs' => ['autocomplete' => 'username']]]}
 {include field, ['label' => $l['password'] ?? '', 'for' => $id . '-password', 'hint' => $l['hint'] ?? '', 'formError' => $formError, 'input' => ['type' => 'password', 'name' => 'password', 'required' => true, 'attrs' => ['autocomplete' => 'new-password']]]}
 {if ($p['terms'] ?? 'show') === 'show'}
-{capture $t}{include '../ui/checkbox/Checkbox.latte', name: 'terms', required: true, id: $id . '-terms', class: afSkin('checkbox')}{include '../ui/label/Label.latte', htmlFor: $id . '-terms', class: afSkin('label', 'font-normal'), children: (string) afEsc($l['terms'] ?? '')}{/capture}
+{capture $t}{include '../ui/checkbox/Checkbox.latte', name: 'terms', required: true, id: $id . '-terms', ariaDescribedBy: $formError, ariaInvalid: $formError ? 'true' : null, class: afSkin('checkbox')}{include '../ui/label/Label.latte', htmlFor: $id . '-terms', class: afSkin('label', 'font-normal'), children: (string) afEsc($l['terms'] ?? '')}{/capture}
 {include group, '2', '', '', 'w-fit', [], $t}
 {/if}
 {include button, '', 'submit', afSkin('button', 'default', 'w-full'), ['data-testid' => 'submit'], afEsc($l['submit'] ?? '')}

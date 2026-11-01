@@ -37,7 +37,7 @@ const errorId = p.error ? `${p.id}-error` : undefined;
         <Input type="password" name="password" autocomplete="new-password" required :id="`${p.id}-password`" :class="inputSkin()" data-testid="field" :aria-describedby="f.describe()" :aria-invalid="f.invalid" />
       </Field>
       <Group v-if="p.terms === 'show'" gap="2" class="w-fit">
-        <Checkbox name="terms" required :id="`${p.id}-terms`" :class="checkboxSkin()" />
+        <Checkbox name="terms" required :id="`${p.id}-terms`" :aria-describedby="errorId" :aria-invalid="p.error ? 'true' : undefined" :class="checkboxSkin()" />
         <Label :for="`${p.id}-terms`" :class="labelSkin('font-normal')">{{ p.labels.terms }}</Label>
       </Group>
       <Button type="submit" :class="buttonSkin('default', 'w-full')" data-testid="submit">{{ p.labels.submit }}</Button>

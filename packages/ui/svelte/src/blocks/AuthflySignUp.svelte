@@ -39,7 +39,7 @@
     </Field>
     {#if terms === "show"}
       <Group gap="2" class="w-fit">
-        <Checkbox name="terms" required id={`${id}-terms`} class={checkboxSkin()} />
+        <Checkbox name="terms" required id={`${id}-terms`} aria-describedby={error ? `${id}-error` : undefined} aria-invalid={error ? "true" : undefined} class={checkboxSkin()} />
         <Label for={`${id}-terms`} class={labelSkin("font-normal")}>{labels.terms}</Label>
       </Group>
     {/if}

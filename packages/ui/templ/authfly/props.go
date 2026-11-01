@@ -119,3 +119,11 @@ func errorID(id string, err string) string {
 	}
 	return id + "-error"
 }
+
+// invalidIf is aria-invalid="true" for a control that has an error id (form-level server error), else unset.
+func invalidIf(errID string) string {
+	if errID != "" {
+		return "true"
+	}
+	return ""
+}

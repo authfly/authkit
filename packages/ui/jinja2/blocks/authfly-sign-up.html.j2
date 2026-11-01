@@ -12,7 +12,7 @@
 {{- af.field({'label': l.password or '', 'for': id ~ '-password', 'hint': l.hint or '', 'formError': formError, 'input': {'type': 'password', 'name': 'password', 'required': true, 'attrs': {'autocomplete': 'new-password'}}}) }}
 {%- if (p.terms or 'show') == 'show' -%}
 {%- set t -%}
-{{ af.prim('ui/checkbox/checkbox.html.j2', {'Name': 'terms', 'Required': true, 'ID': id ~ '-terms', 'Class': af_skin('checkbox')}) }}
+{{ af.prim('ui/checkbox/checkbox.html.j2', {'Name': 'terms', 'Required': true, 'ID': id ~ '-terms', 'AriaDescribedBy': formError, 'AriaInvalid': 'true' if formError else none, 'Class': af_skin('checkbox')}) }}
 {{- af.prim('ui/label/label.html.j2', {'For': id ~ '-terms', 'Class': af_skin('label', 'font-normal')}, af_esc(l.terms or '')) }}
 {%- endset -%}
 {{ af.group('2', '', '', 'w-fit', {}, t) }}

@@ -100,7 +100,7 @@ templ AuthflySignUp(p AuthflySignUpProps) {
 			}))
 			if or(Str(p.Terms), "show") == "show" {
 				@Group("2", "", "", "w-fit", nil) {
-					@checkbox.Checkbox(checkbox.CheckboxProps{Name: "terms", Required: true, ID: id + "-terms", Class: CheckboxSkin()})
+					@checkbox.Checkbox(checkbox.CheckboxProps{Name: "terms", Required: true, ID: id + "-terms", AriaDescribedBy: formErr, AriaInvalid: invalidIf(formErr), Class: CheckboxSkin()})
 					@label.Label(label.LabelProps{For: id + "-terms", Class: LabelSkin("font-normal")}) {
 						{ Lab(labels, "terms") }
 					}

@@ -36,7 +36,7 @@ export function AuthflySignUp(props: AuthflySignUpProps) {
         )}</Field>
         <Show when={p.terms === "show"}>
           <Group gap="2" class="w-fit">
-            <Checkbox name="terms" required id={`${p.id}-terms`} class={checkboxSkin()} />
+            <Checkbox name="terms" required id={`${p.id}-terms`} aria-describedby={errorIdOf(p.id, p.error)} aria-invalid={p.error ? "true" : undefined} class={checkboxSkin()} />
             <Label for={`${p.id}-terms`} class={labelSkin("font-normal")}>{p.labels.terms}</Label>
           </Group>
         </Show>

@@ -46,7 +46,7 @@ export function AuthflySignUp({ id, title, text, action, csrf = "", error = "", 
         </Field>
         {terms === "show" ? (
           <Group gap="2" className="w-fit">
-            <Checkbox name="terms" required id={`${id}-terms`} className={checkboxSkin()} />
+            <Checkbox name="terms" required id={`${id}-terms`} aria-describedby={errorIdOf(id, error)} aria-invalid={error ? "true" : undefined} className={checkboxSkin()} />
             <Label htmlFor={`${id}-terms`} className={labelSkin("font-normal")}>{labels.terms}</Label>
           </Group>
         ) : null}
