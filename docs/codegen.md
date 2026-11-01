@@ -25,7 +25,7 @@ The CLI owns `ui/`, the utils/runtime folder, `ui8kit.config.json` and `ui8kit.l
 ## Parity
 
 `packages/ui/react/tests/states.json` holds 20 states (the 16 docs states plus 4 error states). Every runtime renders
-them (`tests/render.*` or `tools/render.*`) and the HTML is compared with the React output after normalising attribute
+them (`tests/render.*` or `tools/render.*`) and `tools/parity.py` compares the HTML with the React output after normalising attribute
 order and whitespace: DOM, classes and ARIA must match exactly. Each package also runs its own tests (typecheck,
 invariants: unique ids, no dangling ARIA references, error wiring, escaping).
 

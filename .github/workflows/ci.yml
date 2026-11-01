@@ -28,6 +28,17 @@ jobs:
         run: npx --yes ui8px@0.2.5 lint --ignore 'packages/ui/*/tests/out'
       - name: html/aria gates (9 runtimes)
         run: bash tools/gates.sh
+      - name: parity with react (8 runtimes, DOM + classes + ARIA)
+        run: python3 tools/parity.py .cache/gates
+      - name: typecheck + package tests (5 JS runtimes)
+        run: for r in react vue svelte solid webcomponent; do (cd packages/ui/$r && echo "== $r" && bun run typecheck && bun run test); done
+      - name: ui8kit check (CLI-owned files unchanged, 9 runtimes)
+        run: for r in react vue svelte solid webcomponent templ twig latte jinja2; do (cd packages/ui/$r && echo "== $r" && npx --yes ui8kit@3 check); done
+      - name: templ, Twig, Latte, Jinja2 tests
+        run: |
+          (cd packages/ui/templ && go vet ./... && go test ./...)
+          for r in twig latte; do (cd packages/ui/$r && php tests/widgets_test.php); done
+          (cd packages/ui/jinja2 && python3 -m unittest discover -s tests)
   mirror-drift:
     # Informational (not a required check): the mirrors' trees must equal packages/ui/<name> on main.
     if: github.ref == 'refs/heads/main'
