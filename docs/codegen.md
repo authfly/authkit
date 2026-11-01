@@ -20,7 +20,7 @@ types (`blocks/*.types.ts`), the Lucide glyphs (`components/lucide-icons.ts`) an
 `bun tools/gen-shared.ts` copies them into the 5 JS runtimes and generates the skin tables and glyphs for templ
 (`skin_recipes_gen.go`, `lucide_icons.go`), Twig / Latte (`src/SkinRecipes.php`, `src/lucide-icons.php`) and Jinja2
 (`skin_recipes.py`, `lucide_icons.py`); `--check` runs in CI and fails on any hand edit of a generated file.
-Middle layer and widgets are still written per runtime (moving them to a registry needs ui8kit, see the board).
+Middle layer and widgets are still written per runtime; they are packaged as a brand registry (`authfly-lib`, `authfly-components`, widget blocks) with primitives as pinned `@ui8kit/registry@3.3.0` URLs: see [packages/registry](../packages/registry/README.md) (`bun tools/gen-registry.ts`, `bash tools/registry.sh smoke`).
 
 ## Layers
 

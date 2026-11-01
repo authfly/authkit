@@ -1,0 +1,173 @@
+{
+  "$schema": "https://ui8kit.com/schema/registry.json",
+  "name": "authfly",
+  "homepage": "https://github.com/authfly/authkit",
+  "meta": {
+    "primitives": {
+      "registry": "@ui8kit/registry",
+      "version": "3.3.0",
+      "runtime": "twig",
+      "url": "https://unpkg.com/@ui8kit/registry@3.3.0/r/twig"
+    },
+    "source": "packages/ui/twig",
+    "generatedBy": "tools/gen-registry.ts"
+  },
+  "items": [
+    {
+      "name": "authfly-lib",
+      "type": "registry:lib",
+      "runtime": "twig",
+      "description": "Authfly skin (generated recipe tables + wrappers), Lucide glyph data and the template extension.",
+      "registryDependencies": [
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/twig/utils/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/AuthflyExtension.php",
+          "target": "src/AuthflyExtension.php"
+        },
+        {
+          "path": "src/Skin.php",
+          "target": "src/Skin.php"
+        },
+        {
+          "path": "src/SkinRecipes.php",
+          "target": "src/SkinRecipes.php"
+        },
+        {
+          "path": "src/lucide-icons.php",
+          "target": "src/lucide-icons.php"
+        }
+      ]
+    },
+    {
+      "name": "authfly-components",
+      "type": "registry:composite",
+      "runtime": "twig",
+      "description": "Authfly middle layer macros: Card, Field, Alert, Badge, LucideIcon, layout.",
+      "registryDependencies": [
+        "authfly-lib",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/twig/components/ui/box.json",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/twig/components/ui/button.json",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/twig/components/ui/form.json",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/twig/components/ui/icon.json",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/twig/components/ui/input.json",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/twig/components/ui/label.json",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/twig/components/ui/link.json",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/twig/components/ui/text.json",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/twig/utils/utils.json"
+      ],
+      "files": [
+        {
+          "path": "authfly/components.html.twig",
+          "target": "authfly/components.html.twig"
+        }
+      ]
+    },
+    {
+      "name": "authfly-sign-in",
+      "type": "registry:block",
+      "runtime": "twig",
+      "description": "Authfly sign-in widget.",
+      "registryDependencies": [
+        "authfly-lib",
+        "authfly-components",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/twig/utils/utils.json"
+      ],
+      "files": [
+        {
+          "path": "blocks/authfly-sign-in.html.twig",
+          "target": "blocks/authfly-sign-in.html.twig"
+        }
+      ]
+    },
+    {
+      "name": "authfly-sign-up",
+      "type": "registry:block",
+      "runtime": "twig",
+      "description": "Authfly sign-up widget.",
+      "registryDependencies": [
+        "authfly-lib",
+        "authfly-components",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/twig/components/ui/checkbox.json",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/twig/components/ui/label.json",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/twig/utils/utils.json"
+      ],
+      "files": [
+        {
+          "path": "blocks/authfly-sign-up.html.twig",
+          "target": "blocks/authfly-sign-up.html.twig"
+        }
+      ]
+    },
+    {
+      "name": "authfly-request",
+      "type": "registry:block",
+      "runtime": "twig",
+      "description": "Authfly request widget.",
+      "registryDependencies": [
+        "authfly-lib",
+        "authfly-components",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/twig/utils/utils.json"
+      ],
+      "files": [
+        {
+          "path": "blocks/authfly-request.html.twig",
+          "target": "blocks/authfly-request.html.twig"
+        }
+      ]
+    },
+    {
+      "name": "authfly-notice",
+      "type": "registry:block",
+      "runtime": "twig",
+      "description": "Authfly notice widget.",
+      "registryDependencies": [
+        "authfly-lib",
+        "authfly-components",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/twig/utils/utils.json"
+      ],
+      "files": [
+        {
+          "path": "blocks/authfly-notice.html.twig",
+          "target": "blocks/authfly-notice.html.twig"
+        }
+      ]
+    },
+    {
+      "name": "authfly-consent",
+      "type": "registry:block",
+      "runtime": "twig",
+      "description": "Authfly consent widget.",
+      "registryDependencies": [
+        "authfly-lib",
+        "authfly-components",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/twig/utils/utils.json"
+      ],
+      "files": [
+        {
+          "path": "blocks/authfly-consent.html.twig",
+          "target": "blocks/authfly-consent.html.twig"
+        }
+      ]
+    },
+    {
+      "name": "authfly-account",
+      "type": "registry:block",
+      "runtime": "twig",
+      "description": "Authfly account widget.",
+      "registryDependencies": [
+        "authfly-lib",
+        "authfly-components",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/twig/components/ui/separator.json",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/twig/utils/utils.json"
+      ],
+      "files": [
+        {
+          "path": "blocks/authfly-account.html.twig",
+          "target": "blocks/authfly-account.html.twig"
+        }
+      ]
+    }
+  ]
+}

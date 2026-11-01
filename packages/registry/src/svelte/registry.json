@@ -1,0 +1,308 @@
+{
+  "$schema": "https://ui8kit.com/schema/registry.json",
+  "name": "authfly",
+  "homepage": "https://github.com/authfly/authkit",
+  "meta": {
+    "primitives": {
+      "registry": "@ui8kit/registry",
+      "version": "3.3.0",
+      "runtime": "svelte",
+      "url": "https://unpkg.com/@ui8kit/registry@3.3.0/r/svelte"
+    },
+    "source": "packages/ui/svelte",
+    "generatedBy": "tools/gen-registry.ts"
+  },
+  "items": [
+    {
+      "name": "authfly-lib",
+      "type": "registry:lib",
+      "runtime": "svelte",
+      "description": "Authfly skin (class recipes + wrappers), Lucide glyph data, widget props and theme tokens.",
+      "registryDependencies": [
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/svelte/utils/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/skin/recipes.ts",
+          "target": "skin/recipes.ts"
+        },
+        {
+          "path": "src/skin/skin.ts",
+          "target": "skin/skin.ts"
+        },
+        {
+          "path": "src/styles/index.css",
+          "target": "styles/index.css"
+        },
+        {
+          "path": "src/styles/theme.css",
+          "target": "styles/theme.css"
+        },
+        {
+          "path": "src/components/lucide-icons.ts",
+          "target": "components/lucide-icons.ts"
+        },
+        {
+          "path": "src/blocks/feature-grid.types.ts",
+          "target": "blocks/feature-grid.types.ts"
+        },
+        {
+          "path": "src/blocks/props.ts",
+          "target": "blocks/props.ts"
+        }
+      ]
+    },
+    {
+      "name": "authfly-components",
+      "type": "registry:composite",
+      "runtime": "svelte",
+      "description": "Authfly middle layer: Card, Field, Alert, Badge, LucideIcon, layout and shared widget parts.",
+      "registryDependencies": [
+        "authfly-lib",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/svelte/components/ui/box.json",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/svelte/components/ui/form.json",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/svelte/components/ui/icon.json",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/svelte/components/ui/label.json",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/svelte/components/ui/text.json",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/svelte/utils/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/Alert.svelte",
+          "target": "components/Alert.svelte"
+        },
+        {
+          "path": "src/components/Badge.svelte",
+          "target": "components/Badge.svelte"
+        },
+        {
+          "path": "src/components/Card.svelte",
+          "target": "components/Card.svelte"
+        },
+        {
+          "path": "src/components/Field.svelte",
+          "target": "components/Field.svelte"
+        },
+        {
+          "path": "src/components/Form.svelte",
+          "target": "components/Form.svelte"
+        },
+        {
+          "path": "src/components/Group.svelte",
+          "target": "components/Group.svelte"
+        },
+        {
+          "path": "src/components/IconBadge.svelte",
+          "target": "components/IconBadge.svelte"
+        },
+        {
+          "path": "src/components/LucideIcon.svelte",
+          "target": "components/LucideIcon.svelte"
+        },
+        {
+          "path": "src/components/Stack.svelte",
+          "target": "components/Stack.svelte"
+        },
+        {
+          "path": "src/components/Title.svelte",
+          "target": "components/Title.svelte"
+        },
+        {
+          "path": "src/components/context.ts",
+          "target": "components/context.ts"
+        },
+        {
+          "path": "src/components/index.ts",
+          "target": "components/index.ts"
+        },
+        {
+          "path": "src/components/layout.ts",
+          "target": "components/layout.ts"
+        },
+        {
+          "path": "src/blocks/Messages.svelte",
+          "target": "blocks/Messages.svelte"
+        },
+        {
+          "path": "src/blocks/WidgetHead.svelte",
+          "target": "blocks/WidgetHead.svelte"
+        }
+      ]
+    },
+    {
+      "name": "authfly-sign-in",
+      "type": "registry:block",
+      "runtime": "svelte",
+      "description": "Authfly sign-in widget + its types.",
+      "registryDependencies": [
+        "authfly-lib",
+        "authfly-components",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/svelte/components/ui/button.json",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/svelte/components/ui/input.json",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/svelte/components/ui/link.json",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/svelte/components/ui/text.json",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/svelte/utils/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/blocks/AuthflySignIn.svelte",
+          "target": "blocks/AuthflySignIn.svelte"
+        },
+        {
+          "path": "src/blocks/authfly-sign-in.types.ts",
+          "target": "blocks/authfly-sign-in.types.ts"
+        }
+      ]
+    },
+    {
+      "name": "authfly-sign-up",
+      "type": "registry:block",
+      "runtime": "svelte",
+      "description": "Authfly sign-up widget + its types.",
+      "registryDependencies": [
+        "authfly-lib",
+        "authfly-components",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/svelte/components/ui/button.json",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/svelte/components/ui/checkbox.json",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/svelte/components/ui/input.json",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/svelte/components/ui/label.json",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/svelte/components/ui/link.json",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/svelte/components/ui/text.json",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/svelte/utils/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/blocks/AuthflySignUp.svelte",
+          "target": "blocks/AuthflySignUp.svelte"
+        },
+        {
+          "path": "src/blocks/authfly-sign-up.types.ts",
+          "target": "blocks/authfly-sign-up.types.ts"
+        }
+      ]
+    },
+    {
+      "name": "authfly-request",
+      "type": "registry:block",
+      "runtime": "svelte",
+      "description": "Authfly request widget + its types.",
+      "registryDependencies": [
+        "authfly-lib",
+        "authfly-components",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/svelte/components/ui/button.json",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/svelte/components/ui/input.json",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/svelte/components/ui/link.json",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/svelte/utils/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/blocks/AuthflyRequest.svelte",
+          "target": "blocks/AuthflyRequest.svelte"
+        },
+        {
+          "path": "src/blocks/authfly-request.types.ts",
+          "target": "blocks/authfly-request.types.ts"
+        }
+      ]
+    },
+    {
+      "name": "authfly-notice",
+      "type": "registry:block",
+      "runtime": "svelte",
+      "description": "Authfly notice widget + its types.",
+      "registryDependencies": [
+        "authfly-lib",
+        "authfly-components",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/svelte/components/ui/button.json",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/svelte/components/ui/input.json",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/svelte/components/ui/link.json",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/svelte/components/ui/text.json",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/svelte/utils/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/blocks/AuthflyNotice.svelte",
+          "target": "blocks/AuthflyNotice.svelte"
+        },
+        {
+          "path": "src/blocks/authfly-notice.types.ts",
+          "target": "blocks/authfly-notice.types.ts"
+        }
+      ]
+    },
+    {
+      "name": "authfly-consent",
+      "type": "registry:block",
+      "runtime": "svelte",
+      "description": "Authfly consent widget + its types.",
+      "registryDependencies": [
+        "authfly-lib",
+        "authfly-components",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/svelte/components/ui/box.json",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/svelte/components/ui/button.json",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/svelte/components/ui/input.json",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/svelte/components/ui/text.json",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/svelte/utils/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/blocks/AuthflyConsent.svelte",
+          "target": "blocks/AuthflyConsent.svelte"
+        },
+        {
+          "path": "src/blocks/authfly-consent.types.ts",
+          "target": "blocks/authfly-consent.types.ts"
+        }
+      ]
+    },
+    {
+      "name": "authfly-account",
+      "type": "registry:block",
+      "runtime": "svelte",
+      "description": "Authfly account widget + its types.",
+      "registryDependencies": [
+        "authfly-lib",
+        "authfly-components",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/svelte/components/ui/box.json",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/svelte/components/ui/button.json",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/svelte/components/ui/input.json",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/svelte/components/ui/separator.json",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/svelte/components/ui/text.json",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/svelte/utils/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/blocks/AuthflyAccount.svelte",
+          "target": "blocks/AuthflyAccount.svelte"
+        },
+        {
+          "path": "src/blocks/authfly-account.types.ts",
+          "target": "blocks/authfly-account.types.ts"
+        }
+      ]
+    },
+    {
+      "name": "authfly",
+      "type": "registry:block",
+      "runtime": "svelte",
+      "description": "Authfly package entry (exports every widget).",
+      "registryDependencies": [
+        "authfly-lib",
+        "authfly-components",
+        "authfly-sign-in",
+        "authfly-sign-up",
+        "authfly-request",
+        "authfly-notice",
+        "authfly-consent",
+        "authfly-account",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/svelte/utils/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/authfly.ts",
+          "target": "authfly.ts"
+        }
+      ]
+    }
+  ]
+}

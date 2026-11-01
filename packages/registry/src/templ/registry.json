@@ -1,0 +1,102 @@
+{
+  "$schema": "https://ui8kit.com/schema/registry.json",
+  "name": "authfly",
+  "homepage": "https://github.com/authfly/authkit",
+  "meta": {
+    "primitives": {
+      "registry": "@ui8kit/registry",
+      "version": "3.3.0",
+      "runtime": "templ",
+      "url": "https://unpkg.com/@ui8kit/registry@3.3.0/r/templ"
+    },
+    "source": "packages/ui/templ",
+    "generatedBy": "tools/gen-registry.ts"
+  },
+  "items": [
+    {
+      "name": "authfly-lib",
+      "type": "registry:lib",
+      "runtime": "templ",
+      "description": "Authfly skin (generated recipe tables + wrappers), Lucide glyph data, widget props and attribute helpers.",
+      "registryDependencies": [
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/templ/utils/utils.json"
+      ],
+      "files": [
+        {
+          "path": "authfly/attrs.go",
+          "target": "authfly/attrs.go"
+        },
+        {
+          "path": "authfly/lucide_icons.go",
+          "target": "authfly/lucide_icons.go"
+        },
+        {
+          "path": "authfly/props.go",
+          "target": "authfly/props.go"
+        },
+        {
+          "path": "authfly/skin.go",
+          "target": "authfly/skin.go"
+        },
+        {
+          "path": "authfly/skin_recipes_gen.go",
+          "target": "authfly/skin_recipes_gen.go"
+        }
+      ]
+    },
+    {
+      "name": "authfly-components",
+      "type": "registry:composite",
+      "runtime": "templ",
+      "description": "Authfly middle layer (templ source + generated Go).",
+      "registryDependencies": [
+        "authfly-lib",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/templ/components/ui/box.json",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/templ/components/ui/form.json",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/templ/components/ui/icon.json",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/templ/components/ui/input.json",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/templ/components/ui/label.json",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/templ/components/ui/text.json",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/templ/utils/utils.json"
+      ],
+      "files": [
+        {
+          "path": "authfly/components.templ",
+          "target": "authfly/components.templ"
+        },
+        {
+          "path": "authfly/components_templ.go",
+          "target": "authfly/components_templ.go"
+        }
+      ]
+    },
+    {
+      "name": "authfly-widgets",
+      "type": "registry:block",
+      "runtime": "templ",
+      "description": "The 6 Authfly widgets (one source file in this runtime) + their types.",
+      "registryDependencies": [
+        "authfly-lib",
+        "authfly-components",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/templ/components/ui/box.json",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/templ/components/ui/button.json",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/templ/components/ui/checkbox.json",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/templ/components/ui/label.json",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/templ/components/ui/link.json",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/templ/components/ui/separator.json",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/templ/components/ui/text.json",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/templ/utils/utils.json"
+      ],
+      "files": [
+        {
+          "path": "authfly/blocks.templ",
+          "target": "authfly/blocks.templ"
+        },
+        {
+          "path": "authfly/blocks_templ.go",
+          "target": "authfly/blocks_templ.go"
+        }
+      ]
+    }
+  ]
+}

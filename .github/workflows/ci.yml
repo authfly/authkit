@@ -30,12 +30,16 @@ jobs:
         run: bash tools/gates.sh
       - name: shared layer generated from packages/shared (skin, types, icons, theme; 9 runtimes)
         run: bun tools/gen-shared.ts --check
+      - name: brand registry manifests generated (packages/registry/src, 9 runtimes)
+        run: bun tools/gen-registry.ts --check
       - name: parity with react (8 runtimes, DOM + classes + ARIA)
         run: python3 tools/parity.py .cache/gates
       - name: typecheck + package tests (5 JS runtimes)
         run: for r in react vue svelte solid webcomponent; do (cd packages/ui/$r && echo "== $r" && bun run typecheck && bun run test); done
       - name: ui8kit check (CLI-owned files unchanged, 9 runtimes)
         run: for r in react vue svelte solid webcomponent templ twig latte jinja2; do (cd packages/ui/$r && echo "== $r" && npx --yes ui8kit@3 check); done
+      - name: brand registry smoke (build, local server, init + add into clean dirs, check, render, parity 20/20)
+        run: bash tools/registry.sh smoke
       - name: templ, Twig, Latte, Jinja2 tests
         run: |
           (cd packages/ui/templ && go vet ./... && go test ./...)

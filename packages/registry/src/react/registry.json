@@ -1,0 +1,278 @@
+{
+  "$schema": "https://ui8kit.com/schema/registry.json",
+  "name": "authfly",
+  "homepage": "https://github.com/authfly/authkit",
+  "meta": {
+    "primitives": {
+      "registry": "@ui8kit/registry",
+      "version": "3.3.0",
+      "runtime": "react",
+      "url": "https://unpkg.com/@ui8kit/registry@3.3.0/r/react"
+    },
+    "source": "packages/ui/react",
+    "generatedBy": "tools/gen-registry.ts"
+  },
+  "items": [
+    {
+      "name": "authfly-lib",
+      "type": "registry:lib",
+      "runtime": "react",
+      "description": "Authfly skin (class recipes + wrappers), Lucide glyph data, widget props and theme tokens.",
+      "registryDependencies": [
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/react/utils/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/skin/recipes.ts",
+          "target": "skin/recipes.ts"
+        },
+        {
+          "path": "src/skin/skin.ts",
+          "target": "skin/skin.ts"
+        },
+        {
+          "path": "src/styles/index.css",
+          "target": "styles/index.css"
+        },
+        {
+          "path": "src/styles/theme.css",
+          "target": "styles/theme.css"
+        },
+        {
+          "path": "src/components/lucide-icons.ts",
+          "target": "components/lucide-icons.ts"
+        },
+        {
+          "path": "src/blocks/feature-grid.types.ts",
+          "target": "blocks/feature-grid.types.ts"
+        }
+      ]
+    },
+    {
+      "name": "authfly-components",
+      "type": "registry:composite",
+      "runtime": "react",
+      "description": "Authfly middle layer: Card, Field, Alert, Badge, LucideIcon, layout and shared widget parts.",
+      "registryDependencies": [
+        "authfly-lib",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/react/components/ui/box.json",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/react/components/ui/form.json",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/react/components/ui/icon.json",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/react/components/ui/input.json",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/react/components/ui/label.json",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/react/components/ui/text.json",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/react/utils/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/alert.tsx",
+          "target": "components/alert.tsx"
+        },
+        {
+          "path": "src/components/badge.tsx",
+          "target": "components/badge.tsx"
+        },
+        {
+          "path": "src/components/card.tsx",
+          "target": "components/card.tsx"
+        },
+        {
+          "path": "src/components/field.tsx",
+          "target": "components/field.tsx"
+        },
+        {
+          "path": "src/components/index.ts",
+          "target": "components/index.ts"
+        },
+        {
+          "path": "src/components/layout.tsx",
+          "target": "components/layout.tsx"
+        },
+        {
+          "path": "src/components/lucide-icon.tsx",
+          "target": "components/lucide-icon.tsx"
+        },
+        {
+          "path": "src/components/title.tsx",
+          "target": "components/title.tsx"
+        },
+        {
+          "path": "src/blocks/_parts.tsx",
+          "target": "blocks/_parts.tsx"
+        }
+      ]
+    },
+    {
+      "name": "authfly-sign-in",
+      "type": "registry:block",
+      "runtime": "react",
+      "description": "Authfly sign-in widget + its types.",
+      "registryDependencies": [
+        "authfly-lib",
+        "authfly-components",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/react/components/ui/button.json",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/react/components/ui/input.json",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/react/components/ui/link.json",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/react/components/ui/text.json",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/react/utils/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/blocks/authfly-sign-in.tsx",
+          "target": "blocks/authfly-sign-in.tsx"
+        },
+        {
+          "path": "src/blocks/authfly-sign-in.types.ts",
+          "target": "blocks/authfly-sign-in.types.ts"
+        }
+      ]
+    },
+    {
+      "name": "authfly-sign-up",
+      "type": "registry:block",
+      "runtime": "react",
+      "description": "Authfly sign-up widget + its types.",
+      "registryDependencies": [
+        "authfly-lib",
+        "authfly-components",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/react/components/ui/button.json",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/react/components/ui/checkbox.json",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/react/components/ui/input.json",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/react/components/ui/label.json",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/react/components/ui/link.json",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/react/components/ui/text.json",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/react/utils/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/blocks/authfly-sign-up.tsx",
+          "target": "blocks/authfly-sign-up.tsx"
+        },
+        {
+          "path": "src/blocks/authfly-sign-up.types.ts",
+          "target": "blocks/authfly-sign-up.types.ts"
+        }
+      ]
+    },
+    {
+      "name": "authfly-request",
+      "type": "registry:block",
+      "runtime": "react",
+      "description": "Authfly request widget + its types.",
+      "registryDependencies": [
+        "authfly-lib",
+        "authfly-components",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/react/components/ui/button.json",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/react/components/ui/input.json",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/react/components/ui/link.json",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/react/utils/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/blocks/authfly-request.tsx",
+          "target": "blocks/authfly-request.tsx"
+        },
+        {
+          "path": "src/blocks/authfly-request.types.ts",
+          "target": "blocks/authfly-request.types.ts"
+        }
+      ]
+    },
+    {
+      "name": "authfly-notice",
+      "type": "registry:block",
+      "runtime": "react",
+      "description": "Authfly notice widget + its types.",
+      "registryDependencies": [
+        "authfly-lib",
+        "authfly-components",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/react/components/ui/button.json",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/react/components/ui/link.json",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/react/components/ui/text.json",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/react/utils/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/blocks/authfly-notice.tsx",
+          "target": "blocks/authfly-notice.tsx"
+        },
+        {
+          "path": "src/blocks/authfly-notice.types.ts",
+          "target": "blocks/authfly-notice.types.ts"
+        }
+      ]
+    },
+    {
+      "name": "authfly-consent",
+      "type": "registry:block",
+      "runtime": "react",
+      "description": "Authfly consent widget + its types.",
+      "registryDependencies": [
+        "authfly-lib",
+        "authfly-components",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/react/components/ui/box.json",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/react/components/ui/button.json",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/react/components/ui/text.json",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/react/utils/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/blocks/authfly-consent.tsx",
+          "target": "blocks/authfly-consent.tsx"
+        },
+        {
+          "path": "src/blocks/authfly-consent.types.ts",
+          "target": "blocks/authfly-consent.types.ts"
+        }
+      ]
+    },
+    {
+      "name": "authfly-account",
+      "type": "registry:block",
+      "runtime": "react",
+      "description": "Authfly account widget + its types.",
+      "registryDependencies": [
+        "authfly-lib",
+        "authfly-components",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/react/components/ui/box.json",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/react/components/ui/button.json",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/react/components/ui/separator.json",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/react/components/ui/text.json",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/react/utils/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/blocks/authfly-account.tsx",
+          "target": "blocks/authfly-account.tsx"
+        },
+        {
+          "path": "src/blocks/authfly-account.types.ts",
+          "target": "blocks/authfly-account.types.ts"
+        }
+      ]
+    },
+    {
+      "name": "authfly",
+      "type": "registry:block",
+      "runtime": "react",
+      "description": "Authfly package entry (exports every widget).",
+      "registryDependencies": [
+        "authfly-lib",
+        "authfly-components",
+        "authfly-sign-in",
+        "authfly-sign-up",
+        "authfly-request",
+        "authfly-notice",
+        "authfly-consent",
+        "authfly-account",
+        "https://unpkg.com/@ui8kit/registry@3.3.0/r/react/utils/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/authfly.ts",
+          "target": "authfly.ts"
+        }
+      ]
+    }
+  ]
+}
