@@ -28,6 +28,8 @@ jobs:
         run: npx --yes ui8px@0.2.5 lint --ignore 'packages/ui/*/tests/out'
       - name: html/aria gates (9 runtimes)
         run: bash tools/gates.sh
+      - name: shared copies identical (5 JS runtimes)
+        run: bash tools/copies.sh
       - name: parity with react (8 runtimes, DOM + classes + ARIA)
         run: python3 tools/parity.py .cache/gates
       - name: typecheck + package tests (5 JS runtimes)
