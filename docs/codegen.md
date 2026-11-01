@@ -13,6 +13,15 @@ npx ui8kit@3 check        # before every commit: CLI-owned files are unchanged
 
 The CLI owns `ui/`, the utils/runtime folder, `ui8kit.config.json` and `ui8kit.lock.json`; they are never edited by hand.
 
+## Single source of the Authfly layer
+
+`packages/shared/src` is the only place to edit the skin recipes (`skin/recipes.ts`, `skin/skin.ts`), the widget prop
+types (`blocks/*.types.ts`), the Lucide glyphs (`components/lucide-icons.ts`) and the tokens (`styles/theme.css`).
+`bun tools/gen-shared.ts` copies them into the 5 JS runtimes and generates the skin tables and glyphs for templ
+(`skin_recipes_gen.go`, `lucide_icons.go`), Twig / Latte (`src/SkinRecipes.php`, `src/lucide-icons.php`) and Jinja2
+(`skin_recipes.py`, `lucide_icons.py`); `--check` runs in CI and fails on any hand edit of a generated file.
+Middle layer and widgets are still written per runtime (moving them to a registry needs ui8kit, see the board).
+
 ## Layers
 
 - **Skin**: class recipes (`buttonSkin`, `inputSkin`, `badgeSkin`, `alertSkin`, `cardSkin`, …), tokens only, 8px layout step.
