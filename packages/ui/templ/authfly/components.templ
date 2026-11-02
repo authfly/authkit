@@ -1,4 +1,4 @@
-// Authfly middle layer for templ (Card: card.templ, generated): Stack, Group, Form, Title, Alert, Badge, IconBadge, Field, LucideIcon,
+// Authfly middle layer for templ (generated: card.templ, alert.templ, badge.templ): Stack, Group, Form, Title, Field, LucideIcon,
 // composed from the UI8Kit 3 primitives (ui/*) with class recipes from skin.go. Text is always passed as props
 // (escaped by templ), never as raw children HTML.
 package authfly
@@ -60,27 +60,6 @@ templ Title(level int, id, role, title string) {
 	}
 }
 
-// Alert: tone destructive → role=alert, otherwise role=status; aria-live polite.
-templ Alert(tone, iconName, id, testid, message string) {
-	@box.Box(box.BoxProps{Class: AlertSkin(tone), Attrs: A("role", map[bool]string{true: "alert", false: "status"}[tone == "destructive"], "aria-live", "polite", "data-slot", "alert", "id", id, "data-testid", testid)}) {
-		if iconName != "" {
-			@LucideIcon(iconName, "")
-		}
-		{ message }
-	}
-}
-
-templ Badge(variant, testid, label string) {
-	@text.Text(text.TextProps{Tag: "span", Class: BadgeSkin(variant), Attrs: A("data-slot", "badge", "data-testid", testid)}) {
-		{ label }
-	}
-}
-
-templ IconBadge(iconName, tone string) {
-	@text.Text(text.TextProps{Tag: "span", Class: IconBadgeSkin(tone), Attrs: A("data-slot", "icon-badge")}) {
-		@LucideIcon(iconName, "lg")
-	}
-}
 
 // FieldControl tells the control what to put in aria-describedby / aria-invalid.
 type FieldControl struct{ hint, err, form string; Invalid string }

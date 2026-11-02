@@ -8,8 +8,10 @@ import type { IconSize } from "../ui/icon/icon.shared";
 import { renderForm } from "../ui/form/form.wc";
 import { renderLabel } from "../ui/label/label.wc";
 import { cn } from "../utils";
-import { alertSkin, badgeSkin, iconBadgeSkin, labelSkin, textSkin, type BadgeVariant, type Tone } from "../skin/skin";
+import { labelSkin, textSkin } from "../skin/skin";
 import { LUCIDE } from "./lucide-icons";
+export { alert } from "./alert";
+export { badge, iconBadge } from "./badge";
 export { card } from "./card";
 
 const SVG = "http://www.w3.org/2000/svg";
@@ -47,21 +49,6 @@ export function form(props: { action?: string; method?: "get" | "post"; class?: 
 export function title(level: 1 | 2 | 3, props: TextElementProps, children: Children): Element {
   const { class: className, ...rest } = props;
   return renderText({ tag: (["h1", "h2", "h3"] as const)[level - 1], ...rest, class: cn(textSkin[level === 1 ? "title" : "subtitle"], className) }, children);
-}
-
-export function alert(props: { tone?: Tone; icon?: string; role?: "alert" | "status"; id?: string; class?: string; [k: string]: unknown }, children: Children): Element {
-  const { tone = "default", icon, role, class: className, ...rest } = props;
-  const kids = [icon ? lucideIcon(icon) : null, ...(Array.isArray(children) ? children : [children])];
-  return renderBox({ role: role ?? (tone === "destructive" ? "alert" : "status"), "aria-live": "polite", "data-slot": "alert", ...rest, class: alertSkin(tone, className) }, kids);
-}
-
-export function badge(variant: BadgeVariant, props: TextElementProps, children: Children): Element {
-  const { class: className, ...rest } = props;
-  return renderText({ tag: "span", "data-slot": "badge", ...rest, class: badgeSkin(variant, className) }, children);
-}
-
-export function iconBadge(icon: string, tone: "default" | "destructive" = "default"): Element {
-  return renderText({ tag: "span", "data-slot": "icon-badge", class: iconBadgeSkin(tone) }, [lucideIcon(icon, "lg")]);
 }
 
 export type FieldControl = { describe: (own?: string) => string | undefined; invalid: "true" | undefined };

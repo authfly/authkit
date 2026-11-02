@@ -70,6 +70,14 @@
       ],
       "files": [
         {
+          "path": "src/components/alert.ts",
+          "target": "components/alert.ts"
+        },
+        {
+          "path": "src/components/badge.ts",
+          "target": "components/badge.ts"
+        },
+        {
           "path": "src/components/card.ts",
           "target": "components/card.ts"
         },

@@ -69,6 +69,22 @@
           "target": "authfly/components_templ.go"
         },
         {
+          "path": "authfly/alert.templ",
+          "target": "authfly/alert.templ"
+        },
+        {
+          "path": "authfly/alert_templ.go",
+          "target": "authfly/alert_templ.go"
+        },
+        {
+          "path": "authfly/badge.templ",
+          "target": "authfly/badge.templ"
+        },
+        {
+          "path": "authfly/badge_templ.go",
+          "target": "authfly/badge_templ.go"
+        },
+        {
           "path": "authfly/card.templ",
           "target": "authfly/card.templ"
         },
