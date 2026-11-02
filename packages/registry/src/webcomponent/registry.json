@@ -135,8 +135,16 @@
           "target": "blocks/authfly-notice.types.ts"
         },
         {
+          "path": "src/blocks/authfly-consent.ts",
+          "target": "blocks/authfly-consent.ts"
+        },
+        {
           "path": "src/blocks/authfly-consent.types.ts",
           "target": "blocks/authfly-consent.types.ts"
+        },
+        {
+          "path": "src/blocks/authfly-account.ts",
+          "target": "blocks/authfly-account.ts"
         },
         {
           "path": "src/blocks/authfly-account.types.ts",
