@@ -119,8 +119,16 @@
           "target": "blocks/authfly-sign-up.types.ts"
         },
         {
+          "path": "src/blocks/authfly-request.ts",
+          "target": "blocks/authfly-request.ts"
+        },
+        {
           "path": "src/blocks/authfly-request.types.ts",
           "target": "blocks/authfly-request.types.ts"
+        },
+        {
+          "path": "src/blocks/authfly-notice.ts",
+          "target": "blocks/authfly-notice.ts"
         },
         {
           "path": "src/blocks/authfly-notice.types.ts",

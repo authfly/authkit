@@ -1,47 +1,17 @@
-// The six Authfly widgets as render functions (sign-in, sign-up: generated, ./authfly-sign-in.ts, ./authfly-sign-up.ts) (props identical to packages/ui/react) for light-DOM custom elements.
+// The six Authfly widgets as render functions (sign-in, sign-up, request, notice: generated, ./authfly-<name>.ts) (props identical to packages/ui/react) for light-DOM custom elements.
 import { renderBox as box } from "../ui/box/box.wc";
 import { renderText as text } from "../ui/text/text.wc";
 import { renderButton as button } from "../ui/button/button.wc";
-import { renderLink as link } from "../ui/link/link.wc";
 import { renderSeparator as separator } from "../ui/separator/separator.wc";
-import { alert, badge, card, field, form, group, iconBadge, lucideIcon, stack, title } from "../components";
-import { buttonSkin, linkSkin, textSkin, widgetCardSkin } from "../skin/skin";
-import type { AuthflyAccountProps, AuthflyConsentProps, AuthflyNoticeProps, AuthflyRequestProps, AuthflySignInProps } from "./props";
+import { badge, card, form, group, lucideIcon, stack, title } from "../components";
+import { buttonSkin, textSkin, widgetCardSkin } from "../skin/skin";
+import type { AuthflyAccountProps, AuthflyConsentProps } from "./props";
 
-import { lm, head, messages, hidden, errOf, ctl, submit } from "./_parts";
+import { lm, head, messages, hidden, submit } from "./_parts";
 export { renderAuthflySignIn } from "./authfly-sign-in";
 export { renderAuthflySignUp } from "./authfly-sign-up";
-
-export function renderAuthflyRequest(p: AuthflyRequestProps): Element {
-  const { id, csrf = "", error = "", info = "", labels: L, token = "", kind = "email" } = p; const fe = errOf(id, error);
-  return card({ class: widgetCardSkin(), "data-testid": "authfly-request", ...lm(id, p.landmarkLabel) }, [
-    head(id, p.title, p.text), ...messages(id, error, info),
-    form({ action: p.action, "data-testid": "authfly-form" }, [
-      hidden("csrf", csrf),
-      kind === "email" ? field({ label: L.field, htmlFor: `${id}-email`, formError: fe }, ctl({ type: "email", name: "email", autocomplete: "email", required: true, id: `${id}-email` })) : null,
-      ...(kind === "password" ? [
-        hidden("token", token),
-        field({ label: L.field, htmlFor: `${id}-password`, formError: fe }, ctl({ type: "password", name: "password", autocomplete: "new-password", required: true, id: `${id}-password` })),
-        field({ label: L.confirm ?? "", htmlFor: `${id}-confirm`, formError: fe }, ctl({ type: "password", name: "confirm", autocomplete: "new-password", required: true, id: `${id}-confirm` })),
-      ] : []),
-      kind === "code" ? field({ label: L.field, htmlFor: `${id}-code`, formError: fe }, ctl({ type: "text", name: "code", inputmode: "numeric", autocomplete: "one-time-code", required: true, id: `${id}-code` })) : null,
-      submit(L.submit, "default", "submit"),
-    ]),
-    L.back ? link({ href: L.backHref, class: linkSkin("w-fit text-sm"), "data-testid": "back" }, [L.back]) : null,
-  ]);
-}
-
-export function renderAuthflyNotice(p: AuthflyNoticeProps): Element {
-  const { id, detail = "", icon = "mail-check", labels: L, actionUrl = "", csrf = "", tone = "default", action = "link" } = p; const err = tone === "error";
-  return card({ class: widgetCardSkin("items-center text-center"), "data-testid": "authfly-notice", "data-tone": tone, ...lm(id, p.landmarkLabel) }, [
-    iconBadge(icon, err ? "destructive" : "default"),
-    head(id, p.title, p.text, "center", err ? "alert" : "status", [detail ? text({ class: "text-sm font-semibold text-foreground", "data-testid": "detail" }, [detail]) : null]),
-    action === "form"
-      ? form({ action: actionUrl, class: "w-full", "data-testid": "authfly-form" }, [hidden("csrf", csrf), submit(L.cta, "default", "submit")])
-      : button({ href: L.ctaHref, class: buttonSkin("default", "w-full"), "data-testid": "cta" }, [L.cta]),
-    L.secondary ? link({ href: L.secondaryHref, class: linkSkin("text-sm"), "data-testid": "secondary" }, [L.secondary]) : null,
-  ]);
-}
+export { renderAuthflyRequest } from "./authfly-request";
+export { renderAuthflyNotice } from "./authfly-notice";
 
 export function renderAuthflyConsent(p: AuthflyConsentProps): Element {
   const { id, csrf = "", error = "", info = "", labels: L } = p;

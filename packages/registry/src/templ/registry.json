@@ -97,6 +97,22 @@
           "target": "authfly/blocks_templ.go"
         },
         {
+          "path": "authfly/authfly_notice.templ",
+          "target": "authfly/authfly_notice.templ"
+        },
+        {
+          "path": "authfly/authfly_notice_templ.go",
+          "target": "authfly/authfly_notice_templ.go"
+        },
+        {
+          "path": "authfly/authfly_request.templ",
+          "target": "authfly/authfly_request.templ"
+        },
+        {
+          "path": "authfly/authfly_request_templ.go",
+          "target": "authfly/authfly_request_templ.go"
+        },
+        {
           "path": "authfly/authfly_sign_in.templ",
           "target": "authfly/authfly_sign_in.templ"
         },
