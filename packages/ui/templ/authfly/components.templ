@@ -1,36 +1,14 @@
-// Authfly middle layer for templ (generated: card, alert, badge, title, lucide_icon .templ): Stack, Group, Form, Field,
+// Authfly middle layer for templ (generated: card, alert, badge, title, lucide_icon, layout .templ): Hidden, Field,
 // composed from the UI8Kit 3 primitives (ui/*) with class recipes from skin.go. Text is always passed as props
 // (escaped by templ), never as raw children HTML.
 package authfly
 
 import (
 	"github.com/authfly/authkit/packages/ui/templ/ui/box"
-	"github.com/authfly/authkit/packages/ui/templ/ui/form"
 	"github.com/authfly/authkit/packages/ui/templ/ui/input"
 	"github.com/authfly/authkit/packages/ui/templ/ui/label"
 	"github.com/authfly/authkit/packages/ui/templ/ui/text"
 )
-
-// Stack: vertical flex; gap 0|2|4|6|8 (default 4), align start|center|end|stretch (default stretch).
-templ Stack(gap, align, justify, class string, attrs templ.Attributes) {
-	@box.Box(box.BoxProps{Class: cn("flex flex-col", gapCls[or(gap, "4")], alignCls[or(align, "stretch")], justifyCls[justify], class), Attrs: attrs}) {
-		{ children... }
-	}
-}
-
-// Group: horizontal flex row; gap default 2, align default center.
-templ Group(gap, align, justify, class string, attrs templ.Attributes) {
-	@box.Box(box.BoxProps{Class: cn("flex min-w-0", gapCls[or(gap, "2")], alignCls[or(align, "center")], justifyCls[justify], class), Attrs: attrs}) {
-		{ children... }
-	}
-}
-
-// Form: the Form primitive (method post) with the Authfly grid. The form-level error id goes to each Field.
-templ Form(action, class string, attrs templ.Attributes) {
-	@form.Form(form.FormProps{Action: action, Method: "post", Class: cn("grid gap-4", class), Attrs: attrs}) {
-		{ children... }
-	}
-}
 
 // Hidden: value is always emitted, an empty csrf/token included (InputProps.Value is *string: nil = no attribute).
 templ Hidden(name, value string) {

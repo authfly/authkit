@@ -86,6 +86,10 @@
           "target": "components/index.ts"
         },
         {
+          "path": "src/components/layout.ts",
+          "target": "components/layout.ts"
+        },
+        {
           "path": "src/components/lucide-icon.ts",
           "target": "components/lucide-icon.ts"
         },

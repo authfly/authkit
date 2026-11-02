@@ -93,6 +93,14 @@
           "target": "authfly/card_templ.go"
         },
         {
+          "path": "authfly/layout.templ",
+          "target": "authfly/layout.templ"
+        },
+        {
+          "path": "authfly/layout_templ.go",
+          "target": "authfly/layout_templ.go"
+        },
+        {
           "path": "authfly/lucide_icon.templ",
           "target": "authfly/lucide_icon.templ"
         },
