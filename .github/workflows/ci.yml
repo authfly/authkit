@@ -47,13 +47,20 @@ jobs:
     # Informational (not a required check): the mirrors' trees must equal packages/ui/<name> on main.
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
-      - run: |
-          rc=0
+      - name: mirrors equal packages/ui/<name> (polls up to 10 min for the mirror workflow on this SHA)
+        run: |
+          # The mirror workflow pushes in parallel with this job; poll instead of comparing once (no race).
           for n in twig latte; do
-            git fetch -q --depth=1 https://github.com/authfly/$n.git main
-            a=$(git rev-parse HEAD:packages/ui/$n); b=$(git rev-parse 'FETCH_HEAD^{tree}')
+            a=$(git rev-parse HEAD:packages/ui/$n); b=
+            for i in $(seq 1 40); do
+              git fetch -q --depth=1 https://github.com/authfly/$n.git main
+              b=$(git rev-parse 'FETCH_HEAD^{tree}')
+              [ "$a" = "$b" ] && break
+              echo "$n: mirror $b != source $a, waiting ($i/40)"; sleep 15
+            done
             if [ "$a" = "$b" ]; then echo "$n: in sync ($a)"; else echo "::warning::$n mirror differs: source $a, mirror $b"; rc=1; fi
           done
-          exit $rc
+          exit ${rc:-0}
