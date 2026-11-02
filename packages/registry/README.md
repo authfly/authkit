@@ -54,4 +54,4 @@ Owner decision: hosted in [ui8kit/site](https://github.com/ui8kit/site) at `r/au
 deploys `r/` as https://registry.buildy.tw/, so an app installs with
 `npx ui8kit@3 add authfly-sign-in --registry-url https://registry.buildy.tw/authfly/<rt>`.
 Update: `tools/codegen.sh publish <site-checkout>` (build + copy into `r/authfly/` only), run the site checks, commit
-only `r/authfly/**`. Brand/upload process discussion: https://github.com/alexy-os/chaosbun/issues/117.
+only `r/authfly/**`.

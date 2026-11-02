@@ -17,7 +17,9 @@ Sign-in, sign-up, magic link, password reset, account and consent widgets for ni
 Each package has the same layers: CLI-owned primitives (`ui/` + utils/runtime, `ui8kit.config.json`,
 `ui8kit.lock.json`, `.cursor/rules/ui8kit-primitives.mdc` — never edited by hand), the Authfly skin (class recipes,
 tokens only), the middle layer (Card, Stack/Group, Form with the form-error id, Title, Alert, Badge/IconBadge, Field,
-LucideIcon) and the six widgets with identical props. The widgets are plain HTML forms ([form contract](docs/contract.md)):
+LucideIcon) and the six widgets with identical props. The skin tables, the middle layer and the widgets are generated
+by [authfly/codegen](https://github.com/authfly/codegen) (pinned in `deps.lock`; `tools/codegen.sh all --check` in CI),
+so edit the specs there, not the generated files here. The widgets are plain HTML forms ([form contract](docs/contract.md)):
 point `action` at any backend. The Authfly server ([authfly/cli](https://github.com/authfly/cli)) uses the templ set
 for its hosted pages.
 
@@ -34,6 +36,9 @@ bun run site                                        # docs + live templ previews
 
 Parity: every runtime renders the 20 states of `packages/ui/react/tests/states.json`; the HTML (DOM, classes, ARIA) is
 compared with the React output. See [docs/codegen.md](docs/codegen.md) and [AGENTS.md](AGENTS.md).
+
+Read-only Composer mirrors: [authfly/twig](https://github.com/authfly/twig), [authfly/latte](https://github.com/authfly/latte)
+(synced by `.github/workflows/mirror.yml`). Brand registry for `npx ui8kit@3 add`: `packages/registry`.
 
 Shadcn tokens (light/dark), Lucide icons, mobile first, 8+4 spacing. Apache-2.0, © Authfly.
 

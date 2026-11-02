@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Run the pinned authfly/codegen (deps.lock) against this checkout.
-#   tools/codegen.sh <shared|widgets|registry|all> [--check]
+#   tools/codegen.sh <shared|widgets|components|registry|all> [--check]
 #   tools/codegen.sh publish <ui8kit-site-checkout>     build the brand registry and copy it into ui8kit/site r/authfly/
 # Developing codegen itself: AUTHFLY_DEPS_SRC=<dir with authfly-codegen/> or CODEGEN=<path> to use a local checkout.
 set -euo pipefail
