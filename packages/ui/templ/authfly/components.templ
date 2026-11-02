@@ -1,4 +1,4 @@
-// Authfly middle layer for templ: Card, Stack, Group, Form, Title, Alert, Badge, IconBadge, Field, LucideIcon,
+// Authfly middle layer for templ (Card: card.templ, generated): Stack, Group, Form, Title, Alert, Badge, IconBadge, Field, LucideIcon,
 // composed from the UI8Kit 3 primitives (ui/*) with class recipes from skin.go. Text is always passed as props
 // (escaped by templ), never as raw children HTML.
 package authfly
@@ -18,12 +18,6 @@ templ LucideIcon(name, size string) {
 		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="100%" height="100%" aria-hidden="true" focusable="false">
 			@templ.Raw(lucideInner(name))
 		</svg>
-	}
-}
-
-templ Card(class string, attrs templ.Attributes) {
-	@box.Box(box.BoxProps{Tag: "section", Class: CardSkin(class), Attrs: attrs}) {
-		{ children... }
 	}
 }
 

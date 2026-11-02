@@ -67,6 +67,14 @@
         {
           "path": "authfly/components_templ.go",
           "target": "authfly/components_templ.go"
+        },
+        {
+          "path": "authfly/card.templ",
+          "target": "authfly/card.templ"
+        },
+        {
+          "path": "authfly/card_templ.go",
+          "target": "authfly/card_templ.go"
         }
       ]
     },

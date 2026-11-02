@@ -70,6 +70,10 @@
       ],
       "files": [
         {
+          "path": "src/components/card.ts",
+          "target": "components/card.ts"
+        },
+        {
           "path": "src/components/index.ts",
           "target": "components/index.ts"
         },

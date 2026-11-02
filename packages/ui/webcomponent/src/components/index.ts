@@ -8,8 +8,9 @@ import type { IconSize } from "../ui/icon/icon.shared";
 import { renderForm } from "../ui/form/form.wc";
 import { renderLabel } from "../ui/label/label.wc";
 import { cn } from "../utils";
-import { alertSkin, badgeSkin, cardSkin, iconBadgeSkin, labelSkin, textSkin, type BadgeVariant, type Tone } from "../skin/skin";
+import { alertSkin, badgeSkin, iconBadgeSkin, labelSkin, textSkin, type BadgeVariant, type Tone } from "../skin/skin";
 import { LUCIDE } from "./lucide-icons";
+export { card } from "./card";
 
 const SVG = "http://www.w3.org/2000/svg";
 
@@ -23,11 +24,6 @@ export function lucideIcon(name: string, size: IconSize = "sm", label?: string, 
     svg.appendChild(n);
   }
   return renderIcon({ size, label, class: className, "data-lucide": name }, [svg]);
-}
-
-export function card(props: BoxElementProps, children: Children): Element {
-  const { class: className, tag = "section", ...rest } = props;
-  return renderBox({ tag, ...rest, class: cardSkin(className) }, children);
 }
 
 type Gap = "0" | "2" | "4" | "6" | "8";
