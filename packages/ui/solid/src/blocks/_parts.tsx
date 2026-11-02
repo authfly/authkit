@@ -2,7 +2,6 @@ import { Show, type JSX } from "solid-js";
 import { Stack } from "../components/layout";
 import { Title } from "../components/title";
 import { Alert } from "../components/alert";
-import { Input } from "../ui/input/input.solid";
 import { Text } from "../ui/text/text.solid";
 import { textSkin } from "../skin/skin";
 
@@ -27,6 +26,6 @@ export function Messages(props: { id: string; error?: string; info?: string }) {
   );
 }
 
-export const Hidden = (props: { name: string; value: string }) => <Input type="hidden" name={props.name} value={props.value} />;
+export { Hidden } from "../components/field";
 export const landmark = (id: string, landmarkLabel?: string) => ({ "aria-labelledby": landmarkLabel ? undefined : `${id}-title`, "aria-label": landmarkLabel });
 export const errorIdOf = (id: string, error?: string) => (error ? `${id}-error` : undefined);

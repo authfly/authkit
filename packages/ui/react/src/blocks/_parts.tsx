@@ -3,7 +3,6 @@ import type { ReactNode } from "react";
 import { Stack } from "../components/layout";
 import { Title } from "../components/title";
 import { Alert } from "../components/alert";
-import { Input } from "../ui/input/input";
 import { Text } from "../ui/text/text";
 import { textSkin } from "../skin/skin";
 
@@ -28,9 +27,7 @@ export function Messages({ id, error, info }: { id: string; error?: string; info
   );
 }
 
-export function Hidden({ name, value }: { name: string; value: string }) {
-  return <Input type="hidden" name={name} value={value} />;
-}
+export { Hidden } from "../components/field";
 
 export const landmark = (id: string, landmarkLabel?: string) => ({
   "aria-labelledby": landmarkLabel ? undefined : `${id}-title`,

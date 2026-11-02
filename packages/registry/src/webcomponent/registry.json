@@ -82,6 +82,10 @@
           "target": "components/card.ts"
         },
         {
+          "path": "src/components/field.ts",
+          "target": "components/field.ts"
+        },
+        {
           "path": "src/components/index.ts",
           "target": "components/index.ts"
         },

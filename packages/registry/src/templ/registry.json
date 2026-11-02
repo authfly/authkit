@@ -93,6 +93,14 @@
           "target": "authfly/card_templ.go"
         },
         {
+          "path": "authfly/field.templ",
+          "target": "authfly/field.templ"
+        },
+        {
+          "path": "authfly/field_templ.go",
+          "target": "authfly/field_templ.go"
+        },
+        {
           "path": "authfly/layout.templ",
           "target": "authfly/layout.templ"
         },

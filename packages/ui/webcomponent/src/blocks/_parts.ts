@@ -12,7 +12,7 @@ export const messages = (id: string, error?: string, info?: string) => [
   error ? alert({ id: `${id}-error`, tone: "destructive", icon: "circle-alert", "data-testid": "authfly-error" }, [error]) : null,
   info ? alert({ tone: "default", icon: "info", "data-testid": "authfly-info" }, [info]) : null,
 ];
-export const hidden = (name: string, value: string) => input({ type: "hidden", name, value });
+export { hidden } from "../components/field";
 export const errOf = (id: string, error?: string) => (error ? `${id}-error` : undefined);
 export const ctl = (props: Record<string, unknown>) => (f: { describe: (o?: string) => string | undefined; invalid?: string }) =>
   input({ ...props, class: inputSkin(), "data-testid": "field", "aria-describedby": f.describe(), "aria-invalid": f.invalid } as never);
