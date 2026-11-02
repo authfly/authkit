@@ -86,6 +86,14 @@
           "target": "components/index.ts"
         },
         {
+          "path": "src/components/lucide-icon.ts",
+          "target": "components/lucide-icon.ts"
+        },
+        {
+          "path": "src/components/title.ts",
+          "target": "components/title.ts"
+        },
+        {
           "path": "src/blocks/_parts.ts",
           "target": "blocks/_parts.ts"
         }

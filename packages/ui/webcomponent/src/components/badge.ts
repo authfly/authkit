@@ -2,7 +2,7 @@
 import type { Children } from "../utils/wc";
 import { renderText, type TextElementProps } from "../ui/text/text.wc";
 import { badgeSkin, iconBadgeSkin, type BadgeVariant } from "../skin/skin";
-import { lucideIcon } from "./index";
+import { lucideIcon } from "./lucide-icon";
 
 export function badge(variant: BadgeVariant, props: TextElementProps, children: Children): Element {
   const { class: className, ...rest } = props;

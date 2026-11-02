@@ -1,4 +1,4 @@
-// Authfly middle layer for templ (generated: card.templ, alert.templ, badge.templ): Stack, Group, Form, Title, Field, LucideIcon,
+// Authfly middle layer for templ (generated: card, alert, badge, title, lucide_icon .templ): Stack, Group, Form, Field,
 // composed from the UI8Kit 3 primitives (ui/*) with class recipes from skin.go. Text is always passed as props
 // (escaped by templ), never as raw children HTML.
 package authfly
@@ -6,20 +6,10 @@ package authfly
 import (
 	"github.com/authfly/authkit/packages/ui/templ/ui/box"
 	"github.com/authfly/authkit/packages/ui/templ/ui/form"
-	"github.com/authfly/authkit/packages/ui/templ/ui/icon"
 	"github.com/authfly/authkit/packages/ui/templ/ui/input"
 	"github.com/authfly/authkit/packages/ui/templ/ui/label"
 	"github.com/authfly/authkit/packages/ui/templ/ui/text"
 )
-
-// LucideIcon: a Lucide glyph inside the Icon primitive. Size xs|sm|md|lg|xl (default sm).
-templ LucideIcon(name, size string) {
-	@icon.Icon(icon.IconProps{Size: or(size, "sm"), Attrs: A("data-lucide", name)}) {
-		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="100%" height="100%" aria-hidden="true" focusable="false">
-			@templ.Raw(lucideInner(name))
-		</svg>
-	}
-}
 
 // Stack: vertical flex; gap 0|2|4|6|8 (default 4), align start|center|end|stretch (default stretch).
 templ Stack(gap, align, justify, class string, attrs templ.Attributes) {
@@ -47,18 +37,6 @@ templ Hidden(name, value string) {
 	@input.Input(input.InputProps{Type: "hidden", Name: name, Value: &value})
 }
 
-// Title: h1 (title size) or h2/h3 (subtitle size) via the Text primitive.
-templ Title(level int, id, role, title string) {
-	if level == 1 {
-		@text.Text(text.TextProps{Tag: "h1", Class: TextTitle, Attrs: A("id", id, "role", role)}) {
-			{ title }
-		}
-	} else {
-		@text.Text(text.TextProps{Tag: "h2", Class: TextSubtitle, Attrs: A("id", id, "role", role)}) {
-			{ title }
-		}
-	}
-}
 
 
 // FieldControl tells the control what to put in aria-describedby / aria-invalid.

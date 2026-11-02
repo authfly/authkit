@@ -2,7 +2,7 @@
 import type { Children } from "../utils/wc";
 import { renderBox } from "../ui/box/box.wc";
 import { alertSkin, type Tone } from "../skin/skin";
-import { lucideIcon } from "./index";
+import { lucideIcon } from "./lucide-icon";
 
 export function alert(props: { tone?: Tone; icon?: string; role?: "alert" | "status"; id?: string; class?: string; [k: string]: unknown }, children: Children): Element {
   const { tone = "default", icon, role, class: className, ...rest } = props;

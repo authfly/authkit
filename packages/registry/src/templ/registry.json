@@ -91,6 +91,22 @@
         {
           "path": "authfly/card_templ.go",
           "target": "authfly/card_templ.go"
+        },
+        {
+          "path": "authfly/lucide_icon.templ",
+          "target": "authfly/lucide_icon.templ"
+        },
+        {
+          "path": "authfly/lucide_icon_templ.go",
+          "target": "authfly/lucide_icon_templ.go"
+        },
+        {
+          "path": "authfly/title.templ",
+          "target": "authfly/title.templ"
+        },
+        {
+          "path": "authfly/title_templ.go",
+          "target": "authfly/title_templ.go"
         }
       ]
     },

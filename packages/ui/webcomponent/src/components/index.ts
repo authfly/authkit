@@ -3,30 +3,15 @@
 import type { Children } from "../utils/wc";
 import { renderBox, type BoxElementProps } from "../ui/box/box.wc";
 import { renderText, type TextElementProps } from "../ui/text/text.wc";
-import { renderIcon } from "../ui/icon/icon.wc";
-import type { IconSize } from "../ui/icon/icon.shared";
 import { renderForm } from "../ui/form/form.wc";
 import { renderLabel } from "../ui/label/label.wc";
 import { cn } from "../utils";
 import { labelSkin, textSkin } from "../skin/skin";
-import { LUCIDE } from "./lucide-icons";
 export { alert } from "./alert";
 export { badge, iconBadge } from "./badge";
 export { card } from "./card";
-
-const SVG = "http://www.w3.org/2000/svg";
-
-/** Lucide glyph inside the Icon primitive (span carries size + aria-hidden / role="img"). */
-export function lucideIcon(name: string, size: IconSize = "sm", label?: string, className?: string): Element {
-  const svg = document.createElementNS(SVG, "svg");
-  for (const [k, v] of Object.entries({ xmlns: SVG, viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", "stroke-width": "2", "stroke-linecap": "round", "stroke-linejoin": "round", width: "100%", height: "100%", "aria-hidden": "true", focusable: "false" })) svg.setAttribute(k, v);
-  for (const [tag, attrs] of LUCIDE[name] ?? LUCIDE["circle"] ?? []) {
-    const n = document.createElementNS(SVG, tag);
-    for (const [k, v] of Object.entries(attrs)) n.setAttribute(k, v);
-    svg.appendChild(n);
-  }
-  return renderIcon({ size, label, class: className, "data-lucide": name }, [svg]);
-}
+export { lucideIcon } from "./lucide-icon";
+export { title } from "./title";
 
 type Gap = "0" | "2" | "4" | "6" | "8";
 const gapCls: Record<Gap, string> = { "0": "gap-0", "2": "gap-2", "4": "gap-4", "6": "gap-6", "8": "gap-8" };
@@ -44,11 +29,6 @@ export const group = flex("flex min-w-0", "2", "center");
 export function form(props: { action?: string; method?: "get" | "post"; class?: string; [k: string]: unknown }, children: Children): Element {
   const { method = "post", class: className, ...rest } = props;
   return renderForm({ ...rest, method, class: cn("grid gap-4", className) }, children);
-}
-
-export function title(level: 1 | 2 | 3, props: TextElementProps, children: Children): Element {
-  const { class: className, ...rest } = props;
-  return renderText({ tag: (["h1", "h2", "h3"] as const)[level - 1], ...rest, class: cn(textSkin[level === 1 ? "title" : "subtitle"], className) }, children);
 }
 
 export type FieldControl = { describe: (own?: string) => string | undefined; invalid: "true" | undefined };
