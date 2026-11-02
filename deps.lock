@@ -1,3 +1,3 @@
 # Pinned sibling repos (tools/deps.sh checks them out into .deps/<name>). Update a pin: tools/deps.sh --bump <name>.
 # name     url                                         commit
-codegen    https://github.com/authfly/codegen.git      a793a199ad3aade8c5943da67195750e5439564b
+codegen    https://github.com/authfly/codegen.git      70dd3a1515ed231a8e96a183951cb70977f7a752

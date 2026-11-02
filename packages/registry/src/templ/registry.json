@@ -103,6 +103,14 @@
         {
           "path": "authfly/authfly_sign_in_templ.go",
           "target": "authfly/authfly_sign_in_templ.go"
+        },
+        {
+          "path": "authfly/authfly_sign_up.templ",
+          "target": "authfly/authfly_sign_up.templ"
+        },
+        {
+          "path": "authfly/authfly_sign_up_templ.go",
+          "target": "authfly/authfly_sign_up_templ.go"
         }
       ]
     }

@@ -1,40 +1,16 @@
-// The six Authfly widgets as render functions (sign-in: generated, ./authfly-sign-in.ts) (props identical to packages/ui/react) for light-DOM custom elements.
+// The six Authfly widgets as render functions (sign-in, sign-up: generated, ./authfly-sign-in.ts, ./authfly-sign-up.ts) (props identical to packages/ui/react) for light-DOM custom elements.
 import { renderBox as box } from "../ui/box/box.wc";
 import { renderText as text } from "../ui/text/text.wc";
 import { renderButton as button } from "../ui/button/button.wc";
 import { renderLink as link } from "../ui/link/link.wc";
-import { renderInput as input } from "../ui/input/input.wc";
-import { renderLabel as label } from "../ui/label/label.wc";
-import { renderCheckbox as checkbox } from "../ui/checkbox/checkbox.wc";
 import { renderSeparator as separator } from "../ui/separator/separator.wc";
 import { alert, badge, card, field, form, group, iconBadge, lucideIcon, stack, title } from "../components";
-import { buttonSkin, checkboxSkin, inputSkin, labelSkin, linkSkin, textSkin, widgetCardSkin } from "../skin/skin";
-import type { AuthflyAccountProps, AuthflyConsentProps, AuthflyNoticeProps, AuthflyRequestProps, AuthflySignInProps, AuthflySignUpProps } from "./props";
+import { buttonSkin, linkSkin, textSkin, widgetCardSkin } from "../skin/skin";
+import type { AuthflyAccountProps, AuthflyConsentProps, AuthflyNoticeProps, AuthflyRequestProps, AuthflySignInProps } from "./props";
 
 import { lm, head, messages, hidden, errOf, ctl, submit } from "./_parts";
 export { renderAuthflySignIn } from "./authfly-sign-in";
-
-export function renderAuthflySignUp(p: AuthflySignUpProps): Element {
-  const { id, csrf = "", error = "", info = "", labels: L, terms = "show" } = p; const fe = errOf(id, error);
-  return card({ class: widgetCardSkin(), "data-testid": "authfly-sign-up", ...lm(id, p.landmarkLabel) }, [
-    head(id, p.title, p.text), ...messages(id, error, info),
-    form({ action: p.action, "data-testid": "authfly-form" }, [
-      hidden("csrf", csrf),
-      field({ label: L.name, htmlFor: `${id}-name`, formError: fe }, ctl({ type: "text", name: "name", autocomplete: "name", id: `${id}-name` })),
-      field({ label: L.username, htmlFor: `${id}-username`, formError: fe }, (f) => group({ gap: "2" }, [
-        input({ type: "text", name: "username", autocomplete: "username", required: true, id: `${id}-username`, class: inputSkin(), "data-testid": "field", "aria-describedby": f.describe(L.domain ? `${id}-domain` : undefined), "aria-invalid": f.invalid } as never),
-        L.domain ? text({ tag: "span", id: `${id}-domain`, class: textSkin.muted, "data-testid": "domain" }, [L.domain]) : null,
-      ])),
-      field({ label: L.password, htmlFor: `${id}-password`, hint: L.hint, formError: fe }, ctl({ type: "password", name: "password", autocomplete: "new-password", required: true, id: `${id}-password` })),
-      terms === "show" ? group({ gap: "2", class: "w-fit" }, [
-        checkbox({ name: "terms", required: true, id: `${id}-terms`, "aria-describedby": fe, "aria-invalid": fe ? "true" : undefined, class: checkboxSkin() }),
-        label({ for: `${id}-terms`, class: labelSkin("font-normal") }, [L.terms]),
-      ]) : null,
-      submit(L.submit, "default", "submit"),
-    ]),
-    L.signinLink ? text({ class: textSkin.muted }, [L.signinText ?? "", " ", link({ href: L.signinHref, class: linkSkin(), "data-testid": "signin-link" }, [L.signinLink])]) : null,
-  ]);
-}
+export { renderAuthflySignUp } from "./authfly-sign-up";
 
 export function renderAuthflyRequest(p: AuthflyRequestProps): Element {
   const { id, csrf = "", error = "", info = "", labels: L, token = "", kind = "email" } = p; const fe = errOf(id, error);

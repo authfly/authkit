@@ -111,6 +111,10 @@
           "target": "blocks/authfly-sign-in.types.ts"
         },
         {
+          "path": "src/blocks/authfly-sign-up.ts",
+          "target": "blocks/authfly-sign-up.ts"
+        },
+        {
           "path": "src/blocks/authfly-sign-up.types.ts",
           "target": "blocks/authfly-sign-up.types.ts"
         },
